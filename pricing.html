@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narxlar - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Abuturentlar.uz" class="logo">
+                <span class="brand-name">Abuturentlar.uz</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Bosh sahifa</a></li>
+                <li><a href="universities.html">Universitetlar</a></li>
+                <li><a href="tests.html">Testlar</a></li>
+                <li><a href="news.html">Yangiliklar</a></li>
+                <li><a href="pricing.html" class="active">Narxlar</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Kirish</a>
+                <a href="register.html" class="btn btn-primary">Ro'yxatdan o'tish</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pricing Hero -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1 class="pricing-title">O'zingizga mos rejani tanlang</h1>
+            <p class="pricing-subtitle">Barcha rejalar 7 kunlik bepul sinov muddatiga ega</p>
+            
+            <!-- Billing Toggle -->
+            <div class="billing-toggle">
+                <span class="toggle-label">Oylik</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="billingToggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">
+                    Yillik 
+                    <span class="discount-badge">20% tejash</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Bepul</h3>
+                        <div class="plan-price">
+                            <span class="price-amount">0</span>
+                            <span class="price-currency">so'm</span>
+                            <span class="price-period">/oy</span>
+                        </div>
+                        <p class="plan-description">Boshlang'ich foydalanuvchilar uchun</p>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Asosiy universitet ma'lumotlari</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Umumiy yo'nalishlar ro'yxati</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>5 ta bepul test</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Asosiy yangiliklar</span>
+                        </li>
+                        <li class="feature-item disabled">
+                            <span class="feature-icon">✗</span>
+                            <span>AI tavsiyalar</span>
+                        </li>
+                        <li class="feature-item disabled">
+                            <span class="feature-icon">✗</span>
+                            <span>Batafsil statistika</span>
+                        </li>
+                        <li class="feature-item disabled">
+                            <span class="feature-icon">✗</span>
+                            <span>Mentor maslahat</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-outline btn-block">Joriy reja</button>
+                </div>
+
+                <!-- Standard Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Standart</h3>
+                        <div class="plan-price">
+                            <span class="price-amount monthly">99,000</span>
+                            <span class="price-amount yearly" style="display: none;">79,000</span>
+                            <span class="price-currency">so'm</span>
+                            <span class="price-period">/oy</span>
+                        </div>
+                        <p class="plan-description">Jiddiy abituriyentlar uchun</p>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Barcha bepul imkoniyatlar</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>AI shaxsiy tavsiyalar</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Cheksiz testlar</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Batafsil universitet ma'lumotlari</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Qabul statistikasi</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Email yordam</span>
+                        </li>
+                        <li class="feature-item disabled">
+                            <span class="feature-icon">✗</span>
+                            <span>Shaxsiy mentor</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-primary btn-block" onclick="window.location.href='payment.html'">Tanlash</button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Mashhur</div>
+                    <div class="plan-header">
+                        <h3 class="plan-name">Premium</h3>
+                        <div class="plan-price">
+                            <span class="price-amount monthly">199,000</span>
+                            <span class="price-amount yearly" style="display: none;">159,000</span>
+                            <span class="price-currency">so'm</span>
+                            <span class="price-period">/oy</span>
+                        </div>
+                        <p class="plan-description">Maksimal yordam kerak bo'lganlarga</p>
+                    </div>
+                    
+                    <ul class="plan-features">
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Barcha Standart imkoniyatlar</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Shaxsiy mentor (haftasiga 2 soat)</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Chet el grant yordami</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Hujjat tayyorlash yordami</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Prioritet qo'llab-quvvatlash</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Webinar va master-klass</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Maxsus komanda yordami</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-primary btn-block" onclick="window.location.href='payment.html'">Tanlash</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Batafsil taqqoslash</h2>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Imkoniyatlar</th>
+                            <th>Bepul</th>
+                            <th>Standart</th>
+                            <th>Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Universitetlar bazasi</td>
+                            <td>✓ Asosiy</td>
+                            <td>✓ To'liq</td>
+                            <td>✓ To'liq</td>
+                        </tr>
+                        <tr>
+                            <td>AI tavsiyalar</td>
+                            <td>✗</td>
+                            <td>✓</td>
+                            <td>✓ Kengaytirilgan</td>
+                        </tr>
+                        <tr>
+                            <td>Testlar</td>
+                            <td>5 ta/oy</td>
+                            <td>Cheksiz</td>
+                            <td>Cheksiz + tahlil</td>
+                        </tr>
+                        <tr>
+                            <td>Statistika</td>
+                            <td>✗</td>
+                            <td>✓ Asosiy</td>
+                            <td>✓ Batafsil</td>
+                        </tr>
+                        <tr>
+                            <td>Shaxsiy mentor</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✓ Haftasiga 2 soat</td>
+                        </tr>
+                        <tr>
+                            <td>Chet el grant yordami</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Qo'llab-quvvatlash</td>
+                            <td>Email</td>
+                            <td>Email</td>
+                            <td>Prioritet 24/7</td>
+                        </tr>
+                        <tr>
+                            <td>Webinar va master-klass</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✓ Oyiga 2 ta</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Tez-tez so'raladigan savollar</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">Bepul sinov muddati qanday ishlaydi?</h3>
+                    <p class="faq-answer">7 kunlik bepul sinov davomida barcha premium imkoniyatlardan foydalanishingiz mumkin. Sinov muddati tugagach, to'lov qilmasangiz avtomatik bepul rejaga o'tasiz.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Obunani bekor qilish mumkinmi?</h3>
+                    <p class="faq-answer">Ha, istalgan vaqtda obunangizni bekor qilishingiz mumkin. Bekor qilsangiz ham joriy davr oxirigacha xizmatlardan foydalanishda davom etasiz.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Qanday to'lov usullari mavjud?</h3>
+                    <p class="faq-answer">Biz Payme, Click, Uzcard va Humo plastik kartalari orqali to'lovni qabul qilamiz.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Chegirmalar bormi?</h3>
+                    <p class="faq-answer">Ha, yillik to'lov uchun 20% chegirma mavjud. Bundan tashqari, talabalar va guruh obunalari uchun maxsus chegirmalar bor.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Rejani o'zgartirish mumkinmi?</h3>
+                    <p class="faq-answer">Ha, istalgan vaqtda rejangizni yangilashingiz yoki pasaytirishingiz mumkin. O'zgarishlar darhol qo'llaniladi.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Pulni qaytarish siyosati qanday?</h3>
+                    <p class="faq-answer">Agar xizmatdan norozi bo'lsangiz, 14 kun ichida to'liq to'lovni qaytarib beramiz, hech qanday savol so'ramasdan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Hali ham ikkilanayapsizmi?</h2>
+                <p>7 kun bepul sinab ko'ring, hech qanday to'lovsiz!</p>
+                <a href="register.html" class="btn btn-white btn-large">Bepul boshlash</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Abuturentlar.uz</h3>
+                    <p>O'zbekiston abituriyentlari uchun eng yaxshi yo'riqnoma platformasi</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tez havolalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="universities.html">Universitetlar</a></li>
+                        <li><a href="tests.html">Testlar</a></li>
+                        <li><a href="news.html">Yangiliklar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Yordam</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Aloqa</a></li>
+                        <li><a href="#">Maxfiylik</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Aloqa</h4>
+                    <ul class="footer-links">
+                        <li>📧 info@abuturentlar.uz</li>
+                        <li>📞 +998 99 123 45 67</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Abuturentlar.uz. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <style>
+        .pricing-hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .pricing-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .billing-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .toggle-label {
+            font-weight: 600;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--border-color);
+            transition: 0.4s;
+            border-radius: 30px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(30px);
+        }
+
+        .pricing-section {
+            padding: 60px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            margin-bottom: 1rem;
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .price-currency,
+        .price-period {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .plan-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .feature-item.disabled {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .feature-icon {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--success);
+        }
+
+        .feature-item.disabled .feature-icon {
+            color: var(--error);
+        }
+
+        .comparison-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 700;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+    <script>
+        // Billing toggle
+        const billingToggle = document.getElementById('billingToggle');
+        const monthlyPrices = document.querySelectorAll('.monthly');
+        const yearlyPrices = document.querySelectorAll('.yearly');
+
+        billingToggle.addEventListener('change', function() {
+            if (this.checked) {
+                monthlyPrices.forEach(el => el.style.display = 'none');
+                yearlyPrices.forEach(el => el.style.display = 'inline');
+            } else {
+                monthlyPrices.forEach(el => el.style.display = 'inline');
+                yearlyPrices.forEach(el => el.style.display = 'none');
+            }
+        });
+    </script>
+</body>
+</html>

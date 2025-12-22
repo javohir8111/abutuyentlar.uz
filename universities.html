@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universitetlar - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <span class="brand-name">Abuturentlar</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="recommendations.html" class="nav-item">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">AI Tavsiyalar</span>
+            </a>
+            <a href="universities.html" class="nav-item active">
+                <span class="nav-icon">🎓</span>
+                <span class="nav-text">Universitetlar</span>
+            </a>
+            <a href="colleges.html" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">Texnikumlar</span>
+            </a>
+            <a href="foreign-universities.html" class="nav-item">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-text">Chet el</span>
+            </a>
+            <a href="tests.html" class="nav-item">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Testlar</span>
+            </a>
+            <a href="news.html" class="nav-item">
+                <span class="nav-icon">📰</span>
+                <span class="nav-text">Yangiliklar</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-text">Profil</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="pricing.html" class="upgrade-btn">
+                <span class="upgrade-icon">⭐</span>
+                <span>Premium obuna</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Chiqish</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Universitet, yo'nalish qidirish..." id="searchInput" oninput="applyFilters()">
+            </div>
+            <div class="top-bar-actions">
+                <button class="icon-btn">
+                    <span class="notification-badge">3</span>
+                    🔔
+                </button>
+                <div class="user-menu">
+                    <img src="images/avatar.png" alt="User" class="user-avatar">
+                    <span class="user-name">Aziz Karimov</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="dashboard-content">
+            <div class="page-header">
+                <h1 class="page-title">O'zbekiston Universitetlari</h1>
+                <p class="page-subtitle">150+ davlat va xususiy universitetlar</p>
+            </div>
+
+            <!-- Filters -->
+            <section class="filters-section">
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Viloyat</label>
+                        <select class="form-input" id="filterRegion" onchange="applyFilters()">
+                            <option value="">Barcha viloyatlar</option>
+                            <option value="toshkent">Toshkent sh.</option>
+                            <option value="andijon">Andijon</option>
+                            <option value="buxoro">Buxoro</option>
+                            <option value="fargona">Farg'ona</option>
+                            <option value="samarqand">Samarqand</option>
+                            <option value="namangan">Namangan</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Turi</label>
+                        <select class="form-input" id="filterType" onchange="applyFilters()">
+                            <option value="">Barcha turlar</option>
+                            <option value="public">Davlat</option>
+                            <option value="private">Xususiy</option>
+                            <option value="foreign">Chet el filiallari</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Minimal ball</label>
+                        <select class="form-input" id="filterScore" onchange="applyFilters()">
+                            <option value="">Barcha ballar</option>
+                            <option value="170">170+</option>
+                            <option value="180">180+</option>
+                            <option value="190">190+</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Saralash</label>
+                        <select class="form-input" id="sortBy" onchange="sortUniversities(this.value)">
+                            <option value="name">Nomi bo'yicha</option>
+                            <option value="score">Ball bo'yicha</option>
+                            <option value="students">Talabalar soni</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-actions">
+                    <span id="resultsCount" class="results-count">45 ta natija topildi</span>
+                    <button class="btn btn-outline" onclick="resetFilters()">Tozalash</button>
+                </div>
+            </section>
+
+            <!-- Universities Grid -->
+            <section class="universities-list">
+                <div class="universities-grid">
+                    <!-- University Card 1 -->
+                    <div class="university-card" data-region="toshkent" data-type="public" data-score="189.2" data-students="5000">
+                        <div class="uni-header">
+                            <img src="images/universities/tatu.png" alt="TATU" class="uni-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <h3>TATU</h3>
+                        <p class="uni-full-name">Toshkent Axborot Texnologiyalari Universiteti</p>
+                        <div class="uni-tags">
+                            <span class="tag tag-blue">Davlat</span>
+                            <span class="tag tag-green">IT</span>
+                        </div>
+                        <div class="uni-info">
+                            <div class="info-row">
+                                <span class="info-label">📊 Minimal ball:</span>
+                                <span class="info-value">189.2</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">👥 Talabalar:</span>
+                                <span class="info-value">5000+</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">📍 Manzil:</span>
+                                <span class="info-value">Toshkent</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">💰 Kontrakt:</span>
+                                <span class="info-value">8-15 mln</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="university-detail.html" class="btn btn-primary btn-small">Batafsil</a>
+                            <button class="btn btn-outline btn-small">Solishtirish</button>
+                        </div>
+                    </div>
+
+                    <!-- University Card 2 -->
+                    <div class="university-card" data-region="toshkent" data-type="foreign" data-score="185.0" data-students="3000">
+                        <div class="uni-header">
+                            <img src="images/universities/inha.png" alt="INHA" class="uni-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <h3>INHA</h3>
+                        <p class="uni-full-name">INHA University in Tashkent</p>
+                        <div class="uni-tags">
+                            <span class="tag tag-purple">Chet el</span>
+                            <span class="tag tag-green">IT</span>
+                            <span class="tag tag-orange">Biznes</span>
+                        </div>
+                        <div class="uni-info">
+                            <div class="info-row">
+                                <span class="info-label">📊 Minimal ball:</span>
+                                <span class="info-value">185.0</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">👥 Talabalar:</span>
+                                <span class="info-value">3000+</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">📍 Manzil:</span>
+                                <span class="info-value">Toshkent</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">💰 Kontrakt:</span>
+                                <span class="info-value">15-25 mln</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="university-detail.html" class="btn btn-primary btn-small">Batafsil</a>
+                            <button class="btn btn-outline btn-small">Solishtirish</button>
+                        </div>
+                    </div>
+
+                    <!-- University Card 3 -->
+                    <div class="university-card" data-region="toshkent" data-type="foreign" data-score="180.5" data-students="2500">
+                        <div class="uni-header">
+                            <img src="images/universities/wiut.png" alt="WIUT" class="uni-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <h3>WIUT</h3>
+                        <p class="uni-full-name">Westminster International University</p>
+                        <div class="uni-tags">
+                            <span class="tag tag-purple">Chet el</span>
+                            <span class="tag tag-orange">Biznes</span>
+                        </div>
+                        <div class="uni-info">
+                            <div class="info-row">
+                                <span class="info-label">📊 Minimal ball:</span>
+                                <span class="info-value">180.5</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">👥 Talabalar:</span>
+                                <span class="info-value">2500+</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">📍 Manzil:</span>
+                                <span class="info-value">Toshkent</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">💰 Kontrakt:</span>
+                                <span class="info-value">20-30 mln</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="university-detail.html" class="btn btn-primary btn-small">Batafsil</a>
+                            <button class="btn btn-outline btn-small">Solishtirish</button>
+                        </div>
+                    </div>
+
+                    <!-- University Card 4 -->
+                    <div class="university-card" data-region="toshkent" data-type="public" data-score="192.5" data-students="8000">
+                        <div class="uni-header">
+                            <img src="images/universities/uzmu.png" alt="O'zMU" class="uni-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <h3>O'zMU</h3>
+                        <p class="uni-full-name">O'zbekiston Milliy Universiteti</p>
+                        <div class="uni-tags">
+                            <span class="tag tag-blue">Davlat</span>
+                            <span class="tag tag-red">Fan</span>
+                        </div>
+                        <div class="uni-info">
+                            <div class="info-row">
+                                <span class="info-label">📊 Minimal ball:</span>
+                                <span class="info-value">192.5</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">👥 Talabalar:</span>
+                                <span class="info-value">8000+</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">📍 Manzil:</span>
+                                <span class="info-value">Toshkent</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">💰 Kontrakt:</span>
+                                <span class="info-value">7-12 mln</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="university-detail.html" class="btn btn-primary btn-small">Batafsil</a>
+                            <button class="btn btn-outline btn-small">Solishtirish</button>
+                        </div>
+                    </div>
+
+                    <!-- University Card 5 -->
+                    <div class="university-card" data-region="samarqand" data-type="public" data-score="187.0" data-students="6000">
+                        <div class="uni-header">
+                            <img src="images/universities/samdu.png" alt="SamDU" class="uni-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <h3>SamDU</h3>
+                        <p class="uni-full-name">Samarqand Davlat Universiteti</p>
+                        <div class="uni-tags">
+                            <span class="tag tag-blue">Davlat</span>
+                            <span class="tag tag-red">Fan</span>
+                        </div>
+                        <div class="uni-info">
+                            <div class="info-row">
+                                <span class="info-label">📊 Minimal ball:</span>
+                                <span class="info-value">187.0</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">👥 Talabalar:</span>
+                                <span class="info-value">6000+</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">📍 Manzil:</span>
+                                <span class="info-value">Samarqand</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">💰 Kontrakt:</span>
+                                <span class="info-value">6-10 mln</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="university-detail.html" class="btn btn-primary btn-small">Batafsil</a>
+                            <button class="btn btn-outline btn-small">Solishtirish</button>
+                        </div>
+                    </div>
+
+                    <!-- University Card 6 -->
+                    <div class="university-card" data-region="toshkent" data-type="private" data-score="175.0" data-students="2000">
+                        <div class="uni-header">
+                            <img src="images/universities/team.png" alt="TEAM" class="uni-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <h3>TEAM University</h3>
+                        <p class="uni-full-name">TEAM University</p>
+                        <div class="uni-tags">
+                            <span class="tag tag-yellow">Xususiy</span>
+                            <span class="tag tag-green">IT</span>
+                        </div>
+                        <div class="uni-info">
+                            <div class="info-row">
+                                <span class="info-label">📊 Minimal ball:</span>
+                                <span class="info-value">175.0</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">👥 Talabalar:</span>
+                                <span class="info-value">2000+</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">📍 Manzil:</span>
+                                <span class="info-value">Toshkent</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">💰 Kontrakt:</span>
+                                <span class="info-value">12-18 mln</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="university-detail.html" class="btn btn-primary btn-small">Batafsil</a>
+                            <button class="btn btn-outline btn-small">Solishtirish</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn btn-outline">← Oldingi</button>
+                <div class="page-numbers">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <span>...</span>
+                    <button class="page-btn">8</button>
+                </div>
+                <button class="btn btn-outline">Keyingi →</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/filters.js"></script>
+
+    <style>
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .filters-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .filter-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .results-count {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .universities-list {
+            margin-bottom: 2rem;
+        }
+
+        .uni-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .bookmark-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .bookmark-btn:hover {
+            opacity: 1;
+        }
+
+        .uni-full-name {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .uni-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tag-blue { background: rgba(37, 99, 235, 0.1); color: var(--primary-color); }
+        .tag-green { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .tag-purple { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        .tag-orange { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+        .tag-yellow { background: rgba(234, 179, 8, 0.1); color: #eab308; }
+        .tag-red { background: rgba(239, 68, 68, 0.1); color: var(--error); }
+
+        .uni-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .info-label {
+            color: var(--text-secondary);
+        }
+
+        .info-value {
+            font-weight: 600;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .page-numbers {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .page-btn {
+            padding: 0.5rem 0.75rem;
+            border: 2px solid var(--border-color);
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .page-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .page-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        @media (max-width: 1024px) {
+            .filters-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

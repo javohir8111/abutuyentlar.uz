@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tavsiyalar - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <span class="brand-name">Abuturentlar</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="recommendations.html" class="nav-item active">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">AI Tavsiyalar</span>
+            </a>
+            <a href="universities.html" class="nav-item">
+                <span class="nav-icon">🎓</span>
+                <span class="nav-text">Universitetlar</span>
+            </a>
+            <a href="colleges.html" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">Texnikumlar</span>
+            </a>
+            <a href="foreign-universities.html" class="nav-item">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-text">Chet el</span>
+            </a>
+            <a href="tests.html" class="nav-item">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Testlar</span>
+            </a>
+            <a href="news.html" class="nav-item">
+                <span class="nav-icon">📰</span>
+                <span class="nav-text">Yangiliklar</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-text">Profil</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="pricing.html" class="upgrade-btn">
+                <span class="upgrade-icon">⭐</span>
+                <span>Premium obuna</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Chiqish</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Universitet, yo'nalish qidirish...">
+            </div>
+            <div class="top-bar-actions">
+                <button class="icon-btn">
+                    <span class="notification-badge">3</span>
+                    🔔
+                </button>
+                <div class="user-menu">
+                    <img src="images/avatar.png" alt="User" class="user-avatar">
+                    <span class="user-name">Aziz Karimov</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="dashboard-content">
+            <!-- Header -->
+            <div class="recommendations-header">
+                <div class="header-content">
+                    <h1 class="page-title">AI Shaxsiy Tavsiyalaringiz</h1>
+                    <p class="page-subtitle">Test natijalaringiz asosida sizga mos yo'nalishlar va universitetlar</p>
+                </div>
+                <button class="btn btn-outline" onclick="window.location.href='register-step2.html'">
+                    🔄 Testni qayta topshirish
+                </button>
+            </div>
+
+            <!-- Match Score -->
+            <section class="match-score-section">
+                <div class="match-score-card">
+                    <div class="score-visual">
+                        <div class="circular-progress">
+                            <svg width="120" height="120">
+                                <circle cx="60" cy="60" r="50" stroke="#e5e7eb" stroke-width="8" fill="none"></circle>
+                                <circle cx="60" cy="60" r="50" stroke="#2563eb" stroke-width="8" fill="none" 
+                                        stroke-dasharray="314" stroke-dashoffset="62.8" 
+                                        transform="rotate(-90 60 60)"></circle>
+                            </svg>
+                            <div class="score-text">80%</div>
+                        </div>
+                    </div>
+                    <div class="score-info">
+                        <h3>Umumiy moslik darajangiz</h3>
+                        <p>Sizning test natijalaringiz va qiziqishlaringiz asosida hisoblangan</p>
+                        <div class="personality-traits">
+                            <span class="trait">💡 Ijodiy</span>
+                            <span class="trait">🧠 Analitik</span>
+                            <span class="trait">👥 Kommunikativ</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top Recommendations -->
+            <section class="top-recommendations">
+                <h2 class="section-title">Eng mos yo'nalishlar</h2>
+                
+                <div class="recommendations-grid-large">
+                    <!-- Recommendation 1 -->
+                    <div class="recommendation-card-large">
+                        <div class="rec-badge-large match-high">95% mos</div>
+                        <div class="rec-icon-large">💻</div>
+                        <h3>Dasturiy ta'minot injiniringi</h3>
+                        <p class="rec-desc">Sizning texnik qobiliyatlaringiz va mantiqiy fikrlashingiz uchun ideal yo'nalish. Zamonaviy texnologiyalar bilan ishlash imkoniyati.</p>
+                        
+                        <div class="rec-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💰</span>
+                                <div>
+                                    <span class="detail-label">O'rtacha ish haqi</span>
+                                    <span class="detail-value">$800-2500/oy</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📈</span>
+                                <div>
+                                    <span class="detail-label">Ish bozori</span>
+                                    <span class="detail-value">Juda yuqori talab</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎓</span>
+                                <div>
+                                    <span class="detail-label">O'qish davomiyligi</span>
+                                    <span class="detail-value">4 yil</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rec-universities">
+                            <h4>Tavsiya etiladigan universitetlar:</h4>
+                            <div class="uni-chips">
+                                <a href="university-detail.html" class="uni-chip">
+                                    <img src="images/universities/tatu.png" alt="TATU" class="chip-logo">
+                                    <span>TATU</span>
+                                    <span class="chip-score">95%</span>
+                                </a>
+                                <a href="university-detail.html" class="uni-chip">
+                                    <img src="images/universities/inha.png" alt="INHA" class="chip-logo">
+                                    <span>INHA</span>
+                                    <span class="chip-score">92%</span>
+                                </a>
+                                <a href="university-detail.html" class="uni-chip">
+                                    <img src="images/universities/wiut.png" alt="WIUT" class="chip-logo">
+                                    <span>WIUT</span>
+                                    <span class="chip-score">88%</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Batafsil ma'lumot</button>
+                    </div>
+
+                    <!-- Recommendation 2 -->
+                    <div class="recommendation-card-large">
+                        <div class="rec-badge-large match-medium">88% mos</div>
+                        <div class="rec-icon-large">🤖</div>
+                        <h3>Sun'iy intellekt va Data Science</h3>
+                        <p class="rec-desc">Matematika va dasturlashga qiziqishingiz kelajakda juda istiqbolli sohalardan biri bo'lgan AI sohasida ishlash imkonini beradi.</p>
+                        
+                        <div class="rec-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💰</span>
+                                <div>
+                                    <span class="detail-label">O'rtacha ish haqi</span>
+                                    <span class="detail-value">$1000-3000/oy</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📈</span>
+                                <div>
+                                    <span class="detail-label">Ish bozori</span>
+                                    <span class="detail-value">Yuqori talab</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎓</span>
+                                <div>
+                                    <span class="detail-label">O'qish davomiyligi</span>
+                                    <span class="detail-value">4 yil + magistr</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rec-universities">
+                            <h4>Tavsiya etiladigan universitetlar:</h4>
+                            <div class="uni-chips">
+                                <a href="university-detail.html" class="uni-chip">
+                                    <img src="images/universities/tatu.png" alt="TATU" class="chip-logo">
+                                    <span>TATU</span>
+                                    <span class="chip-score">90%</span>
+                                </a>
+                                <a href="university-detail.html" class="uni-chip">
+                                    <img src="images/universities/wiut.png" alt="WIUT" class="chip-logo">
+                                    <span>WIUT</span>
+                                    <span class="chip-score">85%</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Batafsil ma'lumot</button>
+                    </div>
+
+                    <!-- Recommendation 3 -->
+                    <div class="recommendation-card-large">
+                        <div class="rec-badge-large match-medium">82% mos</div>
+                        <div class="rec-icon-large">🎮</div>
+                        <h3>O'yin ishlab chiqish</h3>
+                        <p class="rec-desc">Ijodkorlik va texnologiyani birlashtirgan yo'nalish. Zamonaviy o'yinlar yaratish va dizayn bilan shug'ullanish.</p>
+                        
+                        <div class="rec-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💰</span>
+                                <div>
+                                    <span class="detail-label">O'rtacha ish haqi</span>
+                                    <span class="detail-value">$700-2000/oy</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📈</span>
+                                <div>
+                                    <span class="detail-label">Ish bozori</span>
+                                    <span class="detail-value">O'sib borayotgan</span>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎓</span>
+                                <div>
+                                    <span class="detail-label">O'qish davomiyligi</span>
+                                    <span class="detail-value">4 yil</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rec-universities">
+                            <h4>Tavsiya etiladigan universitetlar:</h4>
+                            <div class="uni-chips">
+                                <a href="university-detail.html" class="uni-chip">
+                                    <img src="images/universities/tatu.png" alt="TATU" class="chip-logo">
+                                    <span>TATU</span>
+                                    <span class="chip-score">85%</span>
+                                </a>
+                                <a href="university-detail.html" class="uni-chip">
+                                    <img src="images/universities/team.png" alt="TEAM" class="chip-logo">
+                                    <span>TEAM</span>
+                                    <span class="chip-score">80%</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Batafsil ma'lumot</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Career Path -->
+            <section class="career-path-section">
+                <h2 class="section-title">Sizning karyera yo'lingiz</h2>
+                <div class="career-path">
+                    <div class="path-step">
+                        <div class="step-year">1-2 yil</div>
+                        <div class="step-card">
+                            <h4>Asoslar va Nazariya</h4>
+                            <p>Dasturlash tillari, algoritmlar, ma'lumotlar tuzilmasi</p>
+                        </div>
+                    </div>
+                    <div class="path-arrow">→</div>
+                    <div class="path-step">
+                        <div class="step-year">3-4 yil</div>
+                        <div class="step-card">
+                            <h4>Amaliyot va Loyihalar</h4>
+                            <p>Real loyihalar, stajyorovka, portfolio yaratish</p>
+                        </div>
+                    </div>
+                    <div class="path-arrow">→</div>
+                    <div class="path-step">
+                        <div class="step-year">Bitiruv</div>
+                        <div class="step-card">
+                            <h4>Junior Developer</h4>
+                            <p>Birinchi ish, $500-800/oy</p>
+                        </div>
+                    </div>
+                    <div class="path-arrow">→</div>
+                    <div class="path-step">
+                        <div class="step-year">2-3 yil tajriba</div>
+                        <div class="step-card">
+                            <h4>Middle Developer</h4>
+                            <p>$1200-2000/oy</p>
+                        </div>
+                    </div>
+                    <div class="path-arrow">→</div>
+                    <div class="path-step">
+                        <div class="step-year">5+ yil tajriba</div>
+                        <div class="step-card">
+                            <h4>Senior Developer</h4>
+                            <p>$2500-5000/oy</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Required -->
+            <section class="skills-section">
+                <h2 class="section-title">Kerakli ko'nikmalar</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>💻 Texnik ko'nikmalar</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span>Python, JavaScript</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Algoritmlar</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Ma'lumotlar bazasi</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>🧠 Soft skills</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span>Muammo yechish</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Jamoada ishlash</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span>Ingliz tili</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Cards -->
+            <section class="action-cards">
+                <div class="action-card">
+                    <span class="action-icon">📚</span>
+                    <h3>Tayyorgarlik resurslari</h3>
+                    <p>Bepul onlayn kurslar va o'quv materiallari</p>
+                    <button class="btn btn-outline">Ko'rish</button>
+                </div>
+                <div class="action-card">
+                    <span class="action-icon">🎯</span>
+                    <h3>Qabul imtihonlari</h3>
+                    <p>O'tgan yillar testlari va tayyorgarlik maslahatlari</p>
+                    <button class="btn btn-outline">Ko'rish</button>
+                </div>
+                <div class="action-card">
+                    <span class="action-icon">💬</span>
+                    <h3>Maslahat olish</h3>
+                    <p>Tajribali mentorlar bilan bog'laning</p>
+                    <button class="btn btn-outline">Bog'lanish</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+
+    <style>
+        .recommendations-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .header-content h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .match-score-section {
+            margin-bottom: 3rem;
+        }
+
+        .match-score-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .circular-progress {
+            position: relative;
+        }
+
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .score-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-info p {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .personality-traits {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .trait {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .top-recommendations {
+            margin-bottom: 3rem;
+        }
+
+        .recommendations-grid-large {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .recommendation-card-large {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .rec-badge-large {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .rec-icon-large {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-card-large h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .rec-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .rec-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .detail-icon {
+            font-size: 1.5rem;
+        }
+
+        .detail-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .detail-value {
+            display: block;
+            font-weight: 700;
+        }
+
+        .rec-universities h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .uni-chips {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .uni-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+
+        .uni-chip:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .chip-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: white;
+        }
+
+        .chip-score {
+            margin-left: auto;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .uni-chip:hover .chip-score {
+            color: white;
+        }
+
+        .career-path-section {
+            margin-bottom: 3rem;
+        }
+
+        .career-path {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            overflow-x: auto;
+        }
+
+        .path-step {
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .step-year {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .step-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .step-card h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .path-arrow {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .skills-section {
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .skill-item span {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 1s ease;
+        }
+
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .action-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .action-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .action-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .action-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .recommendations-grid-large {
+                grid-template-columns: 1fr;
+            }
+
+            .career-path {
+                flex-direction: column;
+            }
+
+            .path-arrow {
+                transform: rotate(90deg);
+            }
+
+            .skills-grid, .action-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chet el Universitetlari - Abuturentlar.uz</title>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --primary-light: #4895ef;
+            --primary-dark: #3a56d4;
+            --warning: #ffb703;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --text-primary: #2b2d42;
+            --text-secondary: #8d99ae;
+            --bg-light: #f8f9fa;
+            --border-color: #dee2e6;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .dashboard-body {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.75rem;
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .sidebar-nav {
+            padding: 1.5rem 0;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .nav-item:hover {
+            background: var(--bg-light);
+            color: var(--primary-color);
+        }
+
+        .nav-item.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .nav-icon {
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .upgrade-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem;
+            background: var(--warning);
+            color: var(--white);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            width: 300px;
+        }
+
+        .search-icon {
+            margin-right: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--danger);
+            color: var(--white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+
+        .user-name {
+            font-weight: 600;
+        }
+
+        /* Page Content */
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+        }
+
+        /* Hero Banner */
+        .foreign-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .foreign-hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .foreign-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-stat strong {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Country Tabs */
+        .country-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .country-tab {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border-color);
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .country-tab:hover {
+            border-color: var(--primary-color);
+        }
+
+        .country-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Quick Filters */
+        .quick-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-chip:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .filter-chip.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Grants Grid */
+        .grants-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .grant-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .grant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .grant-card.featured {
+            border: 3px solid var(--warning);
+        }
+
+        .grant-badge {
+            position: absolute;
+            top: -12px;
+            right: 1rem;
+            background: var(--warning);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .grant-country {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .grant-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .grant-card > p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .grant-benefits {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit {
+            padding: 0.5rem;
+            background: var(--bg-light);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .grant-info {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .grant-deadline,
+        .grant-count {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .grant-deadline:last-child,
+        .grant-count:last-child {
+            margin-bottom: 0;
+        }
+
+        .deadline-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* Top Universities */
+        .top-unis-section {
+            margin-top: 3rem;
+        }
+
+        .country-unis {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .country-block {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .country-block h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .uni-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .uni-item {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .uni-item span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Requirements */
+        .requirements-section {
+            margin-top: 3rem;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .req-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .req-step {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .req-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .req-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .req-card li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Success Stories */
+        .success-section {
+            margin-top: 3rem;
+        }
+
+        .success-stories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .story-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .story-content {
+            flex: 1;
+        }
+
+        .story-uni {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* CTA */
+        .cta-foreign {
+            text-align: center;
+            padding: 3rem;
+            background: var(--bg-light);
+            border-radius: 16px;
+            margin-top: 3rem;
+        }
+
+        .cta-foreign h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-foreign p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-white:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .grants-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .country-unis {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .success-stories {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <span class="brand-name">Abuturentlar</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="recommendations.html" class="nav-item">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">AI Tavsiyalar</span>
+            </a>
+            <a href="universities.html" class="nav-item">
+                <span class="nav-icon">🎓</span>
+                <span class="nav-text">Universitetlar</span>
+            </a>
+            <a href="colleges.html" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">Texnikumlar</span>
+            </a>
+            <a href="foreign-universities.html" class="nav-item active">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-text">Chet el</span>
+            </a>
+            <a href="tests.html" class="nav-item">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Testlar</span>
+            </a>
+            <a href="news.html" class="nav-item">
+                <span class="nav-icon">📰</span>
+                <span class="nav-text">Yangiliklar</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-text">Profil</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="pricing.html" class="upgrade-btn">
+                <span class="upgrade-icon">⭐</span>
+                <span>Premium obuna</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Chiqish</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Davlat, universitet qidirish...">
+            </div>
+            <div class="top-bar-actions">
+                <button class="icon-btn">
+                    <span class="notification-badge">3</span>
+                    🔔
+                </button>
+                <div class="user-menu">
+                    <img src="images/avatar.png" alt="User" class="user-avatar">
+                    <span class="user-name">Aziz Karimov</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="dashboard-content">
+            <div class="page-header">
+                <h1 class="page-title">Chet elda Ta'lim</h1>
+                <p class="page-subtitle">Xalqaro universitetlar va grant dasturlari</p>
+            </div>
+
+            <!-- Hero Banner -->
+            <section class="foreign-hero">
+                <div class="hero-content">
+                    <h2>🌍 Dunyoning eng yaxshi universitetlarida o'qing!</h2>
+                    <p>500+ xalqaro universitetlar, grantlar va stipendiyalar haqida to'liq ma'lumot</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <strong>50+</strong>
+                            <span>Davlatlar</span>
+                        </div>
+                        <div class="hero-stat">
+                            <strong>500+</strong>
+                            <span>Universitetlar</span>
+                        </div>
+                        <div class="hero-stat">
+                            <strong>100+</strong>
+                            <span>Grant dasturlari</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Country Tabs -->
+            <div class="country-tabs">
+                <button class="country-tab active" data-country="all">🌍 Hammasi</button>
+                <button class="country-tab" data-country="turkey">🇹🇷 Turkiya</button>
+                <button class="country-tab" data-country="germany">🇩🇪 Germaniya</button>
+                <button class="country-tab" data-country="usa">🇺🇸 AQSh</button>
+                <button class="country-tab" data-country="uk">🇬🇧 Buyuk Britaniya</button>
+                <button class="country-tab" data-country="korea">🇰🇷 Janubiy Koreya</button>
+                <button class="country-tab" data-country="china">🇨🇳 Xitoy</button>
+                <button class="country-tab" data-country="russia">🇷🇺 Rossiya</button>
+            </div>
+
+            <!-- Quick Filters -->
+            <div class="quick-filters">
+                <button class="filter-chip active">Barcha</button>
+                <button class="filter-chip">💰 Bepul grant</button>
+                <button class="filter-chip">🎓 Top universitetlar</button>
+                <button class="filter-chip">🇬🇧 Ingliz tilida</button>
+                <button class="filter-chip">🏆 Stipendiya</button>
+            </div>
+
+            <!-- Grant Programs -->
+            <section class="grants-section">
+                <h2 class="section-title">🔥 Aktiv grant dasturlari</h2>
+
+                <div class="grants-grid">
+                    <div class="grant-card featured">
+                        <div class="grant-badge">⭐ Top grant</div>
+                        <div class="grant-country">🇹🇷 Turkiya</div>
+                        <h3>Turkiya Burslari 2025</h3>
+                        <p>Turkiya hukumati tomonidan taqdim etiladigan to'liq grantlar</p>
+
+                        <div class="grant-benefits">
+                            <div class="benefit">✓ To'liq grant</div>
+                            <div class="benefit">✓ Oylik stipendiya</div>
+                            <div class="benefit">✓ Turar joy</div>
+                            <div class="benefit">✓ Til kursi</div>
+                        </div>
+
+                        <div class="grant-info">
+                            <div class="grant-deadline">
+                                <span class="deadline-label">⏰ Muddat:</span>
+                                <strong>20 Fevral, 2025</strong>
+                            </div>
+                            <div class="grant-count">
+                                <span>🎓 Grant o'rinlar:</span>
+                                <strong>5,000</strong>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Batafsil ma'lumot</button>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-country">🇩🇪 Germaniya</div>
+                        <h3>DAAD Scholarship</h3>
+                        <p>Germaniya davlat grantlari bakalavr va magistrlar uchun</p>
+
+                        <div class="grant-benefits">
+                            <div class="benefit">✓ To'liq grant</div>
+                            <div class="benefit">✓ €850/oy stipendiya</div>
+                            <div class="benefit">✓ Sug'urta</div>
+                            <div class="benefit">✓ Parvozlar</div>
+                        </div>
+
+                        <div class="grant-info">
+                            <div class="grant-deadline">
+                                <span class="deadline-label">⏰ Muddat:</span>
+                                <strong>15 Mart, 2025</strong>
+                            </div>
+                            <div class="grant-count">
+                                <span>🎓 Grant o'rinlar:</span>
+                                <strong>1,000+</strong>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Batafsil ma'lumot</button>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-country">🇬🇧 Buyuk Britaniya</div>
+                        <h3>Chevening Scholarship</h3>
+                        <p>Buyuk Britaniya hukumati magistratura grantlari</p>
+
+                        <div class="grant-benefits">
+                            <div class="benefit">✓ To'liq grant</div>
+                            <div class="benefit">✓ Oylik stipendiya</div>
+                            <div class="benefit">✓ Parvozlar</div>
+                            <div class="benefit">✓ Viza</div>
+                        </div>
+
+                        <div class="grant-info">
+                            <div class="grant-deadline">
+                                <span class="deadline-label">⏰ Muddat:</span>
+                                <strong>1 Noyabr, 2024</strong>
+                            </div>
+                            <div class="grant-count">
+                                <span>🎓 Grant o'rinlar:</span>
+                                <strong>1,500</strong>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Batafsil ma'lumot</button>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-country">🇰🇷 Janubiy Koreya</div>
+                        <h3>KGSP (GKS) Scholarship</h3>
+                        <p>Koreya hukumati xalqaro talabalar uchun grantlar</p>
+
+                        <div class="grant-benefits">
+                            <div class="benefit">✓ To'liq grant</div>
+                            <div class="benefit">✓ 900,000₩/oy</div>
+                            <div class="benefit">✓ Til kursi</div>
+                            <div class="benefit">✓ Parvozlar</div>
+                        </div>
+
+                        <div class="grant-info">
+                            <div class="grant-deadline">
+                                <span class="deadline-label">⏰ Muddat:</span>
+                                <strong>28 Fevral, 2025</strong>
+                            </div>
+                            <div class="grant-count">
+                                <span>🎓 Grant o'rinlar:</span>
+                                <strong>3,400</strong>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Batafsil ma'lumot</button>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-country">🇨🇳 Xitoy</div>
+                        <h3>CSC Scholarship</h3>
+                        <p>Xitoy hukumati xalqaro talabalar uchun to'liq grantlar</p>
+
+                        <div class="grant-benefits">
+                            <div class="benefit">✓ To'liq grant</div>
+                            <div class="benefit">✓ Oylik stipendiya</div>
+                            <div class="benefit">✓ Bepul turar joy</div>
+                            <div class="benefit">✓ Sug'urta</div>
+                        </div>
+
+                        <div class="grant-info">
+                            <div class="grant-deadline">
+                                <span class="deadline-label">⏰ Muddat:</span>
+                                <strong>31 Mart, 2025</strong>
+                            </div>
+                            <div class="grant-count">
+                                <span>🎓 Grant o'rinlar:</span>
+                                <strong>10,000+</strong>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Batafsil ma'lumot</button>
+                    </div>
+
+                    <div class="grant-card">
+                        <div class="grant-country">🇷🇺 Rossiya</div>
+                        <h3>Rossiya hukumati grantlari</h3>
+                        <p>Rossiya Federatsiyasi xorijiy fuqarolar uchun grant</p>
+
+                        <div class="grant-benefits">
+                            <div class="benefit">✓ To'liq grant</div>
+                            <div class="benefit">✓ Oylik stipendiya</div>
+                            <div class="benefit">✓ Yotoqxona</div>
+                            <div class="benefit">✓ Til kursi</div>
+                        </div>
+
+                        <div class="grant-info">
+                            <div class="grant-deadline">
+                                <span class="deadline-label">⏰ Muddat:</span>
+                                <strong>20 Fevral, 2025</strong>
+                            </div>
+                            <div class="grant-count">
+                                <span>🎓 Grant o'rinlar:</span>
+                                <strong>15,000</strong>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block">Batafsil ma'lumot</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top Universities by Country -->
+            <section class="top-unis-section">
+                <h2 class="section-title">Top Universitetlar</h2>
+
+                <div class="country-unis">
+                    <div class="country-block">
+                        <h3>🇹🇷 Turkiya</h3>
+                        <div class="uni-list">
+                            <div class="uni-item">
+                                <strong>Bogazici University</strong>
+                                <span>QS Ranking: #451-500</span>
+                            </div>
+                            <div class="uni-item">
+                                <strong>Middle East Technical University</strong>
+                                <span>QS Ranking: #501-550</span>
+                            </div>
+                            <div class="uni-item">
+                                <strong>Istanbul Technical University</strong>
+                                <span>QS Ranking: #551-600</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="country-block">
+                        <h3>🇩🇪 Germaniya</h3>
+                        <div class="uni-list">
+                            <div class="uni-item">
+                                <strong>TU München</strong>
+                                <span>QS Ranking: #37</span>
+                            </div>
+                            <div class="uni-item">
+                                <strong>LMU München</strong>
+                                <span>QS Ranking: #54</span>
+                            </div>
+                            <div class="uni-item">
+                                <strong>Heidelberg University</strong>
+                                <span>QS Ranking: #87</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="country-block">
+                        <h3>🇬🇧 Buyuk Britaniya</h3>
+                        <div class="uni-list">
+                            <div class="uni-item">
+                                <strong>University of Cambridge</strong>
+                                <span>QS Ranking: #2</span>
+                            </div>
+                            <div class="uni-item">
+                                <strong>University of Oxford</strong>
+                                <span>QS Ranking: #3</span>
+                            </div>
+                            <div class="uni-item">
+                                <strong>Imperial College London</strong>
+                                <span>QS Ranking: #6</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="country-block">
+                        <h3>🇰🇷 Janubiy Koreya</h3>
+                        <div class="uni-list">
+                            <div class="uni-item">
+                                <strong>Seoul National University</strong>
+                                <span>QS Ranking: #41</span>
+                            </div>
+                            <div class="uni-item">
+                                <strong>KAIST</strong>
+                                <span>QS Ranking: #56</span>
+                            </div>
+                            <div class="uni-item">
+                                <strong>Yonsei University</strong>
+                                <span>QS Ranking: #76</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Requirements Guide -->
+            <section class="requirements-section">
+                <h2 class="section-title">Ariza topshirish bo'yicha yo'riqnoma</h2>
+
+                <div class="requirements-grid">
+                    <div class="req-card">
+                        <div class="req-step">1</div>
+                        <h3>Hujjatlar tayyorlash</h3>
+                        <ul>
+                            <li>✓ Pasport</li>
+                            <li>✓ Diplom yoki attestat</li>
+                            <li>✓ Transcript (baholar)</li>
+                            <li>✓ Til sertifikati (IELTS/TOEFL)</li>
+                            <li>✓ Motivatsion xat</li>
+                            <li>✓ Tavsiya xatlari</li>
+                        </ul>
+                    </div>
+
+                    <div class="req-card">
+                        <div class="req-step">2</div>
+                        <h3>Til testidan o'tish</h3>
+                        <ul>
+                            <li>• IELTS (6.0-7.5)</li>
+                            <li>• TOEFL (80-100)</li>
+                            <li>• TOPIK (Koreya)</li>
+                            <li>• TestDaF (Germaniya)</li>
+                            <li>• TÖMER (Turkiya)</li>
+                        </ul>
+                    </div>
+
+                    <div class="req-card">
+                        <div class="req-step">3</div>
+                        <h3>Ariza topshirish</h3>
+                        <ul>
+                            <li>• Onlayn platformada ro'yxatdan o'tish</li>
+                            <li>• Hujjatlarni yuklash</li>
+                            <li>• Ariza to'lovi (agar kerak bo'lsa)</li>
+                            <li>• Muddatni kuzatish</li>
+                        </ul>
+                    </div>
+
+                    <div class="req-card">
+                        <div class="req-step">4</div>
+                        <h3>Natijalarni kutish</h3>
+                        <ul>
+                            <li>• 2-6 oy ichida javob</li>
+                            <li>• Intervyu (ba'zi dasturlar)</li>
+                            <li>• Grant e'lon qilinishi</li>
+                            <li>• Viza jarayoni</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Success Stories -->
+            <section class="success-section">
+                <h2 class="section-title">Muvaffaqiyat Tarixi</h2>
+
+                <div class="success-stories">
+                    <div class="story-card">
+                        <img src="images/avatar.png" alt="Student" class="story-avatar">
+                        <div class="story-content">
+                            <h4>Dilshod Rahimov</h4>
+                            <p class="story-uni">🇩🇪 TU München, Germaniya</p>
+                            <p class="story-text">"DAAD granti orqali Germaniyada o'qish imkoniyatiga ega bo'ldim. Bu platforma menga grant topishda katta yordam berdi. Tavsiya qilaman!"</p>
+                        </div>
+                    </div>
+
+                    <div class="story-card">
+                        <img src="images/avatar.png" alt="Student" class="story-avatar">
+                        <div class="story-content">
+                            <h4>Malika Usmonova</h4>
+                            <p class="story-uni">🇹🇷 Bogazici University, Turkiya</p>
+                            <p class="story-text">"Turkiya Burslari grantini yutib, orzuimdagi universitetga kirdim. Platformadagi ma'lumotlar juda foydali bo'ldi!"</p>
+                        </div>
+                    </div>
+
+                    <div class="story-card">
+                        <img src="images/avatar.png" alt="Student" class="story-avatar">
+                        <div class="story-content">
+                            <h4>Shohruh Yuldashev</h4>
+                            <p class="story-uni">🇰🇷 Seoul National University, Koreya</p>
+                            <p class="story-text">"KGSP granti bo'yicha batafsil ma'lumotlar va yo'riqnomalar juda yordam berdi. Hozir Koreyadaman!"</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-foreign">
+                <h2>Orzuingizdagi universitetga kirish uchun yordam kerakmi?</h2>
+                <p>Premium obunada shaxsiy konsultant va to'liq yo'riqnomalar mavjud</p>
+                <a href="pricing.html" class="btn btn-white btn-large">Premium ga o'tish →</a>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Country tabs
+        document.querySelectorAll('.country-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.country-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // Filter chips
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

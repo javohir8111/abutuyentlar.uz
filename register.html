@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yxatdan O'tish - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-form-section">
+                <div class="auth-header">
+                    <a href="index.html" class="auth-logo">
+                        <img src="images/logo.png" alt="Logo" class="logo">
+                        <span>Abuturentlar.uz</span>
+                    </a>
+                </div>
+
+                <div class="auth-content">
+                    <div class="progress-steps">
+                        <div class="progress-step active">
+                            <div class="step-circle">1</div>
+                            <span class="step-label">Shaxsiy ma'lumot</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step">
+                            <div class="step-circle">2</div>
+                            <span class="step-label">Qiziqishlar</span>
+                        </div>
+                    </div>
+
+                    <h1 class="auth-title">Ro'yxatdan o'ting</h1>
+                    <p class="auth-subtitle">Shaxsiy ma'lumotlaringizni kiriting</p>
+
+                    <form class="auth-form" id="registerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">Ism *</label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    class="form-input" 
+                                    placeholder="Aziz"
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Familiya *</label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    class="form-input" 
+                                    placeholder="Karimov"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fatherName" class="form-label">Otasining ismi *</label>
+                            <input 
+                                type="text" 
+                                id="fatherName" 
+                                class="form-input" 
+                                placeholder="Jahongir o'g'li"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birthDate" class="form-label">Tug'ilgan sana *</label>
+                            <input 
+                                type="date" 
+                                id="birthDate" 
+                                class="form-input"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="region" class="form-label">Viloyat *</label>
+                            <select id="region" class="form-input" required>
+                                <option value="">Viloyatni tanlang</option>
+                                <option value="toshkent-sh">Toshkent shahri</option>
+                                <option value="toshkent">Toshkent viloyati</option>
+                                <option value="andijon">Andijon</option>
+                                <option value="buxoro">Buxoro</option>
+                                <option value="fargona">Farg'ona</option>
+                                <option value="jizzax">Jizzax</option>
+                                <option value="xorazm">Xorazm</option>
+                                <option value="namangan">Namangan</option>
+                                <option value="navoiy">Navoiy</option>
+                                <option value="qashqadaryo">Qashqadaryo</option>
+                                <option value="qoraqalpogiston">Qoraqalpog'iston</option>
+                                <option value="samarqand">Samarqand</option>
+                                <option value="sirdaryo">Sirdaryo</option>
+                                <option value="surxondaryo">Surxondaryo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="district" class="form-label">Tuman/Shahar *</label>
+                            <select id="district" class="form-input" required disabled>
+                                <option value="">Avval viloyatni tanlang</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="school" class="form-label">Maktab *</label>
+                            <select id="school" class="form-input" required disabled>
+                                <option value="">Avval tumanni tanlang</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="grade" class="form-label">Sinf *</label>
+                            <select id="grade" class="form-input" required>
+                                <option value="">Sinfni tanlang</option>
+                                <option value="9">9-sinf</option>
+                                <option value="10">10-sinf</option>
+                                <option value="11">11-sinf</option>
+                                <option value="graduate">Bitiruvchi</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="form-input" 
+                                placeholder="example@email.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefon *</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                class="form-input" 
+                                placeholder="+998 90 123 45 67"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Parol *</label>
+                            <div class="password-input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    class="form-input" 
+                                    placeholder="Kamida 8 ta belgi"
+                                    required
+                                >
+                                <button type="button" class="password-toggle" id="togglePassword">👁️</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword" class="form-label">Parolni tasdiqlang *</label>
+                            <div class="password-input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="confirmPassword" 
+                                    class="form-input" 
+                                    placeholder="Parolni qayta kiriting"
+                                    required
+                                >
+                                <button type="button" class="password-toggle" id="toggleConfirmPassword">👁️</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" required>
+                                <span>
+                                    Men <a href="#" class="link-primary">Foydalanish shartlari</a> va 
+                                    <a href="#" class="link-primary">Maxfiylik siyosati</a> bilan tanishdim
+                                </span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Keyingisi →
+                        </button>
+
+                        <p class="auth-footer-text">
+                            Hisobingiz bormi? 
+                            <a href="login.html" class="link-primary">Kirish</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="auth-image-section">
+                <div class="auth-image-content">
+                    <h2>Bepul ro'yxatdan o'ting va<br>kelajagingizni quring!</h2>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>AI asosida shaxsiy tavsiyalar</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>150+ universitet ma'lumoti</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>Grant topish bo'yicha yo'riqnoma</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>Bepul psixologik testlar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/filters.js"></script>
+    <script>
+        // Form validation
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if(password !== confirmPassword) {
+                alert('Parollar mos kelmadi!');
+                return;
+            }
+            
+            if(password.length < 8) {
+                alert('Parol kamida 8 ta belgidan iborat bo\'lishi kerak!');
+                return;
+            }
+            
+            // Ma'lumotlarni saqlash (demo)
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                fatherName: document.getElementById('fatherName').value,
+                birthDate: document.getElementById('birthDate').value,
+                region: document.getElementById('region').value,
+                district: document.getElementById('district').value,
+                school: document.getElementById('school').value,
+                grade: document.getElementById('grade').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value
+            };
+            
+            localStorage.setItem('userData', JSON.stringify(formData));
+            
+            // Keyingi bosqichga o'tish
+            window.location.href = 'register-step2.html';
+        });
+
+        // Password toggle
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('confirmPassword');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirish - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-form-section">
+                <div class="auth-header">
+                    <a href="index.html" class="auth-logo">
+                        <img src="images/logo.png" alt="Logo" class="logo">
+                        <span>Abuturentlar.uz</span>
+                    </a>
+                </div>
+
+                <div class="auth-content">
+                    <h1 class="auth-title">Xush kelibsiz!</h1>
+                    <p class="auth-subtitle">Hisobingizga kiring va o'qishni davom ettiring</p>
+
+                    <form class="auth-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email yoki Telefon</label>
+                            <input 
+                                type="text" 
+                                id="email" 
+                                class="form-input" 
+                                placeholder="example@email.com yoki +998901234567"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Parol</label>
+                            <div class="password-input-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    class="form-input" 
+                                    placeholder="Parolingizni kiriting"
+                                    required
+                                >
+                                <button type="button" class="password-toggle" id="togglePassword">
+                                    👁️
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember">
+                                <span>Meni eslab qol</span>
+                            </label>
+                            <a href="#" class="link-text">Parolni unutdingizmi?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Kirish</button>
+
+                        <div class="divider">
+                            <span>yoki</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="btn-social btn-google">
+                                <span class="social-icon">🔵</span>
+                                Google orqali kirish
+                            </button>
+                            <button type="button" class="btn-social btn-telegram">
+                                <span class="social-icon">✈️</span>
+                                Telegram orqali kirish
+                            </button>
+                        </div>
+
+                        <p class="auth-footer-text">
+                            Hisobingiz yo'qmi? 
+                            <a href="register.html" class="link-primary">Ro'yxatdan o'ting</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="auth-image-section">
+                <div class="auth-image-content">
+                    <h2>Kelajagingizni <br>bizning bilan quring!</h2>
+                    <p>10,000+ abituriyent bizning platformamizdan foydalanib o'z yo'nalishlarini topdilar</p>
+                    <div class="auth-stats">
+                        <div class="auth-stat-item">
+                            <span class="stat-num">150+</span>
+                            <span class="stat-label">Universitet</span>
+                        </div>
+                        <div class="auth-stat-item">
+                            <span class="stat-num">500+</span>
+                            <span class="stat-label">Yo'nalish</span>
+                        </div>
+                        <div class="auth-stat-item">
+                            <span class="stat-num">98%</span>
+                            <span class="stat-label">Mamnunlik</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Login form validation
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Demo: Har qanday ma'lumot bilan kirsa dashboard ga o'tadi
+            if(email && password) {
+                alert('Kirish muvaffaqiyatli! Dashboard ga yo\'naltirilmoqda...');
+                window.location.href = 'dashboard.html';
+            }
+        });
+
+        // Password toggle
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qiziqishlar Testi - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <div class="test-page">
+        <div class="test-container">
+            <div class="test-header">
+                <a href="index.html" class="test-logo">
+                    <img src="images/logo.png" alt="Logo" class="logo">
+                    <span>Abuturentlar.uz</span>
+                </a>
+            </div>
+
+            <div class="test-content">
+                <div class="progress-steps">
+                    <div class="progress-step completed">
+                        <div class="step-circle">✓</div>
+                        <span class="step-label">Shaxsiy ma'lumot</span>
+                    </div>
+                    <div class="progress-line active"></div>
+                    <div class="progress-step active">
+                        <div class="step-circle">2</div>
+                        <span class="step-label">Qiziqishlar</span>
+                    </div>
+                </div>
+
+                <div class="test-intro">
+                    <h1 class="test-title">Psixologik Test</h1>
+                    <p class="test-description">
+                        Ushbu test sizning qiziqishlaringiz, qobiliyatlaringiz va shaxsiy xususiyatlaringizni aniqlashga yordam beradi. 
+                        Test natijalari asosida AI sizga eng mos yo'nalishlarni tavsiya qiladi.
+                    </p>
+                    <div class="test-info">
+                        <div class="info-item">
+                            <span class="info-icon">⏱️</span>
+                            <span>15-20 daqiqa</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">❓</span>
+                            <span>30 ta savol</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📊</span>
+                            <span>Natija darhol</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="psychologyTestForm" class="psychology-test">
+                    <div class="test-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span class="progress-text" id="progressText">0/30 savol</span>
+                    </div>
+
+                    <!-- Savol 1-5: Yo'nalish qiziqishlari -->
+                    <div class="question-section active" data-section="1">
+                        <h3 class="section-title">Bo'lim 1: Qiziqishlaringiz</h3>
+                        
+                        <div class="question-card">
+                            <p class="question-text">1. Qaysi fanning darslari sizga ko'proq yoqadi?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q1" value="tech" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">💻</span>
+                                        <span class="option-text">Informatika va Matematika</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q1" value="science">
+                                    <span class="option-content">
+                                        <span class="option-icon">🔬</span>
+                                        <span class="option-text">Fizika va Kimyo</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q1" value="bio">
+                                    <span class="option-content">
+                                        <span class="option-icon">🧬</span>
+                                        <span class="option-text">Biologiya</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q1" value="humanities">
+                                    <span class="option-content">
+                                        <span class="option-icon">📚</span>
+                                        <span class="option-text">Adabiyot va Tarix</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q1" value="arts">
+                                    <span class="option-content">
+                                        <span class="option-icon">🎨</span>
+                                        <span class="option-text">San'at va Dizayn</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <p class="question-text">2. Bo'sh vaqtingizda nima bilan shug'ullanishni yoqtirasiz?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q2" value="tech" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">⌨️</span>
+                                        <span class="option-text">Dasturlash va texnologiya</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q2" value="sports">
+                                    <span class="option-content">
+                                        <span class="option-icon">⚽</span>
+                                        <span class="option-text">Sport va jismoniy mashqlar</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q2" value="creative">
+                                    <span class="option-content">
+                                        <span class="option-icon">🎭</span>
+                                        <span class="option-text">Ijodiy faoliyat</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q2" value="social">
+                                    <span class="option-content">
+                                        <span class="option-icon">👥</span>
+                                        <span class="option-text">Do'stlar bilan muloqot</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q2" value="reading">
+                                    <span class="option-content">
+                                        <span class="option-icon">📖</span>
+                                        <span class="option-text">Kitob o'qish</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <p class="question-text">3. Qaysi kasbni tanlashni orzu qilasiz?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q3" value="it" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">👨‍💻</span>
+                                        <span class="option-text">Dasturchi yoki IT mutaxassis</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q3" value="doctor">
+                                    <span class="option-content">
+                                        <span class="option-icon">👨‍⚕️</span>
+                                        <span class="option-text">Shifokor</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q3" value="engineer">
+                                    <span class="option-content">
+                                        <span class="option-icon">👷</span>
+                                        <span class="option-text">Muhandis</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q3" value="business">
+                                    <span class="option-content">
+                                        <span class="option-icon">💼</span>
+                                        <span class="option-text">Tadbirkor yoki menejr</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q3" value="creative">
+                                    <span class="option-content">
+                                        <span class="option-icon">🎬</span>
+                                        <span class="option-text">Ijodkor (dizayner, rejissyor)</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Savol 6-10: Shaxsiy xususiyatlar -->
+                    <div class="question-section" data-section="2">
+                        <h3 class="section-title">Bo'lim 2: Shaxsiy xususiyatlaringiz</h3>
+                        
+                        <div class="question-card">
+                            <p class="question-text">4. Guruhda ishlashni yoki mustaqil ishlashni afzal ko'rasiz?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q4" value="team" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">👥</span>
+                                        <span class="option-text">Jamoada ishlashni yaxshi ko'raman</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q4" value="solo">
+                                    <span class="option-content">
+                                        <span class="option-icon">🧑</span>
+                                        <span class="option-text">Mustaqil ishlashni afzal ko'raman</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q4" value="both">
+                                    <span class="option-content">
+                                        <span class="option-icon">⚖️</span>
+                                        <span class="option-text">Ikkalasi ham yoqadi</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <p class="question-text">5. Yangi muammoga duch kelganingizda qanday harakat qilasiz?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q5" value="analytical" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">🔍</span>
+                                        <span class="option-text">Tahlil qilib, mantiqiy yechim qidiraman</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q5" value="creative">
+                                    <span class="option-content">
+                                        <span class="option-icon">💡</span>
+                                        <span class="option-text">Ijodiy va noan'anaviy yechim topaman</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q5" value="practical">
+                                    <span class="option-content">
+                                        <span class="option-icon">🛠️</span>
+                                        <span class="option-text">Amaliy tajriba orqali hal qilaman</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q5" value="social">
+                                    <span class="option-content">
+                                        <span class="option-icon">🗣️</span>
+                                        <span class="option-text">Boshqalardan maslahat so'rayman</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <p class="question-text">6. Sizning kuchli tomoningiz nima?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q6" value="logical" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">🧠</span>
+                                        <span class="option-text">Mantiqiy fikrlash</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q6" value="creative">
+                                    <span class="option-content">
+                                        <span class="option-icon">🎨</span>
+                                        <span class="option-text">Ijodkorlik</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q6" value="social">
+                                    <span class="option-content">
+                                        <span class="option-icon">💬</span>
+                                        <span class="option-text">Muloqot qilish</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q6" value="organized">
+                                    <span class="option-content">
+                                        <span class="option-icon">📋</span>
+                                        <span class="option-text">Tashkilotchilik</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q6" value="technical">
+                                    <span class="option-content">
+                                        <span class="option-icon">⚙️</span>
+                                        <span class="option-text">Texnik qobiliyat</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Savol 11-15: Kelajak rejalari -->
+                    <div class="question-section" data-section="3">
+                        <h3 class="section-title">Bo'lim 3: Kelajak rejalaringiz</h3>
+                        
+                        <div class="question-card">
+                            <p class="question-text">7. 10 yildan keyin o'zingizni qayerda ko'rasiz?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q7" value="corporate" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">🏢</span>
+                                        <span class="option-text">Yirik kompaniyada yuqori lavozimda</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q7" value="entrepreneur">
+                                    <span class="option-content">
+                                        <span class="option-icon">🚀</span>
+                                        <span class="option-text">O'z biznesimni boshqaraman</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q7" value="specialist">
+                                    <span class="option-content">
+                                        <span class="option-icon">🎓</span>
+                                        <span class="option-text">O'z sohasida mutaxassis/ekspert</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q7" value="creative">
+                                    <span class="option-content">
+                                        <span class="option-icon">🎭</span>
+                                        <span class="option-text">Ijodiy kasb egasi</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <p class="question-text">8. Chet elda o'qish/ishlashni xohlaysizmi?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q8" value="yes" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">✈️</span>
+                                        <span class="option-text">Ha, albatta xohlayman</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q8" value="maybe">
+                                    <span class="option-content">
+                                        <span class="option-icon">🤔</span>
+                                        <span class="option-text">Imkoniyat bo'lsa qarashim mumkin</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q8" value="no">
+                                    <span class="option-content">
+                                        <span class="option-icon">🏠</span>
+                                        <span class="option-text">Yo'q, O'zbekistonda qolmoqchiman</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <p class="question-text">9. Sizning asosiy maqsadingiz nima?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q9" value="money" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">💰</span>
+                                        <span class="option-text">Moliyaviy barqarorlik</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q9" value="impact">
+                                    <span class="option-content">
+                                        <span class="option-icon">🌍</span>
+                                        <span class="option-text">Jamiyatga foyda keltirish</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q9" value="knowledge">
+                                    <span class="option-content">
+                                        <span class="option-icon">📚</span>
+                                        <span class="option-text">Bilim va rivojlanish</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q9" value="fame">
+                                    <span class="option-content">
+                                        <span class="option-icon">⭐</span>
+                                        <span class="option-text">Mashhurlik va tan olinish</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question-card">
+                            <p class="question-text">10. Qanday ta'lim shaklini tanlagan bo'lardingiz?</p>
+                            <div class="options">
+                                <label class="option-card">
+                                    <input type="radio" name="q10" value="practical" required>
+                                    <span class="option-content">
+                                        <span class="option-icon">🔧</span>
+                                        <span class="option-text">Amaliy ko'nikmalar (texnikum, kolledj)</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q10" value="university">
+                                    <span class="option-content">
+                                        <span class="option-icon">🎓</span>
+                                        <span class="option-text">Universitet (bakalavr, magistr)</span>
+                                    </span>
+                                </label>
+                                <label class="option-card">
+                                    <input type="radio" name="q10" value="both">
+                                    <span class="option-content">
+                                        <span class="option-icon">📊</span>
+                                        <span class="option-text">Aralash (nazariya va amaliyot)</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="test-navigation">
+                        <button type="button" class="btn btn-outline" id="prevBtn" style="display: none;">
+                            ← Orqaga
+                        </button>
+                        <button type="button" class="btn btn-primary" id="nextBtn">
+                            Keyingisi →
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">
+                            Testni yakunlash
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/test.js"></script>
+</body>
+</html>

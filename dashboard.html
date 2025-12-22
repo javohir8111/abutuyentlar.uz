@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span class="brand-name">Abuturentlar</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="recommendations.html" class="nav-item">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">AI Tavsiyalar</span>
+            </a>
+            <a href="universities.html" class="nav-item">
+                <span class="nav-icon">🎓</span>
+                <span class="nav-text">Universitetlar</span>
+            </a>
+            <a href="colleges.html" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">Texnikumlar</span>
+            </a>
+            <a href="foreign-universities.html" class="nav-item">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-text">Chet el</span>
+            </a>
+            <a href="tests.html" class="nav-item">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Testlar</span>
+            </a>
+            <a href="news.html" class="nav-item">
+                <span class="nav-icon">📰</span>
+                <span class="nav-text">Yangiliklar</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-text">Profil</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="pricing.html" class="upgrade-btn">
+                <span class="upgrade-icon">⭐</span>
+                <span>Premium obuna</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Chiqish</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Universitet, yo'nalish qidirish...">
+            </div>
+            <div class="top-bar-actions">
+                <button class="icon-btn">
+                    <span class="notification-badge">3</span>
+                    🔔
+                </button>
+                <div class="user-menu">
+                    <img src="images/avatar.png" alt="User" class="user-avatar">
+                    <span class="user-name">Aziz Karimov</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-card">
+                    <div class="welcome-text">
+                        <h1>Xush kelibsiz, Aziz! 👋</h1>
+                        <p>Bugun sizning uchun yangi tavsiyalar tayyor. Kelajagingizni qurishni davom ettiring!</p>
+                    </div>
+                    <button class="btn btn-primary">AI tavsiyalarini ko'rish</button>
+                </div>
+            </section>
+
+            <!-- Stats Cards -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">🎓</div>
+                    <div class="stat-info">
+                        <h3>12</h3>
+                        <p>Saqlanganlar</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">✅</div>
+                    <div class="stat-info">
+                        <h3>8</h3>
+                        <p>Yakunlangan testlar</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">📊</div>
+                    <div class="stat-info">
+                        <h3>85%</h3>
+                        <p>Profil to'liqligi</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon purple">🎯</div>
+                    <div class="stat-info">
+                        <h3>5</h3>
+                        <p>AI tavsiyalar</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Two Column Layout -->
+            <div class="dashboard-grid">
+                <!-- AI Recommendations -->
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>AI Tavsiyalari</h2>
+                        <a href="recommendations.html" class="link-primary">Batafsil →</a>
+                    </div>
+                    <div class="recommendations-list">
+                        <div class="recommendation-card">
+                            <div class="rec-header">
+                                <div class="rec-icon">💻</div>
+                                <span class="rec-badge match-high">95% mos</span>
+                            </div>
+                            <h3>Dasturiy ta'minot injiniringi</h3>
+                            <p class="rec-description">Sizning texnik qobiliyatlaringiz va mantiqiy fikrlashingiz uchun ideal yo'nalish</p>
+                            <div class="rec-unis">
+                                <span class="uni-tag">TATU</span>
+                                <span class="uni-tag">INHA</span>
+                                <span class="uni-tag">Webster</span>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-card">
+                            <div class="rec-header">
+                                <div class="rec-icon">🤖</div>
+                                <span class="rec-badge match-medium">88% mos</span>
+                            </div>
+                            <h3>Sun'iy intellekt va Data Science</h3>
+                            <p class="rec-description">Matematika va dasturlashga qiziqishingiz asosida</p>
+                            <div class="rec-unis">
+                                <span class="uni-tag">TATU</span>
+                                <span class="uni-tag">WIUT</span>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-card">
+                            <div class="rec-header">
+                                <div class="rec-icon">🎮</div>
+                                <span class="rec-badge match-medium">82% mos</span>
+                            </div>
+                            <h3>O'yin ishlab chiqish</h3>
+                            <p class="rec-description">Ijodkorlik va texnologiyani birlashtiradigan yo'nalish</p>
+                            <div class="rec-unis">
+                                <span class="uni-tag">TATU</span>
+                                <span class="uni-tag">TEAM University</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Activities -->
+                <section class="dashboard-section">
+                    <div class="section-header">
+                        <h2>So'nggi faoliyat</h2>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🎓</div>
+                            <div class="activity-content">
+                                <p class="activity-title">TATU ni saqlanganlar ro'yxatiga qo'shdingiz</p>
+                                <span class="activity-time">2 soat oldin</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">✅</div>
+                            <div class="activity-content">
+                                <p class="activity-title">Matematika testini yakunladingiz</p>
+                                <span class="activity-time">1 kun oldin</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">📚</div>
+                            <div class="activity-content">
+                                <p class="activity-title">"Chet elda grant" maqolasini o'qidingiz</p>
+                                <span class="activity-time">2 kun oldin</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">🤖</div>
+                            <div class="activity-content">
+                                <p class="activity-title">AI dan yangi tavsiyalar oldingiz</p>
+                                <span class="activity-time">3 kun oldin</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Featured Universities -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>Sizga mos universitetlar</h2>
+                    <a href="universities.html" class="link-primary">Hammasini ko'rish →</a>
+                </div>
+                <div class="universities-grid">
+                    <div class="university-card">
+                        <img src="images/universities/tatu.png" alt="TATU" class="uni-logo">
+                        <h3>TATU</h3>
+                        <p>Toshkent Axborot Texnologiyalari Universiteti</p>
+                        <div class="uni-stats">
+                            <span class="uni-stat">📊 189.2 ball</span>
+                            <span class="uni-stat">👥 5000+ talaba</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Batafsil</button>
+                    </div>
+
+                    <div class="university-card">
+                        <img src="images/universities/inha.png" alt="INHA" class="uni-logo">
+                        <h3>INHA</h3>
+                        <p>INHA University in Tashkent</p>
+                        <div class="uni-stats">
+                            <span class="uni-stat">📊 185.0 ball</span>
+                            <span class="uni-stat">👥 3000+ talaba</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Batafsil</button>
+                    </div>
+
+                    <div class="university-card">
+                        <img src="images/universities/wiut.png" alt="WIUT" class="uni-logo">
+                        <h3>WIUT</h3>
+                        <p>Westminster International University</p>
+                        <div class="uni-stats">
+                            <span class="uni-stat">📊 180.5 ball</span>
+                            <span class="uni-stat">👥 2500+ talaba</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Batafsil</button>
+                    </div>
+
+                    <div class="university-card">
+                        <img src="images/universities/team.png" alt="TEAM" class="uni-logo">
+                        <h3>TEAM University</h3>
+                        <p>TEAM University</p>
+                        <div class="uni-stats">
+                            <span class="uni-stat">📊 175.0 ball</span>
+                            <span class="uni-stat">👥 2000+ talaba</span>
+                        </div>
+                        <button class="btn btn-outline btn-small">Batafsil</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest News -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2>So'nggi yangiliklar</h2>
+                    <a href="news.html" class="link-primary">Barcha yangiliklar →</a>
+                </div>
+                <div class="news-grid">
+                    <div class="news-card">
+                        <img src="images/news/news1.jpg" alt="News" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Ta'lim</span>
+                            <h3>2024-2025 o'quv yili qabuli boshlandi</h3>
+                            <p>Abituriyentlar uchun ariza topshirish muddatlari e'lon qilindi...</p>
+                            <div class="news-footer">
+                                <span class="news-date">20 dekabr, 2024</span>
+                                <a href="news-detail.html" class="link-primary">O'qish →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-card">
+                        <img src="images/news/news2.jpg" alt="News" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Grant</span>
+                            <h3>Turkiya universitetlarida 500 ta grant</h3>
+                            <p>O'zbekistonlik abituriyentlar uchun yangi imkoniyat...</p>
+                            <div class="news-footer">
+                                <span class="news-date">18 dekabr, 2024</span>
+                                <a href="news-detail.html" class="link-primary">O'qish →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

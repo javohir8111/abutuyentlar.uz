@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texnikumlar - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <span class="brand-name">Abuturentlar</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="recommendations.html" class="nav-item">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">AI Tavsiyalar</span>
+            </a>
+            <a href="universities.html" class="nav-item">
+                <span class="nav-icon">🎓</span>
+                <span class="nav-text">Universitetlar</span>
+            </a>
+            <a href="colleges.html" class="nav-item active">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">Texnikumlar</span>
+            </a>
+            <a href="foreign-universities.html" class="nav-item">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-text">Chet el</span>
+            </a>
+            <a href="tests.html" class="nav-item">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Testlar</span>
+            </a>
+            <a href="news.html" class="nav-item">
+                <span class="nav-icon">📰</span>
+                <span class="nav-text">Yangiliklar</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-text">Profil</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="pricing.html" class="upgrade-btn">
+                <span class="upgrade-icon">⭐</span>
+                <span>Premium obuna</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Chiqish</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Texnikum, yo'nalish qidirish...">
+            </div>
+            <div class="top-bar-actions">
+                <button class="icon-btn">
+                    <span class="notification-badge">3</span>
+                    🔔
+                </button>
+                <div class="user-menu">
+                    <img src="images/avatar.png" alt="User" class="user-avatar">
+                    <span class="user-name">Aziz Karimov</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="dashboard-content">
+            <div class="page-header">
+                <h1 class="page-title">Kasb-hunar ta'limi</h1>
+                <p class="page-subtitle">Texnikumlar va kollejlar - amaliy kasblar o'rganing</p>
+            </div>
+
+            <!-- Info Banner -->
+            <div class="info-banner">
+                <div class="banner-icon">💡</div>
+                <div class="banner-content">
+                    <h3>Nima uchun texnikum?</h3>
+                    <p>3 yillik amaliy ta'lim, ish kafolati, kasbiy ko'nikmalar. 9-sinfdan keyin kirish imkoniyati.</p>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <section class="filters-section">
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Viloyat</label>
+                        <select class="form-input">
+                            <option value="">Barcha viloyatlar</option>
+                            <option value="toshkent">Toshkent sh.</option>
+                            <option value="samarqand">Samarqand</option>
+                            <option value="fargona">Farg'ona</option>
+                            <option value="andijon">Andijon</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Yo'nalish</label>
+                        <select class="form-input">
+                            <option value="">Barcha yo'nalishlar</option>
+                            <option value="it">IT va kompyuter</option>
+                            <option value="construction">Qurilish</option>
+                            <option value="medicine">Tibbiyot</option>
+                            <option value="art">San'at</option>
+                            <option value="economics">Iqtisodiyot</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Sinf</label>
+                        <select class="form-input">
+                            <option value="">Tanlang</option>
+                            <option value="9">9-sinfdan keyin</option>
+                            <option value="11">11-sinfdan keyin</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">Saralash</label>
+                        <select class="form-input">
+                            <option value="name">Nomi bo'yicha</option>
+                            <option value="rating">Reyting bo'yicha</option>
+                            <option value="students">Talabalar soni</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Colleges Grid -->
+            <section class="colleges-section">
+                <h2 class="section-title">Texnikumlar ro'yxati</h2>
+                
+                <div class="colleges-grid">
+                    <!-- College 1 -->
+                    <div class="college-card">
+                        <div class="college-header">
+                            <img src="images/colleges/it-college.png" alt="IT" class="college-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <div class="college-body">
+                            <h3>Toshkent Axborot Texnologiyalari Kolleji</h3>
+                            <p class="college-location">📍 Toshkent shahri</p>
+                            
+                            <div class="college-tags">
+                                <span class="tag tag-it">💻 IT</span>
+                                <span class="tag tag-9">9-sinf</span>
+                                <span class="tag tag-11">11-sinf</span>
+                            </div>
+
+                            <div class="college-info">
+                                <div class="info-item">
+                                    <span>👥 Talabalar:</span>
+                                    <strong>1,200+</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⏱️ Davomiyligi:</span>
+                                    <strong>3 yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>💰 Kontrakt:</span>
+                                    <strong>3-5 mln/yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⭐ Reyting:</span>
+                                    <strong>4.7/5</strong>
+                                </div>
+                            </div>
+
+                            <div class="college-directions">
+                                <h4>Yo'nalishlar:</h4>
+                                <ul>
+                                    <li>• Dasturlash</li>
+                                    <li>• Kompyuter tarmoqlari</li>
+                                    <li>• Web dizayn</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="college-footer">
+                            <button class="btn btn-primary btn-block">Batafsil</button>
+                        </div>
+                    </div>
+
+                    <!-- College 2 -->
+                    <div class="college-card">
+                        <div class="college-header">
+                            <img src="images/colleges/medical-college.png" alt="Medical" class="college-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <div class="college-body">
+                            <h3>Toshkent Tibbiyot Kolleji</h3>
+                            <p class="college-location">📍 Toshkent shahri</p>
+                            
+                            <div class="college-tags">
+                                <span class="tag tag-medicine">🏥 Tibbiyot</span>
+                                <span class="tag tag-9">9-sinf</span>
+                                <span class="tag tag-11">11-sinf</span>
+                            </div>
+
+                            <div class="college-info">
+                                <div class="info-item">
+                                    <span>👥 Talabalar:</span>
+                                    <strong>1,500+</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⏱️ Davomiyligi:</span>
+                                    <strong>3 yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>💰 Kontrakt:</span>
+                                    <strong>4-6 mln/yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⭐ Reyting:</span>
+                                    <strong>4.8/5</strong>
+                                </div>
+                            </div>
+
+                            <div class="college-directions">
+                                <h4>Yo'nalishlar:</h4>
+                                <ul>
+                                    <li>• Hamshiralik ishi</li>
+                                    <li>• Laboratoriya diagnostikasi</li>
+                                    <li>• Stomatologiya</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="college-footer">
+                            <button class="btn btn-primary btn-block">Batafsil</button>
+                        </div>
+                    </div>
+
+                    <!-- College 3 -->
+                    <div class="college-card">
+                        <div class="college-header">
+                            <img src="images/colleges/construction-college.png" alt="Construction" class="college-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <div class="college-body">
+                            <h3>Qurilish Kasb-hunar Kolleji</h3>
+                            <p class="college-location">📍 Toshkent shahri</p>
+                            
+                            <div class="college-tags">
+                                <span class="tag tag-construction">🏗️ Qurilish</span>
+                                <span class="tag tag-9">9-sinf</span>
+                            </div>
+
+                            <div class="college-info">
+                                <div class="info-item">
+                                    <span>👥 Talabalar:</span>
+                                    <strong>800+</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⏱️ Davomiyligi:</span>
+                                    <strong>3 yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>💰 Kontrakt:</span>
+                                    <strong>2.5-4 mln/yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⭐ Reyting:</span>
+                                    <strong>4.5/5</strong>
+                                </div>
+                            </div>
+
+                            <div class="college-directions">
+                                <h4>Yo'nalishlar:</h4>
+                                <ul>
+                                    <li>• Qurilish va ekspluatatsiya</li>
+                                    <li>• Arxitektura dizayni</li>
+                                    <li>• Svarkachilik</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="college-footer">
+                            <button class="btn btn-primary btn-block">Batafsil</button>
+                        </div>
+                    </div>
+
+                    <!-- College 4 -->
+                    <div class="college-card">
+                        <div class="college-header">
+                            <img src="images/colleges/art-college.png" alt="Art" class="college-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <div class="college-body">
+                            <h3>Badiiy-San'at Kolleji</h3>
+                            <p class="college-location">📍 Toshkent shahri</p>
+                            
+                            <div class="college-tags">
+                                <span class="tag tag-art">🎨 San'at</span>
+                                <span class="tag tag-9">9-sinf</span>
+                                <span class="tag tag-11">11-sinf</span>
+                            </div>
+
+                            <div class="college-info">
+                                <div class="info-item">
+                                    <span>👥 Talabalar:</span>
+                                    <strong>600+</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⏱️ Davomiyligi:</span>
+                                    <strong>3 yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>💰 Kontrakt:</span>
+                                    <strong>3-5 mln/yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⭐ Reyting:</span>
+                                    <strong>4.6/5</strong>
+                                </div>
+                            </div>
+
+                            <div class="college-directions">
+                                <h4>Yo'nalishlar:</h4>
+                                <ul>
+                                    <li>• Tasviriy san'at</li>
+                                    <li>• Dizayn</li>
+                                    <li>• Haykaltaroshlik</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="college-footer">
+                            <button class="btn btn-primary btn-block">Batafsil</button>
+                        </div>
+                    </div>
+
+                    <!-- College 5 -->
+                    <div class="college-card">
+                        <div class="college-header">
+                            <img src="images/colleges/economics-college.png" alt="Economics" class="college-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <div class="college-body">
+                            <h3>Iqtisodiyot Kolleji</h3>
+                            <p class="college-location">📍 Toshkent shahri</p>
+                            
+                            <div class="college-tags">
+                                <span class="tag tag-economics">💼 Iqtisodiyot</span>
+                                <span class="tag tag-9">9-sinf</span>
+                                <span class="tag tag-11">11-sinf</span>
+                            </div>
+
+                            <div class="college-info">
+                                <div class="info-item">
+                                    <span>👥 Talabalar:</span>
+                                    <strong>1,000+</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⏱️ Davomiyligi:</span>
+                                    <strong>3 yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>💰 Kontrakt:</span>
+                                    <strong>3-4 mln/yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⭐ Reyting:</span>
+                                    <strong>4.4/5</strong>
+                                </div>
+                            </div>
+
+                            <div class="college-directions">
+                                <h4>Yo'nalishlar:</h4>
+                                <ul>
+                                    <li>• Buxgalteriya hisobi</li>
+                                    <li>• Marketing</li>
+                                    <li>• Moliya</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="college-footer">
+                            <button class="btn btn-primary btn-block">Batafsil</button>
+                        </div>
+                    </div>
+
+                    <!-- College 6 -->
+                    <div class="college-card">
+                        <div class="college-header">
+                            <img src="images/colleges/transport-college.png" alt="Transport" class="college-logo">
+                            <button class="bookmark-btn">🔖</button>
+                        </div>
+                        <div class="college-body">
+                            <h3>Transport Kolleji</h3>
+                            <p class="college-location">📍 Toshkent shahri</p>
+                            
+                            <div class="college-tags">
+                                <span class="tag tag-transport">🚗 Transport</span>
+                                <span class="tag tag-9">9-sinf</span>
+                            </div>
+
+                            <div class="college-info">
+                                <div class="info-item">
+                                    <span>👥 Talabalar:</span>
+                                    <strong>900+</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⏱️ Davomiyligi:</span>
+                                    <strong>3 yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>💰 Kontrakt:</span>
+                                    <strong>2-3.5 mln/yil</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>⭐ Reyting:</span>
+                                    <strong>4.3/5</strong>
+                                </div>
+                            </div>
+
+                            <div class="college-directions">
+                                <h4>Yo'nalishlar:</h4>
+                                <ul>
+                                    <li>• Avtomobil texnikasi</li>
+                                    <li>• Avtomexanika</li>
+                                    <li>• Temir yo'l transporti</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="college-footer">
+                            <button class="btn btn-primary btn-block">Batafsil</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Benefits Section -->
+            <section class="benefits-section">
+                <h2 class="section-title">Texnikumning afzalliklari</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="benefit-icon">⚡</span>
+                        <h3>Tezkor ta'lim</h3>
+                        <p>Faqat 3 yilda kasbiy mutaxassis bo'ling</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🛠️</span>
+                        <h3>Amaliy ko'nikmalar</h3>
+                        <p>70% amaliyot, real ishda kerakli bilimlar</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">💼</span>
+                        <h3>Ish kafolati</h3>
+                        <p>Bitiruvchilarning 85% darhol ishga joylashadi</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">💰</span>
+                        <h3>Arzon ta'lim</h3>
+                        <p>Universitet ta'limidan 2-3 baravar arzon</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">📈</span>
+                        <h3>Davom ettirish imkoniyati</h3>
+                        <p>Keyin universitetga imtiyozli kirish mumkin</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🏆</span>
+                        <h3>Milliy sertifikat</h3>
+                        <p>Davlat tomonidan tan olingan diplom</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+
+    <style>
+        .info-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .banner-icon {
+            font-size: 4rem;
+        }
+
+        .banner-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .banner-content p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .colleges-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .college-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .college-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .college-header {
+            position: relative;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            display: flex;
+            justify-content: center;
+        }
+
+        .college-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .college-body {
+            padding: 1.5rem;
+        }
+
+        .college-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .college-location {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .college-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag-it { background: rgba(37, 99, 235, 0.1); color: var(--primary-color); }
+        .tag-medicine { background: rgba(239, 68, 68, 0.1); color: var(--error); }
+        .tag-construction { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+        .tag-art { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        .tag-economics { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .tag-transport { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+        .tag-9, .tag-11 { background: var(--bg-light); color: var(--text-secondary); }
+
+        .college-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .info-item span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .college-directions h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .college-directions ul {
+            list-style: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .college-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .benefits-section {
+            margin-top: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .colleges-grid,
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .colleges-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>

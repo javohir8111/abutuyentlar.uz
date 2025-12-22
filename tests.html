@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testlar - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <span class="brand-name">Abuturentlar</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="recommendations.html" class="nav-item">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">AI Tavsiyalar</span>
+            </a>
+            <a href="universities.html" class="nav-item">
+                <span class="nav-icon">🎓</span>
+                <span class="nav-text">Universitetlar</span>
+            </a>
+            <a href="colleges.html" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">Texnikumlar</span>
+            </a>
+            <a href="foreign-universities.html" class="nav-item">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-text">Chet el</span>
+            </a>
+            <a href="tests.html" class="nav-item active">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Testlar</span>
+            </a>
+            <a href="news.html" class="nav-item">
+                <span class="nav-icon">📰</span>
+                <span class="nav-text">Yangiliklar</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-text">Profil</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="pricing.html" class="upgrade-btn">
+                <span class="upgrade-icon">⭐</span>
+                <span>Premium obuna</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Chiqish</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Test qidirish...">
+            </div>
+            <div class="top-bar-actions">
+                <button class="icon-btn">
+                    <span class="notification-badge">3</span>
+                    🔔
+                </button>
+                <div class="user-menu">
+                    <img src="images/avatar.png" alt="User" class="user-avatar">
+                    <span class="user-name">Aziz Karimov</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="dashboard-content">
+            <div class="page-header">
+                <h1 class="page-title">Testlar va Tayyorgarlik</h1>
+                <p class="page-subtitle">O'zingizni sinab ko'ring va tayyorlaning</p>
+            </div>
+
+            <!-- Test Categories -->
+            <div class="test-categories">
+                <button class="category-tab active" data-category="all">
+                    Barchasi
+                </button>
+                <button class="category-tab" data-category="psychology">
+                    🧠 Psixologik
+                </button>
+                <button class="category-tab" data-category="math">
+                    🔢 Matematika
+                </button>
+                <button class="category-tab" data-category="english">
+                    🇬🇧 Ingliz tili
+                </button>
+                <button class="category-tab" data-category="physics">
+                    ⚛️ Fizika
+                </button>
+                <button class="category-tab" data-category="chemistry">
+                    🧪 Kimyo
+                </button>
+                <button class="category-tab" data-category="biology">
+                    🧬 Biologiya
+                </button>
+            </div>
+
+            <!-- My Progress -->
+            <section class="progress-section">
+                <h2 class="section-title">Sizning yutuqlaringiz</h2>
+                <div class="progress-grid">
+                    <div class="progress-card">
+                        <div class="progress-icon">📊</div>
+                        <div class="progress-info">
+                            <h3>8/20</h3>
+                            <p>Yakunlangan testlar</p>
+                        </div>
+                    </div>
+                    <div class="progress-card">
+                        <div class="progress-icon">⭐</div>
+                        <div class="progress-info">
+                            <h3>85%</h3>
+                            <p>O'rtacha natija</p>
+                        </div>
+                    </div>
+                    <div class="progress-card">
+                        <div class="progress-icon">🔥</div>
+                        <div class="progress-info">
+                            <h3>12 kun</h3>
+                            <p>Ketma-ket faollik</p>
+                        </div>
+                    </div>
+                    <div class="progress-card">
+                        <div class="progress-icon">🏆</div>
+                        <div class="progress-info">
+                            <h3>3-o'rin</h3>
+                            <p>Reyting</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Test -->
+            <section class="featured-test">
+                <div class="featured-content">
+                    <span class="featured-badge">🌟 Tavsiya etilgan</span>
+                    <h2>Qabul Imtihoni Simulyatori 2025</h2>
+                    <p>DTM imtihoniga tayyorgarlik ko'ring. Real imtihon sharoitida 100 ta savoldan iborat test.</p>
+                    <div class="featured-stats">
+                        <span class="stat">⏱️ 3 soat</span>
+                        <span class="stat">📝 100 savol</span>
+                        <span class="stat">👥 15,234 topshirgan</span>
+                        <span class="stat">⭐ 4.8/5</span>
+                    </div>
+                    <button class="btn btn-primary btn-large">Testni boshlash →</button>
+                </div>
+                <div class="featured-image">
+                    <div class="test-preview">
+                        <div class="preview-header">
+                            <span class="preview-badge">DEMO</span>
+                        </div>
+                        <div class="preview-content">
+                            <div class="sample-question">
+                                <p class="question-num">1-savol</p>
+                                <p class="question-text">2x + 5 = 15 tenglamani yeching...</p>
+                                <div class="sample-options">
+                                    <div class="sample-option">A) 5</div>
+                                    <div class="sample-option">B) 10</div>
+                                    <div class="sample-option selected">C) 5</div>
+                                    <div class="sample-option">D) 7.5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Test Categories Grid -->
+            <section class="tests-section">
+                <h2 class="section-title">Barcha testlar</h2>
+                
+                <div class="tests-grid">
+                    <!-- Psychology Test -->
+                    <div class="test-card" data-category="psychology">
+                        <div class="test-badge badge-psychology">🧠 Psixologik</div>
+                        <h3>Shaxsiy qiziqishlar testi</h3>
+                        <p>Sizning qiziqishlaringiz va shaxsiy xususiyatlaringizni aniqlang</p>
+                        <div class="test-meta">
+                            <span>⏱️ 15 min</span>
+                            <span>📝 30 savol</span>
+                            <span>⭐ 4.9/5</span>
+                        </div>
+                        <div class="test-progress-bar">
+                            <div class="test-progress-fill" style="width: 100%"></div>
+                        </div>
+                        <div class="test-actions">
+                            <button class="btn btn-outline btn-block">Natijalarni ko'rish</button>
+                            <span class="test-status completed">✓ Yakunlangan</span>
+                        </div>
+                    </div>
+
+                    <!-- Math Test 1 -->
+                    <div class="test-card" data-category="math">
+                        <div class="test-badge badge-math">🔢 Matematika</div>
+                        <h3>Algebra asoslari</h3>
+                        <p>Tenglamalar, tengsizliklar va funksiyalar bo'yicha test</p>
+                        <div class="test-meta">
+                            <span>⏱️ 45 min</span>
+                            <span>📝 25 savol</span>
+                            <span>⭐ 4.7/5</span>
+                        </div>
+                        <div class="test-progress-bar">
+                            <div class="test-progress-fill" style="width: 60%"></div>
+                        </div>
+                        <div class="test-actions">
+                            <button class="btn btn-primary btn-block">Davom ettirish</button>
+                            <span class="test-status in-progress">▶ Jarayonda</span>
+                        </div>
+                    </div>
+
+                    <!-- English Test -->
+                    <div class="test-card" data-category="english">
+                        <div class="test-badge badge-english">🇬🇧 Ingliz tili</div>
+                        <h3>Grammar va Vocabulary</h3>
+                        <p>Ingliz tili grammatikasi va lug'at boyligini tekshiring</p>
+                        <div class="test-meta">
+                            <span>⏱️ 30 min</span>
+                            <span>📝 40 savol</span>
+                            <span>⭐ 4.8/5</span>
+                        </div>
+                        <div class="test-actions">
+                            <button class="btn btn-primary btn-block">Boshlash</button>
+                            <span class="test-status">Yangi</span>
+                        </div>
+                    </div>
+
+                    <!-- Physics Test -->
+                    <div class="test-card" data-category="physics">
+                        <div class="test-badge badge-physics">⚛️ Fizika</div>
+                        <h3>Mexanika va Dinamika</h3>
+                        <p>Fizika asosiy qonunlari va formulalarni sinab ko'ring</p>
+                        <div class="test-meta">
+                            <span>⏱️ 50 min</span>
+                            <span>📝 30 savol</span>
+                            <span>⭐ 4.6/5</span>
+                        </div>
+                        <div class="test-actions">
+                            <button class="btn btn-primary btn-block">Boshlash</button>
+                            <span class="test-status">Yangi</span>
+                        </div>
+                    </div>
+
+                    <!-- Chemistry Test -->
+                    <div class="test-card" data-category="chemistry">
+                        <div class="test-badge badge-chemistry">🧪 Kimyo</div>
+                        <h3>Organik kimyo asoslari</h3>
+                        <p>Organik birikmalar va ularning xossalarini o'rganing</p>
+                        <div class="test-meta">
+                            <span>⏱️ 40 min</span>
+                            <span>📝 35 savol</span>
+                            <span>⭐ 4.5/5</span>
+                        </div>
+                        <div class="test-actions">
+                            <button class="btn btn-primary btn-block">Boshlash</button>
+                            <span class="test-status premium">⭐ Premium</span>
+                        </div>
+                    </div>
+
+                    <!-- Biology Test -->
+                    <div class="test-card" data-category="biology">
+                        <div class="test-badge badge-biology">🧬 Biologiya</div>
+                        <h3>Genetika va Evolyutsiya</h3>
+                        <p>Genetik qonunlar va evolyutsiya nazariyasi bo'yicha test</p>
+                        <div class="test-meta">
+                            <span>⏱️ 35 min</span>
+                            <span>📝 30 savol</span>
+                            <span>⭐ 4.7/5</span>
+                        </div>
+                        <div class="test-actions">
+                            <button class="btn btn-primary btn-block">Boshlash</button>
+                            <span class="test-status">Yangi</span>
+                        </div>
+                    </div>
+
+                    <!-- Math Test 2 -->
+                    <div class="test-card" data-category="math">
+                        <div class="test-badge badge-math">🔢 Matematika</div>
+                        <h3>Geometriya va Trigonometriya</h3>
+                        <p>Geometrik shakllar va trigonometrik funksiyalar</p>
+                        <div class="test-meta">
+                            <span>⏱️ 50 min</span>
+                            <span>📝 28 savol</span>
+                            <span>⭐ 4.8/5</span>
+                        </div>
+                        <div class="test-progress-bar">
+                            <div class="test-progress-fill" style="width: 100%"></div>
+                        </div>
+                        <div class="test-actions">
+                            <button class="btn btn-outline btn-block">Natijalarni ko'rish</button>
+                            <span class="test-status completed">✓ Yakunlangan</span>
+                        </div>
+                    </div>
+
+                    <!-- English Test 2 -->
+                    <div class="test-card" data-category="english">
+                        <div class="test-badge badge-english">🇬🇧 Ingliz tili</div>
+                        <h3>Reading Comprehension</h3>
+                        <p>Matnni tushunish va tahlil qilish ko'nikmasini tekshiring</p>
+                        <div class="test-meta">
+                            <span>⏱️ 40 min</span>
+                            <span>📝 20 savol</span>
+                            <span>⭐ 4.9/5</span>
+                        </div>
+                        <div class="test-actions">
+                            <button class="btn btn-primary btn-block">Boshlash</button>
+                            <span class="test-status premium">⭐ Premium</span>
+                        </div>
+                    </div>
+
+                    <!-- Complex Test -->
+                    <div class="test-card featured-card" data-category="all">
+                        <div class="test-badge badge-complex">🎯 Kompleks</div>
+                        <h3>DTM Imtihon Simulyatori</h3>
+                        <p>To'liq DTM imtihonini simulyatsiya qiluvchi kompleks test</p>
+                        <div class="test-meta">
+                            <span>⏱️ 3 soat</span>
+                            <span>📝 100 savol</span>
+                            <span>⭐ 4.9/5</span>
+                        </div>
+                        <div class="test-highlight">
+                            <span class="highlight-icon">🔥</span>
+                            <span>Eng mashhur test</span>
+                        </div>
+                        <div class="test-actions">
+                            <button class="btn btn-primary btn-block">Boshlash</button>
+                            <span class="test-status">Yangi</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leaderboard -->
+            <section class="leaderboard-section">
+                <h2 class="section-title">Top 10 reyting</h2>
+                <div class="leaderboard">
+                    <div class="leaderboard-item rank-1">
+                        <span class="rank">🥇 1</span>
+                        <div class="user-info">
+                            <img src="images/avatar.png" alt="User" class="leaderboard-avatar">
+                            <div>
+                                <span class="user-name">Dilshod Rahimov</span>
+                                <span class="user-score">98.5%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leaderboard-item rank-2">
+                        <span class="rank">🥈 2</span>
+                        <div class="user-info">
+                            <img src="images/avatar.png" alt="User" class="leaderboard-avatar">
+                            <div>
+                                <span class="user-name">Malika Usmonova</span>
+                                <span class="user-score">96.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leaderboard-item rank-3">
+                        <span class="rank">🥉 3</span>
+                        <div class="user-info">
+                            <img src="images/avatar.png" alt="User" class="leaderboard-avatar">
+                            <div>
+                                <span class="user-name">Aziz Karimov</span>
+                                <span class="user-score">95.1%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="rank">4</span>
+                        <div class="user-info">
+                            <img src="images/avatar.png" alt="User" class="leaderboard-avatar">
+                            <div>
+                                <span class="user-name">Shohruh Yuldashev</span>
+                                <span class="user-score">93.7%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="rank">5</span>
+                        <div class="user-info">
+                            <img src="images/avatar.png" alt="User" class="leaderboard-avatar">
+                            <div>
+                                <span class="user-name">Nigora Alimova</span>
+                                <span class="user-score">92.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+
+    <style>
+        .test-categories {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .category-tab {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border-color);
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .category-tab:hover {
+            border-color: var(--primary-color);
+        }
+
+        .category-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .progress-section {
+            margin-bottom: 3rem;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .progress-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .progress-icon {
+            font-size: 2.5rem;
+        }
+
+        .progress-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .progress-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .featured-test {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .featured-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured-content p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .featured-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .featured-stats .stat {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .test-preview {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .preview-header {
+            margin-bottom: 1rem;
+        }
+
+        .preview-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .sample-question {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .question-num {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            margin-bottom: 1rem;
+        }
+
+        .sample-options {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .sample-option {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        .sample-option.selected {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .tests-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .test-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .test-card.featured-card {
+            border: 3px solid var(--primary-color);
+        }
+
+        .test-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .badge-psychology { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+        .badge-math { background: rgba(37, 99, 235, 0.1); color: var(--primary-color); }
+        .badge-english { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .badge-physics { background: rgba(239, 68, 68, 0.1); color: var(--error); }
+        .badge-chemistry { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+        .badge-biology { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .badge-complex { background: rgba(234, 179, 8, 0.1); color: #eab308; }
+
+        .test-card h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .test-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .test-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .test-progress-bar {
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .test-progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .test-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .test-status {
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .test-status.completed {
+            color: var(--success);
+        }
+
+        .test-status.in-progress {
+            color: var(--warning);
+        }
+
+        .test-status.premium {
+            color: #eab308;
+        }
+
+        .test-highlight {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            color: var(--error);
+            font-weight: 600;
+        }
+
+        .highlight-icon {
+            font-size: 1.2rem;
+        }
+
+        .leaderboard-section {
+            margin-top: 3rem;
+        }
+
+        .leaderboard {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .leaderboard-item:last-child {
+            border-bottom: none;
+        }
+
+        .leaderboard-item.rank-1 {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
+        }
+
+        .leaderboard-item.rank-2 {
+            background: linear-gradient(90deg, rgba(192, 192, 192, 0.1), transparent);
+        }
+
+        .leaderboard-item.rank-3 {
+            background: linear-gradient(90deg, rgba(205, 127, 50, 0.1), transparent);
+        }
+
+        .rank {
+            font-size: 1.2rem;
+            font-weight: 700;
+            min-width: 50px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .leaderboard-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .user-info div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 600;
+        }
+
+        .user-score {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 1024px) {
+            .featured-test {
+                grid-template-columns: 1fr;
+            }
+
+            .tests-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .progress-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tests-grid,
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Category filtering
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Faol tabni o'zgartirish
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Tanlangan kategoriya
+                const category = this.getAttribute('data-category');
+
+                // Barcha test kartalarini ko'rsatish/yashirish
+                document.querySelectorAll('.test-card').forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    
+                    if (category === 'all' || cardCategory === category || (category === 'all' && cardCategory)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Sahifa yuklanganda "Barchasi" kategoriyasini faol qilish (default)
+        document.querySelector('.category-tab.active').click();
+    </script>
+</body>
+</html>

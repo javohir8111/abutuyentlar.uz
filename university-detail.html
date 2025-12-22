@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TATU - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body class="dashboard-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <span class="brand-name">Abuturentlar</span>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="recommendations.html" class="nav-item">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-text">AI Tavsiyalar</span>
+            </a>
+            <a href="universities.html" class="nav-item active">
+                <span class="nav-icon">🎓</span>
+                <span class="nav-text">Universitetlar</span>
+            </a>
+            <a href="colleges.html" class="nav-item">
+                <span class="nav-icon">🏫</span>
+                <span class="nav-text">Texnikumlar</span>
+            </a>
+            <a href="foreign-universities.html" class="nav-item">
+                <span class="nav-icon">🌍</span>
+                <span class="nav-text">Chet el</span>
+            </a>
+            <a href="tests.html" class="nav-item">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Testlar</span>
+            </a>
+            <a href="news.html" class="nav-item">
+                <span class="nav-icon">📰</span>
+                <span class="nav-text">Yangiliklar</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-text">Profil</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="pricing.html" class="upgrade-btn">
+                <span class="upgrade-icon">⭐</span>
+                <span>Premium obuna</span>
+            </a>
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🚪</span>
+                <span class="nav-text">Chiqish</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Universitet, yo'nalish qidirish...">
+            </div>
+            <div class="top-bar-actions">
+                <button class="icon-btn">
+                    <span class="notification-badge">3</span>
+                    🔔
+                </button>
+                <div class="user-menu">
+                    <img src="images/avatar.png" alt="User" class="user-avatar">
+                    <span class="user-name">Aziz Karimov</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="dashboard-content">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="universities.html">Universitetlar</a>
+                <span>›</span>
+                <span>TATU</span>
+            </nav>
+
+            <!-- University Header -->
+            <section class="uni-detail-header">
+                <div class="uni-header-content">
+                    <img src="images/universities/tatu.png" alt="TATU" class="uni-logo-large">
+                    <div class="uni-header-info">
+                        <div class="uni-badges">
+                            <span class="badge badge-blue">Davlat</span>
+                            <span class="badge badge-green">IT</span>
+                            <span class="badge badge-orange">Top 5</span>
+                        </div>
+                        <h1>TATU</h1>
+                        <h2 class="uni-full-name">Toshkent Axborot Texnologiyalari Universiteti</h2>
+                        <div class="uni-quick-info">
+                            <div class="quick-info-item">
+                                <span class="info-icon">📊</span>
+                                <div>
+                                    <span class="info-label">Minimal ball</span>
+                                    <span class="info-value">189.2</span>
+                                </div>
+                            </div>
+                            <div class="quick-info-item">
+                                <span class="info-icon">👥</span>
+                                <div>
+                                    <span class="info-label">Talabalar</span>
+                                    <span class="info-value">5,000+</span>
+                                </div>
+                            </div>
+                            <div class="quick-info-item">
+                                <span class="info-icon">⭐</span>
+                                <div>
+                                    <span class="info-label">Reyting</span>
+                                    <span class="info-value">4.8/5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uni-actions">
+                    <button class="btn btn-primary btn-large">📋 Ariza topshirish</button>
+                    <button class="btn btn-outline btn-large">🔖 Saqlash</button>
+                    <button class="btn btn-outline btn-large">↗️ Ulashish</button>
+                </div>
+            </section>
+
+            <!-- Tab Navigation -->
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="overview">Umumiy ma'lumot</button>
+                <button class="tab-btn" data-tab="directions">Yo'nalishlar</button>
+                <button class="tab-btn" data-tab="admission">Qabul</button>
+                <button class="tab-btn" data-tab="campus">Kampus</button>
+                <button class="tab-btn" data-tab="reviews">Sharhlar</button>
+            </div>
+
+            <div class="detail-grid">
+                <!-- Main Content -->
+                <div class="detail-main">
+                    <!-- Overview Tab -->
+                    <div class="tab-content active" id="overview">
+                        <section class="detail-section">
+                            <h3>Universitet haqida</h3>
+                            <p>Toshkent Axborot Texnologiyalari Universiteti - O'zbekistonda axborot texnologiyalari sohasida kadrlar tayyorlovchi yetakchi oliy ta'lim muassasasi. 2019-yilda tashkil etilgan universitet zamonaviy texnologiyalar va innovatsiyalar markaziga aylandi.</p>
+                            
+                            <div class="features-grid">
+                                <div class="feature-box">
+                                    <span class="feature-icon">🏆</span>
+                                    <h4>Yuqori darajadagi ta'lim</h4>
+                                    <p>Xalqaro standartlarga mos o'quv dasturlari</p>
+                                </div>
+                                <div class="feature-box">
+                                    <span class="feature-icon">💼</span>
+                                    <h4>Ish bilan ta'minlash</h4>
+                                    <p>Bitiruvchilarning 95% ish bilan ta'minlanadi</p>
+                                </div>
+                                <div class="feature-box">
+                                    <span class="feature-icon">🌍</span>
+                                    <h4>Xalqaro aloqalar</h4>
+                                    <p>50+ xorijiy universitetlar bilan hamkorlik</p>
+                                </div>
+                                <div class="feature-box">
+                                    <span class="feature-icon">🔬</span>
+                                    <h4>Ilmiy tadqiqotlar</h4>
+                                    <p>Zamonaviy laboratoriyalar va innovatsion markazlar</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="detail-section">
+                            <h3>Asosiy ko'rsatkichlar</h3>
+                            <div class="stats-detailed">
+                                <div class="stat-detailed">
+                                    <span class="stat-number">2019</span>
+                                    <span class="stat-label">Tashkil etilgan yil</span>
+                                </div>
+                                <div class="stat-detailed">
+                                    <span class="stat-number">15+</span>
+                                    <span class="stat-label">Yo'nalishlar</span>
+                                </div>
+                                <div class="stat-detailed">
+                                    <span class="stat-number">5000+</span>
+                                    <span class="stat-label">Talabalar</span>
+                                </div>
+                                <div class="stat-detailed">
+                                    <span class="stat-number">300+</span>
+                                    <span class="stat-label">O'qituvchilar</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="detail-section">
+                            <h3>Afzalliklar</h3>
+                            <ul class="advantages-list">
+                                <li>✓ Zamonaviy IT laboratoriyalar va uskunalar</li>
+                                <li>✓ Yetakchi IT kompaniyalar bilan hamkorlik</li>
+                                <li>✓ Xalqaro sertifikatlar olish imkoniyati</li>
+                                <li>✓ Startup loyihalarni qo'llab-quvvatlash</li>
+                                <li>✓ Amaliy ko'nikmalar va real loyihalar</li>
+                                <li>✓ Zamonaviy kutubxona va e-resurslar</li>
+                                <li>✓ Sport majmuasi va yotoqxonalar</li>
+                                <li>✓ Talabalar uchun stipendiyalar va imtiyozlar</li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <!-- Directions Tab -->
+                    <div class="tab-content" id="directions">
+                        <section class="detail-section">
+                            <h3>Bakalavr yo'nalishlari</h3>
+                            
+                            <div class="directions-list">
+                                <div class="direction-card">
+                                    <div class="direction-header">
+                                        <h4>Dasturiy injiniring</h4>
+                                        <span class="direction-code">60610300</span>
+                                    </div>
+                                    <div class="direction-info">
+                                        <div class="info-row">
+                                            <span>📊 Minimal ball:</span>
+                                            <strong>189.2</strong>
+                                        </div>
+                                        <div class="info-row">
+                                            <span>💰 Kontrakt:</span>
+                                            <strong>12,500,000 so'm/yil</strong>
+                                        </div>
+                                        <div class="info-row">
+                                            <span>👥 Grant o'rinlar:</span>
+                                            <strong>50</strong>
+                                        </div>
+                                        <div class="info-row">
+                                            <span>👥 To'lov-kontrakt:</span>
+                                            <strong>150</strong>
+                                        </div>
+                                    </div>
+                                    <p class="direction-desc">Dasturiy ta'minot ishlab chiqish, mobil va web ilovalar yaratish</p>
+                                </div>
+
+                                <div class="direction-card">
+                                    <div class="direction-header">
+                                        <h4>Kompyuter injiniringi</h4>
+                                        <span class="direction-code">60610200</span>
+                                    </div>
+                                    <div class="direction-info">
+                                        <div class="info-row">
+                                            <span>📊 Minimal ball:</span>
+                                            <strong>187.5</strong>
+                                        </div>
+                                        <div class="info-row">
+                                            <span>💰 Kontrakt:</span>
+                                            <strong>11,800,000 so'm/yil</strong>
+                                        </div>
+                                        <div class="info-row">
+                                            <span>👥 Grant o'rinlar:</span>
+                                            <strong>40</strong>
+                                        </div>
+                                        <div class="info-row">
+                                            <span>👥 To'lov-kontrakt:</span>
+                                            <strong>120</strong>
+                                        </div>
+                                    </div>
+                                    <p class="direction-desc">Kompyuter tizimlari va tarmoqlarini loyihalash va boshqarish</p>
+                                </div>
+
+                                <div class="direction-card">
+                                    <div class="direction-header">
+                                        <h4>Axborot tizimlari va texnologiyalari</h4>
+                                        <span class="direction-code">60610100</span>
+                                    </div>
+                                    <div class="direction-info">
+                                        <div class="info-row">
+                                            <span>📊 Minimal ball:</span>
+                                            <strong>185.0</strong>
+                                        </div>
+                                        <div class="info-row">
+                                            <span>💰 Kontrakt:</span>
+                                            <strong>11,000,000 so'm/yil</strong>
+                                        </div>
+                                        <div class="info-row">
+                                            <span>👥 Grant o'rinlar:</span>
+                                            <strong>45</strong>
+                                        </div>
+                                        <div class="info-row">
+                                            <span>👥 To'lov-kontrakt:</span>
+                                            <strong>135</strong>
+                                        </div>
+                                    </div>
+                                    <p class="direction-desc">Axborot tizimlarini yaratish, joriy etish va qo'llab-quvvatlash</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Admission Tab -->
+                    <div class="tab-content" id="admission">
+                        <section class="detail-section">
+                            <h3>Qabul jarayoni</h3>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">1</div>
+                                    <div class="timeline-content">
+                                        <h4>Onlayn ro'yxatdan o'tish</h4>
+                                        <p>15 yanvar - 1 avgust</p>
+                                        <p>qabul.tatu.uz saytida ariza to'ldiring</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">2</div>
+                                    <div class="timeline-content">
+                                        <h4>Test topshirish</h4>
+                                        <p>1 avgust - 20 avgust</p>
+                                        <p>DTM markazlarida test topshiring</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">3</div>
+                                    <div class="timeline-content">
+                                        <h4>Natijalar e'lon qilinishi</h4>
+                                        <p>25 avgust</p>
+                                        <p>Qabul natijalari rasmiy e'lon qilinadi</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">4</div>
+                                    <div class="timeline-content">
+                                        <h4>Hujjatlar topshirish</h4>
+                                        <p>26 avgust - 31 avgust</p>
+                                        <p>Asl hujjatlarni universitetga topshiring</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">5</div>
+                                    <div class="timeline-content">
+                                        <h4>O'qishni boshlash</h4>
+                                        <p>1 sentyabr</p>
+                                        <p>O'quv yili boshlanadi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="detail-section">
+                            <h3>Kerakli hujjatlar</h3>
+                            <div class="documents-grid">
+                                <div class="document-item">
+                                    <span class="doc-icon">📄</span>
+                                    <span>Maktabni bitirganlik haqida attestat (asl nusxa)</span>
+                                </div>
+                                <div class="document-item">
+                                    <span class="doc-icon">📋</span>
+                                    <span>Pasport nusxasi</span>
+                                </div>
+                                <div class="document-item">
+                                    <span class="doc-icon">📸</span>
+                                    <span>3x4 o'lchamda 6 ta fotosurat</span>
+                                </div>
+                                <div class="document-item">
+                                    <span class="doc-icon">💳</span>
+                                    <span>JSHIR guvohnomasi</span>
+                                </div>
+                                <div class="document-item">
+                                    <span class="doc-icon">🏥</span>
+                                    <span>086-shakldagi tibbiy ma'lumotnoma</span>
+                                </div>
+                                <div class="document-item">
+                                    <span class="doc-icon">📊</span>
+                                    <span>Test natijasi (DTM sertifikati)</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="detail-section">
+                            <h3>Imtiyozlar</h3>
+                            <ul class="benefits-list">
+                                <li>🥇 Olimpiada g'oliblari - to'liq grant</li>
+                                <li>🎖️ "Zulfiya" ordeni egalari - imtiyozli qabul</li>
+                                <li>♿ Nogironligi bo'lganlar - 5% imtiyoz</li>
+                                <li>👨‍👩‍👧 Ko'p bolali oilalar - 3% imtiyoz</li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <!-- Campus Tab -->
+                    <div class="tab-content" id="campus">
+                        <section class="detail-section">
+                            <h3>Kampus va infratuzilma</h3>
+                            
+                            <div class="campus-gallery">
+                                <div class="gallery-item main-image">
+                                    <img src="images/campus/tatu-main.jpg" alt="Kampus" class="campus-image">
+                                    <span class="gallery-label">Asosiy bino</span>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/campus/tatu-lab.jpg" alt="Laboratoriya" class="campus-image">
+                                    <span class="gallery-label">IT laboratoriyalari</span>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/campus/tatu-library.jpg" alt="Kutubxona" class="campus-image">
+                                    <span class="gallery-label">Kutubxona</span>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="images/campus/tatu-sport.jpg" alt="Sport" class="campus-image">
+                                    <span class="gallery-label">Sport majmuasi</span>
+                                </div>
+                            </div>
+
+                            <div class="facilities-grid">
+                                <div class="facility-card">
+                                    <span class="facility-icon">💻</span>
+                                    <h4>Zamonaviy laboratoriyalar</h4>
+                                    <p>500+ zamonaviy kompyuterlar va texnologiyalar</p>
+                                </div>
+                                <div class="facility-card">
+                                    <span class="facility-icon">📚</span>
+                                    <h4>Katta kutubxona</h4>
+                                    <p>50,000+ kitoblar va elektron resurslar</p>
+                                </div>
+                                <div class="facility-card">
+                                    <span class="facility-icon">🏃</span>
+                                    <h4>Sport majmuasi</h4>
+                                    <p>Zamonaviy sport zallari va maydonchalar</p>
+                                </div>
+                                <div class="facility-card">
+                                    <span class="facility-icon">🍽️</span>
+                                    <h4>Oshxona</h4>
+                                    <p>Arzon va mazali ovqatlar</p>
+                                </div>
+                                <div class="facility-card">
+                                    <span class="facility-icon">🏠</span>
+                                    <h4>Yotoqxona</h4>
+                                    <p>Talabalar uchun qulay turar joy</p>
+                                </div>
+                                <div class="facility-card">
+                                    <span class="facility-icon">🚍</span>
+                                    <h4>Transport</h4>
+                                    <p>Universitet avtobuslari xizmati</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="detail-section">
+                            <h3>Manzil va aloqa</h3>
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <span class="contact-icon">📍</span>
+                                    <div>
+                                        <strong>Manzil:</strong>
+                                        <p>Toshkent sh., Amir Temur ko'chasi, 108-uy</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">📞</span>
+                                    <div>
+                                        <strong>Telefon:</strong>
+                                        <p>+998 71 238 42 42</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">📧</span>
+                                    <div>
+                                        <strong>Email:</strong>
+                                        <p>info@tatu.uz</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <span class="contact-icon">🌐</span>
+                                    <div>
+                                        <strong>Website:</strong>
+                                        <p>www.tatu.uz</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="map-container">
+                                <div class="map-placeholder">
+                                    🗺️ Xarita (Google Maps integratsiyasi)
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div class="tab-content" id="reviews">
+                        <section class="detail-section">
+                            <div class="reviews-header">
+                                <h3>Talabalar fikri</h3>
+                                <div class="overall-rating">
+                                    <span class="rating-score">4.8</span>
+                                    <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                                    <span class="rating-count">234 sharh</span>
+                                </div>
+                            </div>
+
+                            <div class="rating-breakdown">
+                                <div class="rating-row">
+                                    <span>5 ⭐</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span>175</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span>4 ⭐</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 15%"></div>
+                                    </div>
+                                    <span>35</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span>3 ⭐</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 7%"></div>
+                                    </div>
+                                    <span>17</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span>2 ⭐</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 2%"></div>
+                                    </div>
+                                    <span>5</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span>1 ⭐</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 1%"></div>
+                                    </div>
+                                    <span>2</span>
+                                </div>
+                            </div>
+
+                            <div class="reviews-list">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <img src="images/avatar.png" alt="User" class="review-avatar">
+                                        <div class="review-info">
+                                            <strong>Dilshod Rahimov</strong>
+                                            <span class="review-meta">3-kurs talabasi • 2 kun oldin</span>
+                                        </div>
+                                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                                    </div>
+                                    <p class="review-text">Ajoyib universitet! O'qituvchilar juda malakali va tajribali. Zamonaviy laboratoriyalar va uskunalar bilan ishlash imkoniyati bor. Eng asosiy amaliy ko'nikmalar juda yaxshi o'rgatiladi.</p>
+                                    <div class="review-helpful">
+                                        <button class="helpful-btn">👍 Foydali (23)</button>
+                                        <button class="helpful-btn">👎 (2)</button>
+                                    </div>
+                                </div>
+
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <img src="images/avatar.png" alt="User" class="review-avatar">
+                                        <div class="review-info">
+                                            <strong>Malika Usmonova</strong>
+                                            <span class="review-meta">2-kurs talabasi • 1 hafta oldin</span>
+                                        </div>
+                                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                                    </div>
+                                    <p class="review-text">TATU da o'qishga juda mamnunman. Startup loyihalarni qo'llab-quvvatlaydilar, talabalar uchun ko'plab imkoniyatlar mavjud. Yotoqxona ham qulay va arzon.</p>
+                                    <div class="review-helpful">
+                                        <button class="helpful-btn">👍 Foydali (18)</button>
+                                        <button class="helpful-btn">👎 (1)</button>
+                                    </div>
+                                </div>
+
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <img src="images/avatar.png" alt="User" class="review-avatar">
+                                        <div class="review-info">
+                                            <strong>Shohruh Yuldashev</strong>
+                                            <span class="review-meta">Bitiruvchi • 2 hafta oldin</span>
+                                        </div>
+                                        <div class="review-rating">⭐⭐⭐⭐</div>
+                                    </div>
+                                    <p class="review-text">4 yil o'qib bitirdim. Umuman olganda yaxshi universitet. Amaliyot juda ko'p, bu yaxshi tomoni. Lekin ba'zi fanlar biroz zamonaviylashtirish kerak.</p>
+                                    <div class="review-helpful">
+                                        <button class="helpful-btn">👍 Foydali (15)</button>
+                                        <button class="helpful-btn">👎 (3)</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-outline btn-block">Barcha sharhlarni ko'rish</button>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="detail-sidebar">
+                    <!-- Quick Actions -->
+                    <div class="sidebar-card">
+                        <h3>Tezkor havolalar</h3>
+                        <div class="quick-actions">
+                            <a href="#" class="action-btn">📞 Qo'ng'iroq qilish</a>
+                            <a href="#" class="action-btn">💬 Chat boshlash</a>
+                            <a href="#" class="action-btn">📧 Email yuborish</a>
+                            <a href="#" class="action-btn">🌐 Saytga o'tish</a>
+                        </div>
+                    </div>
+
+                    <!-- Similar Universities -->
+                    <div class="sidebar-card">
+                        <h3>O'xshash universitetlar</h3>
+                        <div class="similar-unis">
+                            <a href="#" class="similar-uni">
+                                <img src="images/universities/inha.png" alt="INHA" class="similar-logo">
+                                <div>
+                                    <strong>INHA</strong>
+                                    <span>185.0 ball</span>
+                                </div>
+                            </a>
+                            <a href="#" class="similar-uni">
+                                <img src="images/universities/wiut.png" alt="WIUT" class="similar-logo">
+                                <div>
+                                    <strong>WIUT</strong>
+                                    <span>180.5 ball</span>
+                                </div>
+                            </a>
+                            <a href="#" class="similar-uni">
+                                <img src="images/universities/team.png" alt="TEAM" class="similar-logo">
+                                <div>
+                                    <strong>TEAM</strong>
+                                    <span>175.0 ball</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Important Dates -->
+                    <div class="sidebar-card">
+                        <h3>Muhim sanalar</h3>
+                        <div class="important-dates">
+                            <div class="date-item">
+                                <span class="date-day">15</span>
+                                <div class="date-info">
+                                    <strong>Yanvar</strong>
+                                    <span>Ariza topshirish boshlanadi</span>
+                                </div>
+                            </div>
+                            <div class="date-item">
+                                <span class="date-day">1</span>
+                                <div class="date-info">
+                                    <strong>Avgust</strong>
+                                    <span>Test boshlandi</span>
+                                </div>
+                            </div>
+                            <div class="date-item">
+                                <span class="date-day">25</span>
+                                <div class="date-info">
+                                    <strong>Avgust</strong>
+                                    <span>Natijalar e'lon qilinadi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+
+    <style>
+        .breadcrumb {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .uni-detail-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .uni-header-content {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .uni-logo-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 16px;
+            background: var(--bg-light);
+        }
+
+        .uni-header-info {
+            flex: 1;
+        }
+
+        .uni-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .uni-detail-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .uni-full-name {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .uni-quick-info {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .quick-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            font-size: 2rem;
+        }
+
+        .info-label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .info-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .uni-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .tabs-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .detail-main {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .detail-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .detail-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-box {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .feature-box h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-box p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .stats-detailed {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+        }
+
+        .advantages-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .advantages-list li {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .directions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .direction-card {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .direction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .direction-code {
+            padding: 0.25rem 0.75rem;
+            background: white;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .direction-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .direction-desc {
+            color: var(--text-secondary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -3rem;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .timeline-content h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .doc-icon {
+            font-size: 1.5rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .campus-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .main-image {
+            grid-row: span 2;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .campus-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: var(--border-color);
+        }
+
+        .main-image .campus-image {
+            height: 100%;
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            font-weight: 600;
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .facility-card {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .facility-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
+        .map-container {
+            margin-top: 2rem;
+        }
+
+        .map-placeholder {
+            height: 300px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .overall-rating {
+            text-align: center;
+        }
+
+        .rating-score {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .rating-stars {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .rating-count {
+            color: var(--text-secondary);
+        }
+
+        .rating-breakdown {
+            margin-bottom: 2rem;
+        }
+
+        .rating-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .rating-fill {
+            height: 100%;
+            background: var(--warning);
+        }
+
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .review-card {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+
+        .review-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .review-info {
+            flex: 1;
+        }
+
+        .review-meta {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .review-rating {
+            font-size: 1.2rem;
+        }
+
+        .review-text {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .review-helpful {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .helpful-btn {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .helpful-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .sidebar-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .action-btn {
+            display: block;
+            padding: 0.75rem;
+            background: var(--bg-light);
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .similar-unis {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .similar-uni {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+
+        .similar-uni:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .similar-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .similar-uni strong {
+            display: block;
+        }
+
+        .similar-uni span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .similar-uni:hover span {
+            color: white;
+            opacity: 0.9;
+        }
+
+        .important-dates {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .date-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .date-day {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .date-info strong {
+            display: block;
+        }
+
+        .date-info span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 1024px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .stats-detailed,
+            .advantages-list,
+            .documents-grid,
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .campus-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetTab = this.dataset.tab;
+                
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

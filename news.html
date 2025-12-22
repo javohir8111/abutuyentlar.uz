@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Yangiliklar — Abiturentlar</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Navigation (kopiya index.html dan moslashtirilgan) -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <img src="images/icons/logo.png" alt="Abuturentlar.uz" class="logo">
+        <span class="brand-name">Abuturentlar.uz</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Bosh sahifa</a></li>
+        <li><a href="universities.html">Universitetlar</a></li>
+        <li><a href="tests.html">Testlar</a></li>
+        <li><a href="news.html" class="active">Yangiliklar</a></li>
+        <li><a href="pricing.html">Narxlar</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline">Kirish</a>
+        <a href="register.html" class="btn btn-primary">Ro'yxatdan o'tish</a>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">So'nggi yangiliklar va e'lonlar</h1>
+        <p class="hero-description">Ta'lim olamidan dolzarb yangiliklar, grant va stipendiyalar, imtihonlar va muhim e'lonlar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content: news list + sidebar -->
+  <main class="container" style="padding:40px 20px;">
+    <div style="display:grid;grid-template-columns:3fr 1fr;gap:30px;align-items:start;">
+      <!-- News list -->
+      <section>
+        <h2 class="section-title">Yangiliklar</h2>
+        <p class="section-subtitle">Eng so'nggi va muhim yangiliklar ro'yxati</p>
+
+        <div class="features-grid" style="grid-template-columns:repeat(2,1fr);">
+          <!-- News item 1 -->
+          <article class="feature-card">
+            <img data-src="images/universities/news-1.jpg" alt="Yangilik 1" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:1rem;" />
+            <h3>Oliy ta'limda yangi grant dasturi e'lon qilindi</h3>
+            <p style="color:var(--text-secondary);">Davlat va xususiy hamkorlar tomonidan yillik grant dasturi e'lon qilindi — talablar va ariza topshirish muddatlari haqida batafsil.</p>
+            <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;">
+              <small style="color:var(--text-secondary);">12 Dekabr, 2025</small>
+              <a href="news-detail.html" class="link-primary">Batafsil</a>
+            </div>
+          </article>
+
+          <!-- News item 2 -->
+          <article class="feature-card">
+            <img data-src="images/universities/news-2.jpg" alt="Yangilik 2" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:1rem;" />
+            <h3>Imtihon talablari yangilandi</h3>
+            <p style="color:var(--text-secondary);">Kirish imtihonlarining tuzilishi va baholash mezonlariga o'zgartirishlar kiritildi — o'qish rejangizni yangilang.</p>
+            <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;">
+              <small style="color:var(--text-secondary);">05 Dekabr, 2025</small>
+              <a href="news-detail.html" class="link-primary">Batafsil</a>
+            </div>
+          </article>
+
+          <!-- News item 3 -->
+          <article class="feature-card">
+            <img data-src="images/universities/news-3.jpg" alt="Yangilik 3" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:1rem;" />
+            <h3>Chet elda o'qish uchun stipendiyalar ochildi</h3>
+            <p style="color:var(--text-secondary);">Turli mamlakatlar universitetlari abituriyentlar uchun yangi stipendiyalar e'lon qildi — ariza shartlari va hujjatlar.</p>
+            <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;">
+              <small style="color:var(--text-secondary);">28 Noyabr, 2025</small>
+              <a href="news-detail.html" class="link-primary">Batafsil</a>
+            </div>
+          </article>
+
+          <!-- News item 4 -->
+          <article class="feature-card">
+            <img data-src="images/universities/news-4.jpg" alt="Yangilik 4" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:1rem;" />
+            <h3>Onlayn seminarlar: Qayerni va qanday tanlash kerak?</h3>
+            <p style="color:var(--text-secondary);">Tajriba almashuv vebinarlarida mutaxassislar yo'nalish tanlash bo'yicha maslahat beradi — ro'yxatdan o'tish bepul.</p>
+            <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;">
+              <small style="color:var(--text-secondary);">10 Noyabr, 2025</small>
+              <a href="news-detail.html" class="link-primary">Batafsil</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Pagination -->
+        <div style="margin-top:20px;display:flex;gap:8px;justify-content:center;">
+          <a href="#" class="btn btn-outline">← Oldingi</a>
+          <a href="#" class="btn btn-outline">Keyingi →</a>
+        </div>
+      </section>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="feature-card" style="padding:1rem;">
+          <h4 style="margin-bottom:0.5rem;">Qidiruv</h4>
+          <form class="search-bar" style="margin-bottom:1rem;">
+            <input type="search" placeholder="Yangiliklarni qidirish..." style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid var(--border-color);" />
+          </form>
+
+          <h4 style="margin-top:1rem;">Kategoriya</h4>
+          <ul style="list-style:none;padding-left:0;margin-top:0.5rem;">
+            <li><a href="#" class="link-text">Bosh yangiliklar</a></li>
+            <li><a href="#" class="link-text">Grantlar va stipendiyalar</a></li>
+            <li><a href="#" class="link-text">Imtihonlar</a></li>
+            <li><a href="#" class="link-text">Seminarlar</a></li>
+          </ul>
+        </div>
+
+        <div class="feature-card" style="margin-top:1rem;padding:1rem;">
+          <h4>Mashhur maqolalar</h4>
+          <ol style="margin-top:0.5rem;color:var(--text-secondary);">
+            <li><a href="news-detail.html" class="link-primary">Universitetlarga kirish bo'yicha 10 maslahat</a></li>
+            <li><a href="news-detail.html" class="link-primary">Grantlar: qayer va qanday ariza topshirish</a></li>
+            <li><a href="news-detail.html" class="link-primary">Testni qanday muvaffaqiyatli topshirish</a></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer (kopiya index.html dan) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Abuturentlar.uz</h3>
+          <p>O'zbekiston abituriyentlari uchun eng yaxshi yo'riqnoma platformasi</p>
+          <div class="social-links">
+            <a href="#" class="social-link">📘</a>
+            <a href="#" class="social-link">📷</a>
+            <a href="#" class="social-link">📱</a>
+            <a href="#" class="social-link">▶️</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Tez havolalar</h4>
+          <ul class="footer-links">
+            <li><a href="universities.html">Universitetlar</a></li>
+            <li><a href="colleges.html">Texnikumlar</a></li>
+            <li><a href="foreign-universities.html">Chet el</a></li>
+            <li><a href="tests.html">Testlar</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Yordam</h4>
+          <ul class="footer-links">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Aloqa</a></li>
+            <li><a href="#">Maxfiylik</a></li>
+            <li><a href="#">Foydalanish shartlari</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Aloqa</h4>
+          <ul class="footer-links">
+            <li>📧 info@abuturentlar.uz</li>
+            <li>📞 +998 99 123 45 67</li>
+            <li>📍 Toshkent, O'zbekiston</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Abuturentlar.uz. Barcha huquqlar himoyalangan.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

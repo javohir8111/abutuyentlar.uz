@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To'lov - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Abuturentlar.uz" class="logo">
+                <span class="brand-name">Abuturentlar.uz</span>
+            </div>
+            <div class="nav-actions">
+                <a href="pricing.html" class="btn btn-outline">← Orqaga</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Payment Page -->
+    <div class="payment-page">
+        <div class="container">
+            <div class="payment-grid">
+                <!-- Payment Form -->
+                <div class="payment-form-section">
+                    <h1>To'lovni amalga oshirish</h1>
+                    <p class="payment-subtitle">Xavfsiz va tez to'lov tizimi</p>
+
+                    <!-- Payment Method Selection -->
+                    <div class="payment-methods">
+                        <h3>To'lov usulini tanlang</h3>
+                        <div class="method-grid">
+                            <label class="method-card">
+                                <input type="radio" name="payment-method" value="payme" checked>
+                                <div class="method-content">
+                                    <img src="images/payment/payme.png" alt="Payme" class="method-logo">
+                                    <span class="method-name">Payme</span>
+                                </div>
+                            </label>
+
+                            <label class="method-card">
+                                <input type="radio" name="payment-method" value="click">
+                                <div class="method-content">
+                                    <img src="images/payment/click.png" alt="Click" class="method-logo">
+                                    <span class="method-name">Click</span>
+                                </div>
+                            </label>
+
+                            <label class="method-card">
+                                <input type="radio" name="payment-method" value="uzcard">
+                                <div class="method-content">
+                                    <img src="images/payment/uzcard.png" alt="Uzcard" class="method-logo">
+                                    <span class="method-name">Uzcard</span>
+                                </div>
+                            </label>
+
+                            <label class="method-card">
+                                <input type="radio" name="payment-method" value="humo">
+                                <div class="method-content">
+                                    <img src="images/payment/humo.png" alt="Humo" class="method-logo">
+                                    <span class="method-name">Humo</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Card Information -->
+                    <form class="payment-form" id="paymentForm">
+                        <h3>Karta ma'lumotlari</h3>
+                        
+                        <div class="form-group">
+                            <label for="cardNumber" class="form-label">Karta raqami</label>
+                            <input 
+                                type="text" 
+                                id="cardNumber" 
+                                class="form-input card-input" 
+                                placeholder="0000 0000 0000 0000"
+                                maxlength="19"
+                                required
+                            >
+                            <div class="card-icons">
+                                <img src="images/payment/uzcard-icon.png" alt="Uzcard" class="card-icon">
+                                <img src="images/payment/humo-icon.png" alt="Humo" class="card-icon">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry" class="form-label">Amal qilish muddati</label>
+                                <input 
+                                    type="text" 
+                                    id="cardExpiry" 
+                                    class="form-input" 
+                                    placeholder="MM/YY"
+                                    maxlength="5"
+                                    required
+                                >
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCVV" class="form-label">CVV</label>
+                                <input 
+                                    type="text" 
+                                    id="cardCVV" 
+                                    class="form-input" 
+                                    placeholder="***"
+                                    maxlength="3"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardHolder" class="form-label">Karta egasining ismi</label>
+                            <input 
+                                type="text" 
+                                id="cardHolder" 
+                                class="form-input" 
+                                placeholder="AZIZ KARIMOV"
+                                required
+                            >
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="promo-section">
+                            <h3>Promo kod</h3>
+                            <div class="promo-input-group">
+                                <input 
+                                    type="text" 
+                                    id="promoCode" 
+                                    class="form-input" 
+                                    placeholder="Promo kodni kiriting"
+                                >
+                                <button type="button" class="btn btn-outline" id="applyPromo">Qo'llash</button>
+                            </div>
+                            <p class="promo-message" id="promoMessage"></p>
+                        </div>
+
+                        <!-- Terms -->
+                        <div class="terms-checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span>
+                                    Men <a href="#" class="link-primary">Foydalanish shartlari</a> va 
+                                    <a href="#" class="link-primary">Qaytarish siyosati</a> bilan tanishdim va roziman
+                                </span>
+                            </label>
+                        </div>
+
+                        <!-- Security Info -->
+                        <div class="security-info">
+                            <div class="security-icon">🔒</div>
+                            <div>
+                                <strong>Xavfsiz to'lov</strong>
+                                <p>Barcha to'lovlar PCI DSS standartlari bo'yicha himoyalangan</p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block btn-large">
+                            To'lovni tasdiqlash
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Buyurtma ma'lumotlari</h3>
+                    
+                    <div class="selected-plan">
+                        <div class="plan-badge">⭐ Premium</div>
+                        <h2>Premium Reja</h2>
+                        <p>Barcha imkoniyatlar + shaxsiy mentor</p>
+                    </div>
+
+                    <div class="summary-details">
+                        <div class="detail-row">
+                            <span>Reja narxi:</span>
+                            <strong>199,000 so'm</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Davomiyligi:</span>
+                            <strong>1 oy</strong>
+                        </div>
+                        <div class="detail-row discount-row">
+                            <span>Chegirma:</span>
+                            <strong id="discountAmount">0 so'm</strong>
+                        </div>
+                        <div class="detail-row total-row">
+                            <span>Jami:</span>
+                            <strong id="totalAmount">199,000 so'm</strong>
+                        </div>
+                    </div>
+
+                    <div class="features-included">
+                        <h4>✓ Shu rejaga kiradi:</h4>
+                        <ul>
+                            <li>AI shaxsiy tavsiyalar</li>
+                            <li>Cheksiz testlar</li>
+                            <li>Shaxsiy mentor (haftasiga 2 soat)</li>
+                            <li>Chet el grant yordami</li>
+                            <li>Hujjat tayyorlash</li>
+                            <li>Prioritet qo'llab-quvvatlash</li>
+                            <li>Webinar va master-klass</li>
+                        </ul>
+                    </div>
+
+                    <div class="money-back">
+                        <div class="badge-icon">💰</div>
+                        <div>
+                            <strong>14 kunlik pulni qaytarish kafolati</strong>
+                            <p>Agar xizmatdan norozi bo'lsangiz, 14 kun ichida pulni qaytarib beramiz</p>
+                        </div>
+                    </div>
+
+                    <div class="support-info">
+                        <h4>Yordam kerakmi?</h4>
+                        <p>📧 support@abuturentlar.uz</p>
+                        <p>📞 +998 99 123 45 67</p>
+                        <p>💬 Telegram: @abuturentlar_support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-animation">
+                <div class="checkmark">✓</div>
+            </div>
+            <h2>To'lov muvaffaqiyatli!</h2>
+            <p>Premium obunangiz faollashtirildi. Barcha imkoniyatlardan foydalanishingiz mumkin.</p>
+            <div class="modal-actions">
+                <a href="dashboard.html" class="btn btn-primary btn-large">Dashboard ga o'tish</a>
+                <button class="btn btn-outline" onclick="window.print()">Chek chiqarish</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+    <style>
+        .payment-page {
+            min-height: 100vh;
+            background: var(--bg-light);
+            padding: 4rem 0;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .payment-form-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .payment-form-section h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .payment-methods {
+            margin-bottom: 2rem;
+        }
+
+        .payment-methods h3 {
+            margin-bottom: 1rem;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .method-card {
+            cursor: pointer;
+        }
+
+        .method-card input {
+            display: none;
+        }
+
+        .method-content {
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .method-card:hover .method-content {
+            border-color: var(--primary-color);
+        }
+
+        .method-card input:checked + .method-content {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .method-logo {
+            width: 60px;
+            height: 40px;
+            object-fit: contain;
+            background: var(--bg-light);
+            border-radius: 6px;
+            padding: 0.5rem;
+        }
+
+        .method-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .payment-form h3 {
+            margin: 2rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card-input {
+            position: relative;
+        }
+
+        .card-icons {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .card-icon {
+            width: 30px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .promo-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+        }
+
+        .promo-section h3 {
+            margin: 0 0 1rem;
+            font-size: 1.1rem;
+        }
+
+        .promo-input-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .promo-input-group .form-input {
+            flex: 1;
+        }
+
+        .promo-message {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .promo-message.success {
+            color: var(--success);
+        }
+
+        .promo-message.error {
+            color: var(--error);
+        }
+
+        .terms-checkbox {
+            margin: 2rem 0;
+        }
+
+        .security-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .security-icon {
+            font-size: 2rem;
+        }
+
+        .security-info strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--success);
+        }
+
+        .security-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .order-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .order-summary h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .selected-plan {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .selected-plan h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .selected-plan p {
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .summary-details {
+            border-top: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 1.5rem 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .detail-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-row span {
+            color: var(--text-secondary);
+        }
+
+        .discount-row strong {
+            color: var(--success);
+        }
+
+        .total-row {
+            font-size: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .total-row strong {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .features-included {
+            margin-bottom: 1.5rem;
+        }
+
+        .features-included h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .features-included ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .features-included li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features-included li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .money-back {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-icon {
+            font-size: 2rem;
+        }
+
+        .money-back strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--success);
+        }
+
+        .money-back p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .support-info {
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .support-info h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .support-info p {
+            font-size: 0.9rem;
+            margin: 0.25rem 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .success-animation {
+            margin-bottom: 2rem;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--success);
+            color: white;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        @media (max-width: 1024px) {
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: static;
+            }
+
+            .method-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .payment-form-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Card number formatting
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+
+        // Expiry date formatting
+        document.getElementById('cardExpiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // CVV only numbers
+        document.getElementById('cardCVV').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // Promo code
+        const promoCodes = {
+            'WELCOME2025': 20, // 20% discount
+            'STUDENT50': 50000, // 50,000 som discount
+            'PREMIUM10': 10 // 10% discount
+        };
+
+        document.getElementById('applyPromo').addEventListener('click', function() {
+            const promoInput = document.getElementById('promoCode');
+            const promoCode = promoInput.value.toUpperCase();
+            const promoMessage = document.getElementById('promoMessage');
+            const discountAmount = document.getElementById('discountAmount');
+            const totalAmount = document.getElementById('totalAmount');
+            const originalPrice = 199000;
+
+            if (promoCodes[promoCode]) {
+                let discount = promoCodes[promoCode];
+                let finalPrice;
+
+                if (discount > 100) {
+                    // Fixed amount discount
+                    finalPrice = originalPrice - discount;
+                    discountAmount.textContent = `-${discount.toLocaleString()} so'm`;
+                } else {
+                    // Percentage discount
+                    finalPrice = originalPrice * (1 - discount / 100);
+                    discountAmount.textContent = `-${(originalPrice - finalPrice).toLocaleString()} so'm (${discount}%)`;
+                }
+
+                totalAmount.textContent = `${finalPrice.toLocaleString()} so'm`;
+                promoMessage.textContent = '✓ Promo kod qo\'llandi!';
+                promoMessage.className = 'promo-message success';
+                promoInput.disabled = true;
+                this.disabled = true;
+            } else {
+                promoMessage.textContent = '✗ Noto\'g\'ri promo kod';
+                promoMessage.className = 'promo-message error';
+            }
+        });
+
+        // Form submission
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate form
+            const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+            const cardExpiry = document.getElementById('cardExpiry').value;
+            const cardCVV = document.getElementById('cardCVV').value;
+            const cardHolder = document.getElementById('cardHolder').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+
+            if (cardNumber.length !== 16) {
+                alert('Karta raqami 16 ta raqamdan iborat bo\'lishi kerak');
+                return;
+            }
+
+            if (cardExpiry.length !== 5) {
+                alert('Amal qilish muddati MM/YY formatida bo\'lishi kerak');
+                return;
+            }
+
+            if (cardCVV.length !== 3) {
+                alert('CVV 3 ta raqamdan iborat bo\'lishi kerak');
+                return;
+            }
+
+            if (!cardHolder.trim()) {
+                alert('Karta egasining ismini kiriting');
+                return;
+            }
+
+            if (!agreeTerms) {
+                alert('Shartlarga rozilik berishingiz kerak');
+                return;
+            }
+
+            // Simulate payment processing
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'To\'lov amalga oshirilmoqda...';
+
+            setTimeout(() => {
+                document.getElementById('successModal').style.display = 'flex';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'To\'lovni tasdiqlash';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
