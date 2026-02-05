@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ish Topish - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <!-- Dashboard Navigation -->
+    <nav class="dashboard-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Logo" class="logo">
+                <span class="brand-name">Abuturentlar.uz</span>
+            </div>
+            <div class="nav-profile">
+                <span class="profile-name" id="profileName">Talaba</span>
+                <div class="profile-avatar" id="profileAvatar">T</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li class="menu-item" onclick="location.href='dashboard-student.html'">
+                    <span class="menu-icon">🏠</span>
+                    <span class="menu-text">Bosh sahifa</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">📊</span>
+                    <span class="menu-text">Baholarim</span>
+                </li>
+                <li class="menu-item active">
+                    <span class="menu-icon">💼</span>
+                    <span class="menu-text">Ish topish</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">🎓</span>
+                    <span class="menu-text">Magistratura</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">🌍</span>
+                    <span class="menu-text">Xorijda o'qish</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">🤖</span>
+                    <span class="menu-text">AI Maslahatchisi</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="page-header">
+                <h1>💼 Ish Topish</h1>
+                <p>AI sizning ko'nikmalaringiz va baholaringizga mos ish o'rinlarini topib beradi</p>
+            </div>
+
+            <!-- Profile Strength -->
+            <div class="dashboard-section">
+                <h2>📊 Profilingiz kuchi</h2>
+                <div class="profile-strength">
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strengthFill" style="width: 75%"></div>
+                    </div>
+                    <p class="strength-text">75% - Yaxshi, lekin yaxshilanishi mumkin</p>
+                    <div class="strength-tips">
+                        <h3>Profilni yaxshilash uchun:</h3>
+                        <ul>
+                            <li>✅ CV yuklang</li>
+                            <li>✅ Portfolio qo'shing</li>
+                            <li>⏳ LinkedIn profilini ulang</li>
+                            <li>⏳ GitHub akkauntini ulang</li>
+                            <li>⏳ Sertifikatlar qo'shing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="dashboard-section">
+                <h2>🔍 Filtrlar</h2>
+                <div class="job-filters">
+                    <select class="filter-select" id="jobType">
+                        <option value="all">Barcha turlar</option>
+                        <option value="fulltime">To'liq stavka</option>
+                        <option value="parttime">Part-time</option>
+                        <option value="intern">Amaliyot</option>
+                        <option value="remote">Masofaviy</option>
+                    </select>
+                    <select class="filter-select" id="experience">
+                        <option value="all">Tajriba</option>
+                        <option value="no">Tajribasiz</option>
+                        <option value="junior">Junior</option>
+                        <option value="mid">Middle</option>
+                    </select>
+                    <select class="filter-select" id="salary">
+                        <option value="all">Maosh</option>
+                        <option value="2-4">2-4 mln</option>
+                        <option value="4-6">4-6 mln</option>
+                        <option value="6-10">6-10 mln</option>
+                        <option value="10+">10+ mln</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="applyFilters()">Qidirish</button>
+                </div>
+            </div>
+
+            <!-- AI Recommended Jobs -->
+            <div class="dashboard-section">
+                <h2>🤖 AI tavsiyalari</h2>
+                <p class="section-subtitle">Sizning ko'nikmalaringiz va baholaringizga eng mos vakansiyalar</p>
+                <div class="vacancies-grid" id="recommendedJobs">
+                    <!-- Jobs will be loaded here -->
+                </div>
+            </div>
+
+            <!-- All Vacancies -->
+            <div class="dashboard-section">
+                <h2>📋 Barcha vakansiyalar</h2>
+                <div class="vacancies-grid" id="allJobs">
+                    <!-- Jobs will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Job Application Modal -->
+            <div id="applyModal" class="modal">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <h2>Ariza yuborish</h2>
+                    <div id="modalJobDetails"></div>
+                    <form id="applyForm">
+                        <div class="form-group">
+                            <label>CV yuklang *</label>
+                            <input type="file" accept=".pdf,.doc,.docx" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Qo'shimcha ma'lumot</label>
+                            <textarea rows="4" placeholder="Nega aynan siz bu ishga mos kelasiz?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ariza yuborish</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Load student data
+        const hemisData = JSON.parse(localStorage.getItem('hemisData') || '{}');
+
+        if (hemisData.full_name) {
+            document.getElementById('profileName').textContent = hemisData.full_name;
+            document.getElementById('profileAvatar').textContent = hemisData.full_name.charAt(0);
+        }
+
+        // Generate recommended jobs based on AI analysis
+        const recommendedJobs = [{
+            id: 1,
+            company: 'UZINFOCOM',
+            logo: '🏢',
+            position: 'Junior Backend Developer',
+            type: 'Part-time',
+            salary: '3-5 mln so\'m',
+            location: 'Toshkent',
+            requirements: ['Python/Django', 'SQL', 'Git', '3-kurs va yuqori'],
+            description: 'Davlat tashkilotida backend dasturlash bo\'yicha ish. Talabalar uchun qulay grafik.',
+            match: 95,
+            matchReason: 'GPA va Python ko\'nikmalaringiz juda mos'
+        }, {
+            id: 2,
+            company: 'Digital Solutions LLC',
+            logo: '💻',
+            position: 'Frontend Developer (Intern)',
+            type: 'Amaliyot',
+            salary: '2-3 mln so\'m',
+            location: 'Toshkent (Hybrid)',
+            requirements: ['React', 'JavaScript', 'HTML/CSS', 'Git'],
+            description: 'Start-up kompaniyada frontend dasturchi amaliyotchisi. Katta jamoada ishlash tajribasi.',
+            match: 90,
+            matchReason: 'React va JavaScript bo\'yicha baholaringiz a\'lo'
+        }, {
+            id: 3,
+            company: 'TechStart Incubator',
+            logo: '🚀',
+            position: 'Full Stack Developer',
+            type: 'Part-time',
+            salary: '4-6 mln so\'m',
+            location: 'IT Park Toshkent',
+            requirements: ['JavaScript', 'Node.js', 'React', 'MongoDB'],
+            description: 'Start-up inkubatorida turli loyihalarda ishlash imkoniyati.',
+            match: 88,
+            matchReason: 'Full-stack ko\'nikmalaringiz va yuqori GPA'
+        }, {
+            id: 4,
+            company: 'Uzum Tech',
+            logo: '🛒',
+            position: 'Software Engineering Intern',
+            type: 'Amaliyot',
+            salary: '4-5 mln so\'m',
+            location: 'Toshkent',
+            requirements: ['Programming', 'Teamwork', 'English B2+'],
+            description: 'O\'zbekistonning eng yirik e-commerce kompaniyasida amaliyot.',
+            match: 92,
+            matchReason: 'IELTS 7.0 va dasturlash fanlari bo\'yicha yuqori natijalar'
+        }];
+
+        const allJobs = [{
+            id: 5,
+            company: 'Click',
+            logo: '💳',
+            position: 'QA Engineer (Junior)',
+            type: 'To\'liq stavka',
+            salary: '3-4 mln so\'m',
+            location: 'Toshkent',
+            requirements: ['Manual Testing', 'SQL basics', 'Attention to detail'],
+            description: 'Mobil to\'lov tizimida test engineer.',
+            match: 70
+        }, {
+            id: 6,
+            company: 'Payme',
+            logo: '💰',
+            position: 'Mobile Developer (Android)',
+            type: 'Part-time',
+            salary: '5-7 mln so\'m',
+            location: 'Toshkent',
+            requirements: ['Kotlin', 'Android SDK', 'Git'],
+            description: 'Android dasturlash bo\'yicha tajriba orttirish.',
+            match: 75
+        }, {
+            id: 7,
+            company: 'Iman.uz',
+            logo: '📱',
+            position: 'UI/UX Designer Intern',
+            type: 'Amaliyot',
+            salary: '2-3 mln so\'m',
+            location: 'Remote',
+            requirements: ['Figma', 'Adobe XD', 'Creativity'],
+            description: 'Dizayn bo\'yicha amaliyot. Portfolio talab qilinadi.',
+            match: 60
+        }, {
+            id: 8,
+            company: 'Workly',
+            logo: '💼',
+            position: 'Data Analyst Intern',
+            type: 'Amaliyot',
+            salary: '3-4 mln so\'m',
+            location: 'Toshkent',
+            requirements: ['Python', 'Pandas', 'SQL', 'Excel'],
+            description: 'Ma\'lumotlar tahlili bo\'yicha tajriba orttirish.',
+            match: 85
+        }];
+
+        function displayJobs(jobs, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = jobs.map(job => `
+                <div class="vacancy-card" data-match="${job.match}">
+                    <div class="vacancy-header">
+                        <div class="company-logo">${job.logo}</div>
+                        <div class="vacancy-title-section">
+                            <h3>${job.position}</h3>
+                            <p class="company-name">${job.company}</p>
+                        </div>
+                        ${job.match >= 80 ? `<span class="match-badge high">${job.match}% mos</span>` : 
+                          job.match >= 70 ? `<span class="match-badge medium">${job.match}% mos</span>` : ''}
+                    </div>
+                    
+                    ${job.matchReason ? `
+                        <div class="match-reason">
+                            <span class="reason-icon">✨</span>
+                            ${job.matchReason}
+                        </div>
+                    ` : ''}
+                    
+                    <p class="job-description">${job.description}</p>
+                    
+                    <div class="vacancy-meta">
+                        <span class="badge">${job.type}</span>
+                        <span class="badge">${job.location}</span>
+                        <span class="salary">${job.salary}</span>
+                    </div>
+                    
+                    <div class="requirements">
+                        ${job.requirements.map(req => `<span class="req-tag">${req}</span>`).join('')}
+                    </div>
+                    
+                    <button class="btn btn-primary btn-sm" onclick="openApplyModal(${job.id})">
+                        Ariza yuborish
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function openApplyModal(jobId) {
+            const job = [...recommendedJobs, ...allJobs].find(j => j.id === jobId);
+            if(!job) return;
+
+            document.getElementById('modalJobDetails').innerHTML = `
+                <div class="modal-job-info">
+                    <div class="modal-job-logo">${job.logo}</div>
+                    <div>
+                        <h3>${job.position}</h3>
+                        <p>${job.company}</p>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('applyModal').style.display = 'flex';
+        }
+
+        // Modal close
+        document.querySelector('.modal-close').onclick = function() {
+            document.getElementById('applyModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('applyModal')) {
+                document.getElementById('applyModal').style.display = 'none';
+            }
+        }
+
+        // Form submit
+        document.getElementById('applyForm').onsubmit = function(e) {
+            e.preventDefault();
+            alert('Arizangiz muvaffaqiyatli yuborildi! Kompaniya tez orada siz bilan bog\'lanadi.');
+            document.getElementById('applyModal').style.display = 'none';
+        }
+
+        function applyFilters() {
+            const type = document.getElementById('jobType').value;
+            const exp = document.getElementById('experience').value;
+            const sal = document.getElementById('salary').value;
+            
+            // Filter logic here
+            alert('Filtrlar qo\'llanildi! Natijalar yangilanmoqda...');
+        }
+
+        // Load jobs on page load
+        displayJobs(recommendedJobs, 'recommendedJobs');
+        displayJobs(allJobs, 'allJobs');
+    </script>
+
+    <style>
+        .page-header {
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+        
+        .profile-strength {
+            max-width: 600px;
+        }
+        
+        .strength-bar {
+            width: 100%;
+            height: 24px;
+            background: #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .strength-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+            transition: width 0.3s;
+        }
+        
+        .strength-text {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        
+        .strength-tips h3 {
+            font-size: 1rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .strength-tips ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .strength-tips li {
+            padding: 0.5rem 0;
+            color: #6b7280;
+        }
+        
+        .job-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            color: #1f2937;
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+        
+        .section-subtitle {
+            color: #6b7280;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .company-logo {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+        }
+        
+        .vacancy-title-section {
+            flex: 1;
+        }
+        
+        .match-reason {
+            background: #fef3c7;
+            border-left: 3px solid #f59e0b;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+            color: #92400e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .reason-icon {
+            font-size: 1.25rem;
+        }
+        
+        .job-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+        /* Modal Styles */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        
+        .modal-close:hover {
+            color: #1f2937;
+        }
+        
+        .modal-job-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .modal-job-logo {
+            font-size: 3rem;
+        }
+        
+        .modal-job-info h3 {
+            margin: 0;
+            color: #1f2937;
+        }
+        
+        .modal-job-info p {
+            margin: 0.25rem 0 0 0;
+            color: #6b7280;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirish - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <div class="auth-page">
+        <div class="auth-container center-mode">
+            <div class="auth-form-section-full">
+                <div class="auth-header">
+                    <a href="index.html" class="auth-logo">
+                        <img src="images/logo.png" alt="Logo" class="logo">
+                        <span>Abuturentlar.uz</span>
+                    </a>
+                </div>
+
+                <div class="auth-content">
+                    <h1 class="auth-title">Xush kelibsiz!</h1>
+                    <p class="auth-subtitle">Tizimga kirish uchun kim ekanligingizni tanlang</p>
+
+                    <div class="user-selection-cards">
+                        <div class="user-selection-card" onclick="selectUserType('abiturient')">
+                            <div class="selection-icon">🎓</div>
+                            <h3>Abituriyent</h3>
+                            <p>Universitet tanlashda yordam kerakmi?</p>
+                            <button class="btn btn-outline">Kirish</button>
+                        </div>
+
+                        <div class="user-selection-card" onclick="selectUserType('student')">
+                            <div class="selection-icon">👨‍🎓</div>
+                            <h3>Talaba</h3>
+                            <p>HEMIS orqali tizimga kiring</p>
+                            <button class="btn btn-primary">HEMIS orqali kirish</button>
+                        </div>
+                    </div>
+
+                    <p class="auth-footer-text">
+                        Hisobingiz yo'qmi?
+                        <a href="register-select.html" class="link-primary">Ro'yxatdan o'ting</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectUserType(type) {
+            if (type === 'abiturient') {
+                window.location.href = 'login-abiturient.html';
+            } else {
+                window.location.href = 'login-student.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

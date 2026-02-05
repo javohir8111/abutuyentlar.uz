@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEMIS orqali Ro'yxatdan O'tish - Talaba - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-form-section">
+                <div class="auth-header">
+                    <a href="index.html" class="auth-logo">
+                        <img src="images/logo.png" alt="Logo" class="logo">
+                        <span>Abuturentlar.uz</span>
+                    </a>
+                </div>
+
+                <div class="auth-content">
+                    <div class="user-badge student">
+                        <span class="badge-icon">👨‍🎓</span>
+                        <span>Talaba</span>
+                    </div>
+
+                    <h1 class="auth-title">HEMIS orqali ro'yxat</h1>
+                    <p class="auth-subtitle">HEMIS tizimingiz bilan bog'laning va avtomatik ro'yxatdan o'ting</p>
+
+                    <div class="info-box">
+                        <span class="info-icon">ℹ️</span>
+                        <p>HEMIS login va parolingizni kiriting. Barcha akademik ma'lumotlaringiz avtomatik yuklanadi.</p>
+                    </div>
+
+                    <form class="auth-form" id="hemisRegisterForm">
+                        <div class="form-group">
+                            <label for="hemisLogin" class="form-label">HEMIS Login *</label>
+                            <input type="text" id="hemisLogin" class="form-input" placeholder="Masalan: 12345678" required>
+                            <small class="form-hint">HEMIS tizimingizdagi login raqamingiz</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hemisPassword" class="form-label">HEMIS Parol *</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="hemisPassword" class="form-input" placeholder="HEMIS parolingiz" required>
+                                <button type="button" class="password-toggle" id="togglePassword">
+                                    👁️
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email (ixtiyoriy)</label>
+                            <input type="email" id="email" class="form-input" placeholder="example@email.com">
+                            <small class="form-hint">Bildirishnomalar uchun</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefon (ixtiyoriy)</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="+998 90 123 45 67">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" required>
+                                <span>
+                                    Men <a href="#" class="link-primary">Foydalanish shartlari</a> va 
+                                    <a href="#" class="link-primary">Maxfiylik siyosati</a> bilan tanishdim
+                                </span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span class="btn-icon">🔐</span>
+                            HEMIS bilan bog'lanish
+                        </button>
+
+                        <div class="security-notice">
+                            <span class="security-icon">🔒</span>
+                            <p>Ma'lumotlaringiz xavfsiz va shifrlangan tarzda saqlanadi. Biz sizning HEMIS parolingizni saqlamaymiz.</p>
+                        </div>
+
+                        <p class="auth-footer-text">
+                            Hisobingiz bormi?
+                            <a href="login-student.html" class="link-primary">Kirish</a>
+                            <br>
+                            <a href="register-select.html" class="link-text">← Orqaga</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="auth-image-section">
+                <div class="auth-image-content">
+                    <h2>HEMIS orqali <br>tez ro'yxatdan o'ting!</h2>
+                    <p>Barcha ma'lumotlaringiz avtomatik yuklanadi</p>
+
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">⚡</span>
+                            <span>Tez va oson ro'yxat</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔐</span>
+                            <span>Xavfsiz ulanish</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Avtomatik ma'lumot yuklash</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🤖</span>
+                            <span>AI tahlil va tavsiyalar</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💼</span>
+                            <span>Ish topish imkoniyatlari</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🎓</span>
+                            <span>Magistratura yo'riqnomasi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // HEMIS Register form
+        document.getElementById('hemisRegisterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const hemisLogin = document.getElementById('hemisLogin').value;
+            const hemisPassword = document.getElementById('hemisPassword').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            if (hemisLogin && hemisPassword) {
+                // Loading animation
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                submitBtn.innerHTML = '<span class="loader"></span> HEMIS bilan bog\'lanilmoqda...';
+                submitBtn.disabled = true;
+
+                // Simulate HEMIS API call
+                setTimeout(() => {
+                    // Mock HEMIS data - 3-kurs talaba
+                    const hemisData = {
+                        student_id: hemisLogin,
+                        full_name: 'Sardor Yo\'ldoshev',
+                        university: 'Toshkent Axborot Texnologiyalari Universiteti',
+                        university_short: 'TATU',
+                        faculty: 'Dasturiy injiniring',
+                        speciality: 'Axborot texnologiyalari',
+                        course: 3,
+                        group: 'D-322',
+                        student_type: 'Kunduzgi',
+                        gpa: 4.2,
+                        total_credits: 120,
+                        language_level: 'IELTS 7.0',
+                        email: email || 'sardor.yoldoshev@student.tatu.uz',
+                        phone: phone || '+998901234567',
+                        birth_date: '2003-05-15',
+                        address: 'Toshkent shahri',
+                        grades: [{
+                            semester: 1,
+                            gpa: 4.0,
+                            credits: 24,
+                            subjects: [{
+                                name: 'Matematika',
+                                grade: 5,
+                                credits: 4
+                            }, {
+                                name: 'Fizika',
+                                grade: 4,
+                                credits: 4
+                            }, {
+                                name: 'Dasturlash asoslari',
+                                grade: 5,
+                                credits: 4
+                            }, {
+                                name: 'Ingliz tili',
+                                grade: 4,
+                                credits: 3
+                            }, {
+                                name: 'Tarix',
+                                grade: 5,
+                                credits: 3
+                            }]
+                        }, {
+                            semester: 2,
+                            gpa: 4.1,
+                            credits: 24,
+                            subjects: [{
+                                name: 'Oliy matematika',
+                                grade: 4,
+                                credits: 4
+                            }, {
+                                name: 'Ma\'lumotlar tuzilmasi',
+                                grade: 5,
+                                credits: 4
+                            }, {
+                                name: 'OOP',
+                                grade: 4,
+                                credits: 4
+                            }, {
+                                name: 'Web dasturlash',
+                                grade: 5,
+                                credits: 4
+                            }]
+                        }, {
+                            semester: 3,
+                            gpa: 4.3,
+                            credits: 24,
+                            subjects: [{
+                                name: 'Algoritmlash',
+                                grade: 5,
+                                credits: 4
+                            }, {
+                                name: 'Ma\'lumotlar bazasi',
+                                grade: 4,
+                                credits: 4
+                            }, {
+                                name: 'Computer Networks',
+                                grade: 5,
+                                credits: 4
+                            }, {
+                                name: 'Software Engineering',
+                                grade: 4,
+                                credits: 4
+                            }]
+                        }, {
+                            semester: 4,
+                            gpa: 4.4,
+                            credits: 24,
+                            subjects: [{
+                                name: 'AI asoslari',
+                                grade: 5,
+                                credits: 4
+                            }, {
+                                name: 'Mobile dasturlash',
+                                grade: 5,
+                                credits: 4
+                            }, {
+                                name: 'Kiberxavfsizlik',
+                                grade: 4,
+                                credits: 4
+                            }, {
+                                name: 'Cloud computing',
+                                grade: 4,
+                                credits: 4
+                            }]
+                        }, {
+                            semester: 5,
+                            gpa: 4.2,
+                            credits: 24,
+                            subjects: [{
+                                name: 'Machine Learning',
+                                grade: 5,
+                                credits: 4
+                            }, {
+                                name: 'DevOps',
+                                grade: 4,
+                                credits: 4
+                            }, {
+                                name: 'Big Data',
+                                grade: 4,
+                                credits: 4
+                            }, {
+                                name: 'IoT',
+                                grade: 4,
+                                credits: 4
+                            }]
+                        }],
+                        achievements: [
+                            'Dasturlash olimpiadasida 2-o\'rin',
+                            'Hackathon g\'olibi',
+                            'IELTS 7.0'
+                        ],
+                        skills: ['Python', 'JavaScript', 'React', 'Django', 'SQL', 'Docker', 'Git'],
+                        languages: [{
+                            name: 'O\'zbek',
+                            level: 'Ona tili'
+                        }, {
+                            name: 'Ingliz',
+                            level: 'C1 (IELTS 7.0)'
+                        }, {
+                            name: 'Rus',
+                            level: 'B2'
+                        }]
+                    };
+
+                    // Save to localStorage
+                    localStorage.setItem('hemisData', JSON.stringify(hemisData));
+                    localStorage.setItem('userType', 'student');
+                    localStorage.setItem('isNewUser', 'true');
+
+                    alert('HEMIS orqali ro\'yxatdan o\'tish muvaffaqiyatli!');
+                    window.location.href = 'dashboard-student.html';
+                }, 2500);
+            }
+        });
+
+        // Password toggle
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('hemisPassword');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+    </script>
+</body>
+
+</html>

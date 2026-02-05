@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEMIS orqali kirish - Talaba - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-form-section">
+                <div class="auth-header">
+                    <a href="index.html" class="auth-logo">
+                        <img src="images/logo.png" alt="Logo" class="logo">
+                        <span>Abuturentlar.uz</span>
+                    </a>
+                </div>
+
+                <div class="auth-content">
+                    <div class="user-badge student">
+                        <span class="badge-icon">👨‍🎓</span>
+                        <span>Talaba</span>
+                    </div>
+
+                    <h1 class="auth-title">HEMIS orqali kirish</h1>
+                    <p class="auth-subtitle">HEMIS login va parolingiz bilan tizimga kiring</p>
+
+                    <div class="info-box">
+                        <span class="info-icon">ℹ️</span>
+                        <p>HEMIS login va parolingizni kiriting. Barcha ma'lumotlaringiz avtomatik yuklanadi va xavfsiz saqlanadi.</p>
+                    </div>
+
+                    <form class="auth-form" id="hemisLoginForm">
+                        <div class="form-group">
+                            <label for="hemisLogin" class="form-label">HEMIS Login</label>
+                            <input type="text" id="hemisLogin" class="form-input" placeholder="Masalan: 12345678" required>
+                            <small class="form-hint">HEMIS tizimingizdagi login raqamingiz</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hemisPassword" class="form-label">HEMIS Parol</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="hemisPassword" class="form-input" placeholder="HEMIS parolingiz" required>
+                                <button type="button" class="password-toggle" id="togglePassword">
+                                    👁️
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember">
+                                <span>Meni eslab qol</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span class="btn-icon">🔐</span>
+                            HEMIS orqali kirish
+                        </button>
+
+                        <div class="security-notice">
+                            <span class="security-icon">🔒</span>
+                            <p>Ma'lumotlaringiz xavfsiz va shifrlangan tarzda saqlanadi</p>
+                        </div>
+
+                        <p class="auth-footer-text">
+                            <a href="login-select.html" class="link-text">← Orqaga</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="auth-image-section">
+                <div class="auth-image-content">
+                    <h2>HEMIS <br>integratsiyasi</h2>
+                    <p>Barcha akademik ma'lumotlaringiz avtomatik yuklanadi</p>
+
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>Barcha baholar va natijalar</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>Universitet va fakultet ma'lumotlari</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>AI tahlil va tavsiyalar</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>Ish topish imkoniyatlari</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✅</span>
+                            <span>Magistratura yo'riqnomasi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // HEMIS Login form validation
+        document.getElementById('hemisLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const hemisLogin = document.getElementById('hemisLogin').value;
+            const hemisPassword = document.getElementById('hemisPassword').value;
+
+            if (hemisLogin && hemisPassword) {
+                // Loading animation
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                submitBtn.innerHTML = '<span class="loader"></span> HEMIS bilan bog\'lanilmoqda...';
+                submitBtn.disabled = true;
+
+                // Simulate HEMIS API call
+                setTimeout(() => {
+                    // Mock HEMIS data
+                    const hemisData = {
+                        student_id: hemisLogin,
+                        full_name: 'Sardor Yo\'ldoshev',
+                        university: 'Toshkent Axborot Texnologiyalari Universiteti',
+                        faculty: 'Dasturiy injiniring',
+                        course: '3',
+                        group: 'D-322',
+                        gpa: '4.2',
+                        language_level: 'IELTS 7.0',
+                        grades: [{
+                            semester: 1,
+                            gpa: 4.0,
+                            subjects: 8
+                        }, {
+                            semester: 2,
+                            gpa: 4.1,
+                            subjects: 8
+                        }, {
+                            semester: 3,
+                            gpa: 4.3,
+                            subjects: 7
+                        }, {
+                            semester: 4,
+                            gpa: 4.4,
+                            subjects: 7
+                        }, {
+                            semester: 5,
+                            gpa: 4.2,
+                            subjects: 8
+                        }]
+                    };
+
+                    // Save to localStorage
+                    localStorage.setItem('hemisData', JSON.stringify(hemisData));
+                    localStorage.setItem('userType', 'student');
+
+                    alert('HEMIS orqali kirish muvaffaqiyatli!');
+                    window.location.href = 'dashboard-student.html';
+                }, 2000);
+            }
+        });
+
+        // Password toggle
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('hemisPassword');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+    </script>
+</body>
+
+</html>

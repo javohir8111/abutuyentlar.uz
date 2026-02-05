@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yxatdan O'tish - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <div class="auth-page">
+        <div class="auth-container center-mode">
+            <div class="auth-form-section-full">
+                <div class="auth-header">
+                    <a href="index.html" class="auth-logo">
+                        <img src="images/logo.png" alt="Logo" class="logo">
+                        <span>Abuturentlar.uz</span>
+                    </a>
+                </div>
+
+                <div class="auth-content">
+                    <h1 class="auth-title">Ro'yxatdan o'ting</h1>
+                    <p class="auth-subtitle">Kim sifatida ro'yxatdan o'tmoqchisiz?</p>
+
+                    <div class="user-selection-cards">
+                        <div class="user-selection-card" onclick="selectUserType('abiturient')">
+                            <div class="selection-icon">🎓</div>
+                            <h3>Abituriyent</h3>
+                            <p>Universitet tanlash va tayyorgarlik</p>
+                            <ul class="selection-features">
+                                <li>✓ AI asosida yo'nalish tanlash</li>
+                                <li>✓ Psixologik testlar</li>
+                                <li>✓ Universitet taqqoslash</li>
+                                <li>✓ Grant imkoniyatlari</li>
+                            </ul>
+                            <button class="btn btn-outline">Ro'yxatdan o'tish</button>
+                        </div>
+
+                        <div class="user-selection-card featured" onclick="selectUserType('student')">
+                            <div class="featured-badge">Yangi!</div>
+                            <div class="selection-icon">👨‍🎓</div>
+                            <h3>Talaba</h3>
+                            <p>HEMIS orqali tez ro'yxatdan o'ting</p>
+                            <ul class="selection-features">
+                                <li>✓ HEMIS integratsiyasi</li>
+                                <li>✓ Baholarni nazorat</li>
+                                <li>✓ AI asosida ish topish</li>
+                                <li>✓ Magistratura yo'riqnomasi</li>
+                                <li>✓ Xorijda o'qish imkoniyatlari</li>
+                            </ul>
+                            <button class="btn btn-primary">HEMIS orqali ro'yxat</button>
+                        </div>
+                    </div>
+
+                    <p class="auth-footer-text">
+                        Hisobingiz bormi?
+                        <a href="login-select.html" class="link-primary">Kirish</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectUserType(type) {
+            if (type === 'abiturient') {
+                window.location.href = 'register-abiturient.html';
+            } else {
+                window.location.href = 'register-student.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Talaba - Abuturentlar.uz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <!-- Dashboard Navigation -->
+    <nav class="dashboard-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Logo" class="logo">
+                <span class="brand-name">Abuturentlar.uz</span>
+            </div>
+            <div class="nav-profile">
+                <span class="profile-name" id="profileName">Yuklanmoqda...</span>
+                <div class="profile-avatar" id="profileAvatar">S</div>
+                <div class="profile-dropdown">
+                    <a href="#" class="dropdown-item">Profil</a>
+                    <a href="#" class="dropdown-item">Sozlamalar</a>
+                    <a href="index.html" class="dropdown-item">Chiqish</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li class="menu-item active">
+                    <span class="menu-icon">🏠</span>
+                    <span class="menu-text">Bosh sahifa</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">📊</span>
+                    <span class="menu-text">Baholarim</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">💼</span>
+                    <span class="menu-text">Ish topish</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">🎓</span>
+                    <span class="menu-text">Magistratura</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">🌍</span>
+                    <span class="menu-text">Xorijda o'qish</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">🤖</span>
+                    <span class="menu-text">AI Maslahatchisi</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1>Xush kelibsiz, <span id="studentName">Talaba</span>! 👋</h1>
+                <p id="universityInfo">Yuklanmoqda...</p>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <h3 id="gpaValue">0.0</h3>
+                        <p>GPA</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-info">
+                        <h3 id="courseValue">0</h3>
+                        <p>Kurs</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-info">
+                        <h3 id="creditsValue">0</h3>
+                        <p>Kreditlar</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-info">
+                        <h3 id="languageLevel">-</h3>
+                        <p>Til darajasi</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Tavsiyalar -->
+            <div class="dashboard-section">
+                <h2>🤖 AI Tavsiyalari</h2>
+                <div class="recommendations-grid" id="aiRecommendations">
+                    <div class="recommendation-card loading">
+                        <div class="loading-spinner"></div>
+                        <p>AI tahlil qilmoqda...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Baholar tahlili -->
+            <div class="dashboard-section">
+                <h2>📊 Akademik natijalar</h2>
+                <div class="grades-overview" id="gradesOverview">
+                    <div class="grades-chart">
+                        <canvas id="gradesChart"></canvas>
+                    </div>
+                    <div class="semester-list" id="semesterList">
+                        <!-- Semestr ma'lumotlari -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vakansiyalar -->
+            <div class="dashboard-section">
+                <h2>💼 Sizga mos ish o'rinlari</h2>
+                <div class="vacancies-grid" id="vacanciesGrid">
+                    <div class="loading-placeholder">
+                        <div class="loading-spinner"></div>
+                        <p>AI mos ish o'rinlarini qidirmoqda...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Magistratura imkoniyatlari -->
+            <div class="dashboard-section">
+                <h2>🎓 Magistratura imkoniyatlari</h2>
+                <div class="masters-opportunities" id="mastersOpportunities">
+                    <div class="loading-placeholder">
+                        <div class="loading-spinner"></div>
+                        <p>AI tahlil qilmoqda...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dashboard-student.js"></script>
+    <script>
+        // Ma'lumotlarni yuklash
+        window.addEventListener('DOMContentLoaded', function() {
+            const hemisData = JSON.parse(localStorage.getItem('hemisData') || '{}');
+
+            if (!hemisData.student_id) {
+                window.location.href = 'login-student.html';
+                return;
+            }
+
+            // Profil ma'lumotlarini ko'rsatish
+            document.getElementById('profileName').textContent = hemisData.full_name;
+            document.getElementById('profileAvatar').textContent = hemisData.full_name.charAt(0);
+            document.getElementById('studentName').textContent = hemisData.full_name.split(' ')[0];
+            document.getElementById('universityInfo').textContent =
+                `${hemisData.university} • ${hemisData.faculty} • ${hemisData.course}-kurs • Guruh: ${hemisData.group}`;
+
+            // Statistika
+            document.getElementById('gpaValue').textContent = hemisData.gpa.toFixed(1);
+            document.getElementById('courseValue').textContent = hemisData.course;
+            document.getElementById('creditsValue').textContent = hemisData.total_credits;
+            document.getElementById('languageLevel').textContent = hemisData.language_level;
+
+            // AI tavsiyalarini generatsiya qilish
+            generateAIRecommendations(hemisData);
+
+            // Baholar tahlilini ko'rsatish
+            displayGrades(hemisData);
+
+            // Vakansiyalarni yuklash
+            loadVacancies(hemisData);
+
+            // Magistratura imkoniyatlarini yuklash
+            loadMastersOpportunities(hemisData);
+        });
+
+        function generateAIRecommendations(data) {
+            const recommendations = [];
+
+            // GPA bo'yicha tavsiya
+            if (data.gpa >= 4.0) {
+                recommendations.push({
+                    type: 'success',
+                    icon: '🌟',
+                    title: 'Ajoyib natijalar!',
+                    text: 'Sizning GPA ko\'rsatkichingiz a\'lo darajada. Xorijda magistratura o\'qish uchun ideal vaqt!',
+                    action: 'Magistratura',
+                    actionLink: '#masters'
+                });
+            } else if (data.gpa >= 3.5) {
+                recommendations.push({
+                    type: 'info',
+                    icon: '📈',
+                    title: 'Yaxshi natijalar',
+                    text: 'GPA ni oshirish uchun keyingi semestrda diqqat qarating',
+                    action: 'Ko\'proq',
+                    actionLink: '#grades'
+                });
+            }
+
+            // Kurs bo'yicha tavsiya
+            if (data.course >= 3) {
+                recommendations.push({
+                    type: 'info',
+                    icon: '💼',
+                    title: 'Ish topish vaqti!',
+                    text: `${data.course}-kurs talabasi sifatida sizga mos vakansiyalar mavjud. Part-time ishlash imkoniyatlari ham bor.`,
+                    action: 'Vakansiyalar',
+                    actionLink: '#vacancies'
+                });
+            }
+
+            // Til darajasi bo'yicha
+            if (data.language_level && data.language_level.includes('IELTS')) {
+                const score = parseFloat(data.language_level.match(/\d+\.?\d*/)[0]);
+                if (score >= 6.5) {
+                    recommendations.push({
+                        type: 'success',
+                        icon: '🌍',
+                        title: 'Xorijda o\'qish imkoniyati',
+                        text: `${data.language_level} natijangiz bilan ko'plab xorijiy universitetlarga ariza topshirishingiz mumkin.`,
+                        action: 'Batafsil',
+                        actionLink: '#abroad'
+                    });
+                }
+            }
+
+            // Bitirish yaqinligida
+            if (data.course === 4 && data.total_credits >= 180) {
+                recommendations.push({
+                    type: 'warning',
+                    icon: '🎓',
+                    title: 'Bitirish yaqinlashmoqda!',
+                    text: 'Magistratura yoki ish bozori haqida o\'ylab ko\'ring. Biz sizga yordam beramiz!',
+                    action: 'Rejalashtirish',
+                    actionLink: '#planning'
+                });
+            }
+
+            // Tavsiyalarni ko'rsatish
+            const container = document.getElementById('aiRecommendations');
+            container.innerHTML = recommendations.map(rec => `
+                <div class="recommendation-card ${rec.type}">
+                    <div class="rec-icon">${rec.icon}</div>
+                    <h3>${rec.title}</h3>
+                    <p>${rec.text}</p>
+                    <a href="${rec.actionLink}" class="btn btn-sm btn-${rec.type === 'success' ? 'primary' : 'outline'}">${rec.action}</a>
+                </div>
+            `).join('');
+        }
+
+        function displayGrades(data) {
+            const semesterList = document.getElementById('semesterList');
+            semesterList.innerHTML = data.grades.map(sem => `
+                <div class="semester-card">
+                    <div class="semester-header">
+                        <h3>${sem.semester}-semestr</h3>
+                        <span class="semester-gpa">GPA: ${sem.gpa.toFixed(1)}</span>
+                    </div>
+                    <div class="semester-details">
+                        <p>Fanlar: ${sem.subjects ? sem.subjects.length : sem.credits / 4}</p>
+                        <p>Kreditlar: ${sem.credits}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadVacancies(data) {
+            // Mock vakansiyalar - AI tahlilga asoslangan
+            const vacancies = [];
+
+            // GPA va kursi bo'yicha mos vakansiyalar
+            if (data.gpa >= 3.5 && data.course >= 3) {
+                vacancies.push({
+                    company: 'UZINFOCOM',
+                    position: 'Junior Backend Developer',
+                    type: 'Part-time',
+                    salary: '3-5 mln so\'m',
+                    requirements: ['Python/Django', 'SQL', 'Git'],
+                    match: 95
+                });
+            }
+
+            if (data.skills && data.skills.includes('React')) {
+                vacancies.push({
+                    company: 'Digital Solutions',
+                    position: 'Frontend Developer (Intern)',
+                    type: 'Amaliyot',
+                    salary: '2-3 mln so\'m',
+                    requirements: ['React', 'JavaScript', 'HTML/CSS'],
+                    match: 90
+                });
+            }
+
+            if (data.course >= 3) {
+                vacancies.push({
+                    company: 'TechStart Incubator',
+                    position: 'Full Stack Developer',
+                    type: 'Part-time',
+                    salary: '4-6 mln so\'m',
+                    requirements: ['JavaScript', 'Node.js', 'Database'],
+                    match: 85
+                });
+
+                vacancies.push({
+                    company: 'IT Park Residents',
+                    position: 'Software Engineering Intern',
+                    type: 'Amaliyot',
+                    salary: '2.5-4 mln so\'m',
+                    requirements: ['Programming', 'Teamwork', 'English'],
+                    match: 88
+                });
+            }
+
+            const container = document.getElementById('vacanciesGrid');
+            container.innerHTML = vacancies.map(vac => `
+                <div class="vacancy-card">
+                    <div class="vacancy-header">
+                        <h3>${vac.position}</h3>
+                        <span class="match-badge">${vac.match}% mos</span>
+                    </div>
+                    <p class="company-name">${vac.company}</p>
+                    <div class="vacancy-meta">
+                        <span class="badge">${vac.type}</span>
+                        <span class="salary">${vac.salary}</span>
+                    </div>
+                    <div class="requirements">
+                        ${vac.requirements.map(req => `<span class="req-tag">${req}</span>`).join('')}
+                    </div>
+                    <button class="btn btn-primary btn-sm">Ariza yuborish</button>
+                </div>
+            `).join('');
+        }
+
+        function loadMastersOpportunities(data) {
+            const opportunities = [];
+            
+            // O'zbekiston
+            if(data.gpa >= 3.5) {
+                opportunities.push({
+                    country: '🇺🇿 O\'zbekiston',
+                    university: 'TATU Magistratura',
+                    program: 'Sun\'iy intellekt va Ma\'lumotlar tahlili',
+                    requirements: `GPA: 3.0+ (Sizniki: ${data.gpa})`,
+                    deadline: '2024-yil Avgust',
+                    scholarship: 'Davlat granti mavjud',
+                    match: data.gpa >= 4.0 ? 'Yuqori imkoniyat' : 'Mos keladi'
+                });
+            }
+
+            // Xorijiy imkoniyatlar
+            if(data.language_level && data.language_level.includes('IELTS')) {
+                const score = parseFloat(data.language_level.match(/\d+\.?\d*/)[0]);
+                
+                if(score >= 6.5 && data.gpa >= 3.5) {
+                    opportunities.push({
+                        country: '🇹🇷 Turkiya',
+                        university: 'Türkiye Scholarships',
+                        program: 'Computer Science',
+                        requirements: `IELTS: 6.5+ (Sizniki: ${score}), GPA: 3.0+`,
+                        deadline: '2024-yil Fevral',
+                        scholarship: '100% grant + oylik stipendiya',
+                        match: 'Yuqori imkoniyat'
+                    });
+                }
+
+                if(score >= 6.0) {
+                    opportunities.push({
+                        country: '🇵🇱 Polsha',
+                        university: 'Polish Government Scholarships',
+                        program: 'IT va dasturlash',
+                        requirements: `IELTS: 6.0+, GPA: 3.2+`,
+                        deadline: '2024-yil Mart',
+                        scholarship: '100% o\'qish + turar joy',
+                        match: data.gpa >= 3.8 ? 'Yuqori imkoniyat' : 'Mos keladi'
+                    });
+                }
+
+                if(score >= 7.0 && data.gpa >= 3.8) {
+                    opportunities.push({
+                        country: '🇩🇪 Germaniya',
+                        university: 'DAAD Scholarships',
+                        program: 'Masters in Computer Science',
+                        requirements: `IELTS: 7.0+ yoki nemis tili, GPA: 3.5+`,
+                        deadline: '2024-yil Sentyabr',
+                        scholarship: 'Oylik stipendiya + sug\'urta',
+                        match: 'Yuqori imkoniyat'
+                    });
+                }
+            }
+
+            const container = document.getElementById('mastersOpportunities');
+            if(opportunities.length === 0) {
+                container.innerHTML = `
+                    <div class="info-card">
+                        <p>📚 Magistratura uchun tayyorgarlik boshlang! IELTS topshiring va GPA ni oshiring.</p>
+                        <button class="btn btn-primary">Tayyorgarlik boshlash</button>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = opportunities.map(opp => `
+                    <div class="opportunity-card">
+                        <div class="opp-header">
+                            <h3>${opp.country}</h3>
+                            <span class="match-badge ${opp.match === 'Yuqori imkoniyat' ? 'high' : 'medium'}">${opp.match}</span>
+                        </div>
+                        <h4>${opp.university}</h4>
+                        <p class="program-name">${opp.program}</p>
+                        <div class="opp-details">
+                            <p><strong>Talablar:</strong> ${opp.requirements}</p>
+                            <p><strong>Muddat:</strong> ${opp.deadline}</p>
+                            <p><strong>Grant:</strong> ${opp.scholarship}</p>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Batafsil ma'lumot</button>
+                    </div>
+                `).join('');
+            }
+        }
+    </script>
+</body>
+
+</html>
