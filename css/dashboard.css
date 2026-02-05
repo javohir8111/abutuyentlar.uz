@@ -1,0 +1,567 @@
+<!DOCTYPE html><html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Magistratura - Abuturentlar.uz</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/dashboard.css"></head><body><!-- Dashboard Navigation --><nav class="dashboard-nav"><div class="container"><div class="nav-brand"><img src="logo.png" alt="Logo" class="logo"><span class="brand-name">Abuturentlar.uz</span></div><div class="nav-profile"><span class="profile-name" id="profileName">Talaba</span><div class="profile-avatar" id="profileAvatar">T</div></div></div></nav><div class="dashboard-container"><!-- Sidebar --><aside class="dashboard-sidebar"><ul class="sidebar-menu"><li class="menu-item" onclick="location.href='dashboard-student.html'"><span class="menu-icon">🏠</span><span class="menu-text">Bosh sahifa</span></li><li class="menu-item"><span class="menu-icon">📊</span><span class="menu-text">Baholarim</span></li><li class="menu-item"><span class="menu-icon">💼</span><span class="menu-text">Ish topish</span></li><li class="menu-item active"><span class="menu-icon">🎓</span><span class="menu-text">Magistratura</span></li><li class="menu-item"><span class="menu-icon">🌍</span><span class="menu-text">Xorijda o'qish</span>
+ </li><li class="menu-item"><span class="menu-icon">🤖</span><span class="menu-text">AI Maslahatchisi</span></li></ul></aside><!-- Main Content --><main class="dashboard-main"><div class="page-header"><h1>🎓 Magistratura</h1><p>O'zbekiston va xorijda magistratura o'qish imkoniyatlari</p></div><!-- Readiness Check --><div class="dashboard-section"><h2>📋 Tayyorgarlik darajangiz</h2><div class="readiness-check"><div class="readiness-item completed"><span class="check-icon">✅</span><div class="check-content"><h3>Akademik natijalar</h3><p>GPA: <strong id="studentGPA">4.2</strong>- A'lo daraja!</p>
+ </div></div><div class="readiness-item completed"><span class="check-icon">✅</span><div class="check-content"><h3>Til bilish darajasi</h3><p id="studentLanguage">IELTS 7.0 - Ajoyib natija!</p></div></div><div class="readiness-item pending"><span class="check-icon">⏳</span><div class="check-content"><h3>Motivatsion xat</h3><p>Hali tayyorlanmagan - <a href="#" class="link-primary">AI yordamida yozish</a></p></div></div><div class="readiness-item pending"><span class="check-icon">⏳</span><div class="check-content"><h3>Tavsiya xatlari</h3><p>2-3 ta tavsiya xat kerak bo'ladi</p>
+ </div></div></div></div><!-- Timeline --><div class="dashboard-section"><h2>📅 Muhim sanalar</h2><div class="timeline"><div class="timeline-item"><div class="timeline-date">2024 Dekabr - Fevral</div><div class="timeline-content"><h3>Ariza topshirish davri</h3><p>Ko'plab dasturlar uchun ariza topshirish boshlandi</p>
+ </div></div><div class="timeline-item"><div class="timeline-date">2025 Mart - May</div><div class="timeline-content"><h3>Tanlov jarayoni</h3><p>Intervyular va qabul qarorlari</p></div></div><div class="timeline-item"><div class="timeline-date">2025 Sentyabr</div><div class="timeline-content"><h3>O'qishni boshlash</h3>
+ <p>Yangi akademik yil boshlanishi</p></div></div></div></div><!-- Tabs --><div class="dashboard-section"><div class="tabs"><button class="tab-btn active" onclick="showTab('uzbekistan')">🇺🇿 O'zbekiston</button>
+ <button class="tab-btn" onclick="showTab('turkey')">🇹🇷 Turkiya</button><button class="tab-btn" onclick="showTab('europe')">🇪🇺 Yevropa</button><button class="tab-btn" onclick="showTab('asia')">🌏 Osiyo</button><button class="tab-btn" onclick="showTab('scholarships')">💰 Grantlar</button></div><!-- Uzbekistan Tab --><div id="uzbekistan" class="tab-content active"><h2>O'zbekiston magistratura dasturlari</h2>
+ <div class="masters-grid" id="uzbekistanPrograms"></div></div><!-- Turkey Tab --><div id="turkey" class="tab-content"><h2>Turkiyada magistratura</h2><div class="masters-grid" id="turkeyPrograms"></div></div><!-- Europe Tab --><div id="europe" class="tab-content"><h2>Yevropada magistratura</h2><div class="masters-grid" id="europePrograms"></div></div><!-- Asia Tab --><div id="asia" class="tab-content"><h2>Osiyoda magistratura</h2><div class="masters-grid" id="asiaPrograms"></div></div><!-- Scholarships Tab --><div id="scholarships" class="tab-content"><h2>Grant dasturlari</h2><div class="scholarships-list" id="scholarshipsList"></div></div></div><!-- AI Assistant --><div class="dashboard-section ai-assistant-section"><h2>🤖 AI Maslahatchisi</h2><div class="ai-chat"><div class="chat-messages" id="chatMessages"><div class="chat-message bot"><div class="message-avatar">🤖</div><div class="message-content"><p>Salom! Men sizga magistratura tanlashda yordam beraman. Qanday savol bor?</p><div class="quick-questions"><button class="quick-btn" onclick="askAI('Qaysi mamlakatni tanlasam yaxshi?')">Qaysi mamlakatni tanlasam yaxshi?</button><button class="quick-btn" onclick="askAI('Motivatsion xat qanday yoziladi?')">Motivatsion xat qanday yoziladi?</button><button class="quick-btn" onclick="askAI('Tavsiya xat kimdan so\'rasam bo\'ladi?')">Tavsiya xat kimdan so'rasam bo'ladi?</button></div></div></div></div><div class="chat-input"><input type="text" id="userMessage" placeholder="Savolingizni yozing..."><button class="btn btn-primary" onclick="sendMessage()">Yuborish</button></div></div></div></main></div><script> // Load student data
+const hemisData=JSON.parse(localStorage.getItem('hemisData') || '{}');
+if(hemisData.full_name) {
+    document.getElementById('profileName').textContent=hemisData.full_name;
+    document.getElementById('profileAvatar').textContent=hemisData.full_name.charAt(0);
+    document.getElementById('studentGPA').textContent=hemisData.gpa || '4.2';
+    document.getElementById('studentLanguage').textContent=hemisData.language_level || 'IELTS 7.0';
+}
+
+// Programs data
+const uzbekistanPrograms=[ {
+    university: 'TATU', program: 'Sun\'iy intellekt va Ma\'lumotlar tahlili', duration: '2 yil', language: 'Ingliz/O\'zbek', tuition: 'Grant mavjud', requirements: 'GPA 3.0+, IELTS 5.5+', deadline: '2024 Avgust', match: 95
+}
+
+,
+{
+    university: 'Milliy Universitet', program: 'Kompyuter fanlari', duration: '2 yil', language: 'O\'zbek/Rus', tuition: '6-8 mln/yil', requirements: 'GPA 3.0+', deadline: '2024 Avgust', match: 88
+}
+
+,
+{
+    university: 'Iqtisodiyot universiteti', program: 'Raqamli iqtisodiyot', duration: '2 yil', language: 'O\'zbek/Ingliz', tuition: 'Grant mavjud', requirements: 'GPA 3.2+, IELTS 6.0+', deadline: '2024 Iyul', match: 82
+}
+
+];
+const turkeyPrograms=[ {
+    university: 'Türkiye Scholarships', program: 'Computer Science', duration: '2 yil', language: 'Ingliz', tuition: '100% grant + oylik stipendiya', requirements: 'GPA 3.0+, IELTS 6.5+', deadline: '2024 Fevral', match: 92
+}
+
+,
+{
+    university: 'Koç University', program: 'Data Science', duration: '2 yil', language: 'Ingliz', tuition: 'Qisman grant mavjud', requirements: 'GPA 3.5+, IELTS 7.0+', deadline: '2024 Yanvar', match: 90
+}
+
+,
+{
+    university: 'Sabancı University', program: 'Computer Science & Engineering', duration: '2 yil', language: 'Ingliz', tuition: 'Grant imkoniyatlari', requirements: 'GPA 3.5+, IELTS 7.0+, GRE', deadline: '2024 Dekabr', match: 88
+}
+
+];
+const europePrograms=[ {
+    university: 'DAAD (Germaniya)', program: 'Masters in Computer Science', duration: '2 yil', language: 'Ingliz/Nemis', tuition: 'Grant + oylik stipendiya', requirements: 'GPA 3.5+, IELTS 7.0+ yoki nemis tili', deadline: '2024 Sentyabr', match: 94
+}
+
+,
+{
+    university: 'Polish Government Scholarships', program: 'IT va dasturlash', duration: '2 yil', language: 'Ingliz', tuition: '100% o\'qish + turar joy', requirements: 'GPA 3.2+, IELTS 6.0+', deadline: '2024 Mart', match: 89
+}
+
+,
+{
+    university: 'Erasmus Mundus', program: 'Various IT programs', duration: '2 yil', language: 'Ingliz', tuition: 'To\'liq grant', requirements: 'GPA 3.5+, IELTS 7.0+', deadline: '2024 Yanvar', match: 87
+}
+
+];
+const asiaPrograms=[ {
+    university: 'Malayziya (various)', program: 'Computer Science', duration: '2 yil', language: 'Ingliz', tuition: 'Arzon narxlar', requirements: 'GPA 3.0+, IELTS 6.0+', deadline: 'Turlicha', match: 85
+}
+
+,
+{
+    university: 'Janubiy Koreya (GKS)', program: 'IT dasturlari', duration: '2 yil', language: 'Ingliz/Koreys', tuition: '100% grant', requirements: 'GPA 3.0+, IELTS 6.5+', deadline: '2024 Mart', match: 90
+}
+
+,
+{
+    university: 'Singapur (NUS/NTU)', program: 'Computer Science', duration: '1-2 yil', language: 'Ingliz', tuition: 'Grant imkoniyatlari', requirements: 'GPA 3.8+, IELTS 7.0+, GRE', deadline: '2024 Yanvar', match: 91
+}
+
+];
+const scholarships=[ {
+    name: 'Türkiye Scholarships', countries: ['Turkiya'], coverage: '100% o\'qish + oylik $700-1000', requirements: 'GPA 3.0+, IELTS 6.5+, Yoshiga qarab: 21 gacha', deadline: '2024 20-Fevral', link: 'turkiyeburslari.gov.tr'
+}
+
+,
+{
+    name: 'DAAD Scholarships', countries: ['Germaniya'], coverage: 'Oylik €850-1200 + sug\'urta', requirements: 'GPA 3.5+, Nemis yoki Ingliz tili', deadline: '2024 Sentyabr', link: 'daad.de'
+}
+
+,
+{
+    name: 'Erasmus Mundus', countries: ['Yevropa'], coverage: 'To\'liq grant + sayohat xarajatlari', requirements: 'A\'lo natijalar, IELTS 7.0+', deadline: '2024 Yanvar', link: 'erasmus-plus.ec.europa.eu'
+}
+
+,
+{
+    name: 'Chevening (UK)', countries: ['Angliya'], coverage: 'To\'liq grant + oylik stipendiya', requirements: '2+ yil ish tajribasi, IELTS 6.5+', deadline: '2024 Noyabr', link: 'chevening.org'
+}
+
+,
+{
+    name: 'Korean Government (GKS)', countries: ['Janubiy Koreya'], coverage: '100% o\'qish + oylik stipendiya', requirements: 'GPA 3.0+, 40 yoshgacha', deadline: '2024 Mart', link: 'studyinkorea.go.kr'
+}
+
+];
+function displayPrograms(programs, containerId) {
+    const container=document.getElementById(containerId);
+    container.innerHTML=programs.map(prog=> ` <div class="masters-card"> <div class="masters-header"> <h3>$ {
+        prog.university
+    }
+    </h3> $ {
+        prog.match >=90 ? `<span class="match-badge high">$ {
+            prog.match
+        }
+        % mos</span>` : prog.match >=80 ? `<span class="match-badge medium">$ {
+            prog.match
+        }
+        % mos</span>`: ''
+    }
+    </div> <h4>$ {
+        prog.program
+    }
+    </h4> <div class="program-details"> <p><strong>Davomiyligi:</strong> $ {
+        prog.duration
+    }
+    </p> <p><strong>Til:</strong> $ {
+        prog.language
+    }
+    </p> <p><strong>O'qish haqi:</strong> ${prog.tuition}</p>
+ <p><strong>Talablar:</strong> $ {
+        prog.requirements
+    }
+    </p> <p><strong>Muddat:</strong> $ {
+        prog.deadline
+    }
+    </p> </div> <button class="btn btn-primary btn-sm" onclick="learnMore('${prog.university}')"> Batafsil ma'lumot
+ </button> </div> `).join('');
+}
+
+function displayScholarships() {
+    const container=document.getElementById('scholarshipsList');
+    container.innerHTML=scholarships.map(sch=> ` <div class="scholarship-card"> <h3>$ {
+        sch.name
+    }
+    </h3> <div class="scholarship-countries"> $ {
+        sch.countries.map(c=> `<span class="country-tag">$ {
+            c
+        }
+        </span>`).join('')
+    }
+    </div> <div class="scholarship-details"> <p><strong>Qamrovlik:</strong> $ {
+        sch.coverage
+    }
+    </p> <p><strong>Talablar:</strong> $ {
+        sch.requirements
+    }
+    </p> <p><strong>Muddat:</strong> $ {
+        sch.deadline
+    }
+    </p> </div> <a href="https://${sch.link}" target="_blank" class="btn btn-outline btn-sm"> Rasmiy sayt </a> </div> `).join('');
+}
+
+function showTab(tabName) {
+    // Hide all tabs
+    document.querySelectorAll('.tab-content').forEach(tab=> {
+        tab.classList.remove('active');
+    }
+    );
+    document.querySelectorAll('.tab-btn').forEach(btn=> {
+        btn.classList.remove('active');
+    }
+    );
+    // Show selected tab
+    document.getElementById(tabName).classList.add('active');
+    event.target.classList.add('active');
+}
+
+function learnMore(university) {
+    alert(`$ {
+        university
+    }
+    haqida batafsil ma'lumot tez orada qo'shiladi. AI maslahatchidan so'rang!`);
+
+}
+
+// AI Chat
+function askAI(question) {
+    const messagesDiv=document.getElementById('chatMessages');
+    // Add user message
+    messagesDiv.innerHTML +=` <div class="chat-message user"> <div class="message-avatar">$ {
+        hemisData.full_name ? hemisData.full_name.charAt(0): '👤'
+    }
+    </div> <div class="message-content"> <p>$ {
+        question
+    }
+    </p> </div> </div> `;
+    // Simulate AI response
+    setTimeout(()=> {
+        let response='';
+        if(question.includes('mamlakat')) {
+            response=`Sizning GPA ($ {
+                hemisData.gpa
+            }
+            ) va til darajangiz ($ {
+                hemisData.language_level
+            }
+            ) juda yaxshi! Men quyidagilarni tavsiya qilaman:\n\n1. Turkiya - Türkiye Scholarships (100% grant)\n2. Germaniya - DAAD (yuqori sifat)\n3. Janubiy Koreya - GKS (to'liq grant)\n\nHar birining afzalliklari bor, qaysi yo'nalishda davom ettirmoqchisiz?`;
+        }
+        else if(question.includes('Motivatsion')) {
+            response=`Motivatsion xat yozish uchun: \n\n1. O'zingiz haqingizda (qisqacha)\n2. Nega aynan bu dasturni tanladingiz\n3. Sizning maqsadlaringiz\n4. Nima bilan hissa qo'sha olasiz\n\nMen sizga shablonni tayyorlab beray, keyin o'zingizning ma'lumotlaringiz bilan to'ldirasiz!`;
+
+        }
+        else if(question.includes('Tavsiya xat')) {
+            response=`Tavsiya xatni quyidagilardan so'rashingiz mumkin:\n\n1. Akademik rahbar yoki professor\n2. Dekan yoki kafedra mudiri\n3. Amaliyot o'tkazgan kompaniya rahbari\n\nMuhimi - sizni yaxshi biladigan va ijobiy tavsif bera oladigan kishilar bo'lishi kerak.`;
+
+        }
+        else {
+            response=`Ajoyib savol! Men sizga yordam berishga tayyorman. Iltimos, savolingizni aniqroq qilib yozing yoki yuqoridagi tugmalardan birini bosing.`;
+        }
+        messagesDiv.innerHTML +=` <div class="chat-message bot"> <div class="message-avatar">🤖</div> <div class="message-content"> <p>$ {
+            response
+        }
+        </p> </div> </div> `;
+        messagesDiv.scrollTop=messagesDiv.scrollHeight;
+    }
+    , 1000);
+    messagesDiv.scrollTop=messagesDiv.scrollHeight;
+}
+
+function sendMessage() {
+    const input=document.getElementById('userMessage');
+    const message=input.value.trim();
+    if(message) {
+        askAI(message);
+        input.value='';
+    }
+}
+
+// Enter key to send
+document.getElementById('userMessage').addEventListener('keypress', function(e) {
+    if(e.key==='Enter') {
+        sendMessage();
+    }
+}
+
+);
+// Initialize
+displayPrograms(uzbekistanPrograms, 'uzbekistanPrograms');
+displayPrograms(turkeyPrograms, 'turkeyPrograms');
+displayPrograms(europePrograms, 'europePrograms');
+displayPrograms(asiaPrograms, 'asiaPrograms');
+displayScholarships();
+</script> <style> .readiness-check {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.readiness-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 8px;
+    border-left: 3px solid #e5e7eb;
+}
+
+.readiness-item.completed {
+    background: #ecfdf5;
+    border-left-color: #10b981;
+}
+
+.readiness-item.pending {
+    background: #fef3c7;
+    border-left-color: #f59e0b;
+}
+
+.check-icon {
+    font-size: 1.5rem;
+}
+
+.check-content h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    color: #1f2937;
+}
+
+.check-content p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 1.5rem;
+    padding-left: 2rem;
+    border-left: 2px solid #667eea;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: #667eea;
+    border-radius: 50%;
+}
+
+.timeline-date {
+    font-weight: 600;
+    color: #667eea;
+    min-width: 150px;
+}
+
+.timeline-content h3 {
+    margin: 0 0 0.25rem 0;
+    color: #1f2937;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 2rem;
+    overflow-x: auto;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    color: #6b7280;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    color: #667eea;
+}
+
+.tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.masters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.masters-card {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-top: 4px solid #667eea;
+}
+
+.masters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.masters-header h3 {
+    margin: 0;
+    color: #667eea;
+    font-size: 1.125rem;
+}
+
+.masters-card h4 {
+    color: #1f2937;
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+}
+
+.program-details {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.program-details p {
+    margin: 0.5rem 0;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.program-details strong {
+    color: #1f2937;
+}
+
+.scholarships-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.scholarship-card {
+    background: linear-gradient(135deg, #f9f7ff 0%, #f3f0ff 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid #667eea;
+}
+
+.scholarship-card h3 {
+    color: #667eea;
+    margin: 0 0 1rem 0;
+}
+
+.scholarship-countries {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.country-tag {
+    background: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #667eea;
+    font-weight: 500;
+}
+
+.scholarship-details {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.scholarship-details p {
+    margin: 0.5rem 0;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+
+/* AI Chat Styles */
+
+.ai-assistant-section {
+    background: linear-gradient(135deg, #f9f7ff 0%, #f3f0ff 100%);
+    border: 2px solid #667eea;
+}
+
+.ai-chat {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.chat-messages {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.chat-message {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.chat-message.user {
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.chat-message.user .message-avatar {
+    background: #10b981;
+}
+
+.message-content {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 12px;
+    max-width: 70%;
+}
+
+.chat-message.user .message-content {
+    background: #667eea;
+    color: white;
+}
+
+.message-content p {
+    margin: 0;
+    white-space: pre-line;
+}
+
+.quick-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.quick-btn {
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+}
+
+.quick-btn:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.chat-input {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.875rem;
+}
+
+</style> </body> </html>
