@@ -3,1316 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abuturentlar.uz - Abituriyentlar va Talabalar uchun AI Platformasi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* ===== CSS BOSHLANISHI ===== */
-        :root {
-            --primary: #4361ee;
-            --primary-dark: #3a56d4;
-            --primary-light: #4895ef;
-            --secondary: #7209b7;
-            --secondary-light: #9d4edd;
-            --accent: #f72585;
-            --success: #4cc9f0;
-            --warning: #f8961e;
-            --danger: #f94144;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --gray-light: #e9ecef;
-            --gradient-primary: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
-            --gradient-secondary: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
-            --gradient-accent: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
-            --radius: 12px;
-            --radius-lg: 20px;
-            --header-height: 80px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: #f8fafc;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        /* ===== ANIMATION CLASSES ===== */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        .animate-slide-left {
-            animation: slideInLeft 0.8s ease forwards;
-        }
-
-        .animate-slide-right {
-            animation: slideInRight 0.8s ease forwards;
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .animate-pulse {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .hidden {
-            opacity: 0;
-        }
-
-        /* ===== NAVBAR ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
-            height: var(--header-height);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow);
-            height: 70px;
-        }
-
-        .navbar .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 20px;
-            color: white;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled .logo {
-            width: 40px;
-            height: 40px;
-            font-size: 16px;
-        }
-
-        .brand-name {
-            font-size: 24px;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled .brand-name {
-            font-size: 20px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-
-        .nav-menu li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 16px;
-            position: relative;
-            padding: 8px 0;
-            transition: var(--transition);
-        }
-
-        .nav-menu li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            border-radius: 3px;
-            transition: var(--transition);
-        }
-
-        .nav-menu li a:hover::after,
-        .nav-menu li a.active::after {
-            width: 100%;
-        }
-
-        .nav-menu li a:hover,
-        .nav-menu li a.active {
-            color: var(--primary);
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 16px;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .mobile-menu-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background: var(--primary);
-            border-radius: 3px;
-            transition: var(--transition);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .mobile-menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 28px;
-            border-radius: var(--radius);
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            transform: translateX(100%);
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.2);
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-white:hover {
-            background: var(--primary-light);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .btn-large {
-            padding: 16px 40px;
-            font-size: 18px;
-            border-radius: var(--radius-lg);
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            padding-top: 180px;
-            padding-bottom: 120px;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(67, 97, 238, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(114, 9, 183, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .hero .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content {
-            animation: slideInLeft 1s ease forwards;
-        }
-
-        .hero-title {
-            font-size: 48px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 24px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-title .highlight {
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-title .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, transparent, rgba(247, 37, 133, 0.3), transparent);
-            z-index: -1;
-            border-radius: 4px;
-        }
-
-        .hero-description {
-            font-size: 18px;
-            color: var(--gray);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .stat-item {
-            background: white;
-            padding: 20px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 32px;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .hero-image {
-            position: relative;
-            animation: slideInRight 1s ease forwards;
-        }
-
-        .hero-illustration {
-            position: relative;
-            width: 500px;
-            height: 500px;
-            margin: 0 auto;
-        }
-
-        .illustration-circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            height: 400px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        .illustration-card {
-            position: absolute;
-            background: white;
-            padding: 20px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            transition: var(--transition);
-            width: 140px;
-            height: 140px;
-        }
-
-        .illustration-card:hover {
-            transform: translateY(-10px) scale(1.05);
-        }
-
-        .card-1 {
-            top: 10%;
-            left: 10%;
-            animation: float 3s ease-in-out infinite 0.2s;
-        }
-
-        .card-2 {
-            top: 10%;
-            right: 10%;
-            animation: float 3s ease-in-out infinite 0.4s;
-        }
-
-        .card-3 {
-            bottom: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: float 3s ease-in-out infinite 0.6s;
-        }
-
-        .card-icon {
-            font-size: 40px;
-        }
-
-        .card-text {
-            font-weight: 600;
-            color: var(--dark);
-            text-align: center;
-        }
-
-        /* ===== USER TYPES ===== */
-        .user-types {
-            background: white;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 60px;
-        }
-
-        .user-type-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .user-type-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            border: 1px solid var(--gray-light);
-        }
-
-        .user-type-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-        }
-
-        .user-type-card.featured {
-            border: 2px solid var(--primary);
-            position: relative;
-            transform: scale(1.02);
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: -12px;
-            right: 30px;
-            background: var(--gradient-accent);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
-        }
-
-        .user-type-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
-
-        .user-type-card h3 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-
-        .user-type-card p {
-            color: var(--gray);
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        .user-type-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .user-type-features li {
-            margin-bottom: 12px;
-            padding-left: 28px;
-            position: relative;
-        }
-
-        .user-type-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: 700;
-        }
-
-        /* ===== FEATURES ===== */
-        .features {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-primary);
-            z-index: 2;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-card:nth-child(2):hover {
-            transform: translateY(-10px) rotate(1deg);
-        }
-
-        .feature-card:nth-child(4):hover {
-            transform: translateY(-10px) rotate(-1deg);
-        }
-
-        .feature-icon {
-            font-size: 50px;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .feature-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-
-        .feature-card p {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        /* ===== HOW IT WORKS ===== */
-        .how-it-works {
-            background: white;
-        }
-
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 60px;
-            position: relative;
-        }
-
-        .steps::before {
-            content: '';
-            position: absolute;
-            top: 60px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            z-index: 0;
-        }
-
-        .step {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 800;
-            margin: 0 auto 24px;
-            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
-            transition: var(--transition);
-        }
-
-        .step:hover .step-number {
-            transform: scale(1.1);
-            box-shadow: 0 12px 30px rgba(67, 97, 238, 0.4);
-        }
-
-        .step-content h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--dark);
-        }
-
-        .step-content p {
-            color: var(--gray);
-            font-size: 15px;
-        }
-
-        .step-arrow {
-            font-size: 40px;
-            color: var(--primary);
-            margin-top: 30px;
-            animation: fadeIn 1s ease infinite alternate;
-        }
-
-        /* ===== TESTIMONIALS ===== */
-        .testimonials {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .testimonial-rating {
-            color: #ffc107;
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-text {
-            font-size: 16px;
-            color: var(--dark);
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-style: italic;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .testimonial-text::before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -10px;
-            font-size: 60px;
-            color: var(--primary-light);
-            opacity: 0.3;
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            font-size: 20px;
-        }
-
-        .author-info h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--dark);
-        }
-
-        .author-info p {
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        /* ===== CTA SECTION ===== */
-        .cta {
-            background: var(--gradient-primary);
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .cta::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta h2 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 24px;
-        }
-
-        .cta p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-white:hover {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 80px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .footer-section h3 {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, #4cc9f0, #4895ef);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .footer-section h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .footer-section p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 16px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a, .footer-links li {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 14px;
-        }
-
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 992px) {
-            .hero .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 500px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .hero-actions {
-                justify-content: center;
-            }
-            
-            .illustration-circle {
-                width: 300px;
-                height: 300px;
-            }
-            
-            .illustration-card {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .hero-title {
-                font-size: 42px;
-            }
-            
-            .section-title {
-                font-size: 36px;
-            }
-            
-            .cta h2 {
-                font-size: 36px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: var(--header-height);
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 30px;
-                gap: 20px;
-                box-shadow: var(--shadow-lg);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-                z-index: 999;
-            }
-            
-            .nav-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            
-            .nav-actions {
-                display: none;
-            }
-            
-            .hero {
-                padding-top: 140px;
-            }
-            
-            .hero-title {
-                font-size: 36px;
-            }
-            
-            .hero-description {
-                font-size: 16px;
-            }
-            
-            .hero-illustration {
-                width: 100%;
-                height: 400px;
-            }
-            
-            .illustration-circle {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .illustration-card {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .card-icon {
-                font-size: 30px;
-            }
-            
-            .steps::before {
-                display: none;
-            }
-            
-            .step-arrow {
-                display: none;
-            }
-            
-            .step {
-                min-width: 100%;
-                margin-bottom: 40px;
-            }
-            
-            .user-type-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta h2 {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 16px;
-            }
-            
-            section {
-                padding: 70px 0;
-            }
-            
-            .hero {
-                padding-top: 120px;
-                padding-bottom: 80px;
-            }
-            
-            .hero-title {
-                font-size: 32px;
-            }
-            
-            .hero-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn-large {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .illustration-card {
-                width: 80px;
-                height: 80px;
-                padding: 15px;
-            }
-            
-            .card-icon {
-                font-size: 24px;
-            }
-            
-            .card-text {
-                font-size: 14px;
-            }
-            
-            .user-type-card {
-                padding: 30px 20px;
-            }
-            
-            .feature-card {
-                padding: 30px 20px;
-            }
-            
-            .cta h2 {
-                font-size: 28px;
-            }
-            
-            .cta p {
-                font-size: 18px;
-            }
-        }
-
-        /* ===== LOADING ANIMATION ===== */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-primary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .loading-logo {
-            width: 100px;
-            height: 100px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 32px;
-            color: var(--primary);
-            margin-bottom: 30px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .loading-text {
-            color: white;
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        .loading-dots {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .loading-dots span {
-            width: 10px;
-            height: 10px;
-            background: white;
-            border-radius: 50%;
-            animation: loadingDots 1.4s ease-in-out infinite;
-        }
-
-        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
-        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
-
-        @keyframes loadingDots {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
-        }
-
-        .loading-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        /* ===== SCROLL TO TOP ===== */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: var(--transition);
-            z-index: 100;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .scroll-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
-        }
-    </style>
+    <title>Abuturentlar.uz - Abituriyentlar va Talabalar uchun!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-    <!-- Loading Screen -->
-   
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Abuturentlar.uz" class="logo">
+                <span class="brand-name">Abuturentlar.uz</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Bosh sahifa</a></li>
+                <li><a href="universities.html">Universitetlar</a></li>
+                <li><a href="tests.html">Testlar</a></li>
+                <li><a href="news.html">Yangiliklar</a></li>
+                <li><a href="career.html">Karyera</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login-select.html" class="btn btn-outline">Kirish</a>
+                <a href="register-select.html" class="btn btn-primary">Ro'yxatdan o'tish</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Kelajagingizni <span class="highlight">AI yordamida</span> quring!
+                </h1>
+                <p class="hero-description">
+                    Abuturentlar.uz - bu abituriyentlar va talabalar uchun sun'iy intellekt asosidagi platforma. Universitet tanlashdan tortib, karyera qurishgacha sizga yordam beramiz!
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Universitet</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Yo'nalish</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15,000+</span>
+                        <span class="stat-label">Foydalanuvchi</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Vakansiya</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="register-select.html" class="btn btn-primary btn-large">Bepul boshlash</a>
+                    <a href="#features" class="btn btn-outline btn-large">Batafsil</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-illustration">
+                    <div class="illustration-circle"></div>
+                    <div class="illustration-card card-1">
+                        <span class="card-icon">🎓</span>
+                        <span class="card-text">Abituriyentlar</span>
+                    </div>
+                    <div class="illustration-card card-2">
+                        <span class="card-icon">👨‍🎓</span>
+                        <span class="card-text">Talabalar</span>
+                    </div>
+                    <div class="illustration-card card-3">
+                        <span class="card-icon">💼</span>
+                        <span class="card-text">Karyera</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Type Selection -->
+    <section class="user-types">
+        <div class="container">
+            <h2 class="section-title">Kim uchun?</h2>
+            <div class="user-type-cards">
+                <div class="user-type-card">
+                    <div class="user-type-icon">🎓</div>
+                    <h3>Abituriyentlar</h3>
+                    <p>To'g'ri universitet va yo'nalishni tanlashda yordam</p>
+                    <ul class="user-type-features">
+                        <li>✓ AI asosida yo'nalish tanlash</li>
+                        <li>✓ Psixologik testlar</li>
+                        <li>✓ Universitet taqqoslash</li>
+                        <li>✓ Grant imkoniyatlari</li>
+                    </ul>
+                    <a href="register-select.html?type=abiturient" class="btn btn-primary">Boshlash</a>
+                </div>
+
+                <div class="user-type-card featured">
+                    <div class="featured-badge">Yangi!</div>
+                    <div class="user-type-icon">👨‍🎓</div>
+                    <h3>Talabalar</h3>
+                    <p>O'qish jarayonini nazorat qilish va karyera qurishda yordam</p>
+                    <ul class="user-type-features">
+                        <li>✓ HEMIS integratsiyasi</li>
+                        <li>✓ Baholarni nazorat qilish</li>
+                        <li>✓ AI asosida ish topish</li>
+                        <li>✓ Magistratura yo'riqnomasi</li>
+                        <li>✓ Xorijda o'qish imkoniyatlari</li>
+                    </ul>
+                    <a href="register-select.html?type=student" class="btn btn-primary">Boshlash</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Nima uchun Abuturentlar.uz?</h2>
+            <p class="section-subtitle">Bizning platforma abituriyentlar va talabalar uchun to'liq yechim</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI asosida tavsiya</h3>
+                    <p>Sun'iy intellekt sizning qiziqishlaringiz va qobiliyatlaringizga mos yo'nalishlarni tavsiya qiladi</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>HEMIS integratsiya</h3>
+                    <p>Talabalar uchun HEMIS tizimi bilan to'liq integratsiya - baholar va ma'lumotlar avtomatik yuklanadi</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Ish topish</h3>
+                    <p>AI sizning ko'nikmalaringiz va baholaringizga mos ish o'rinlarini topib beradi</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Psixologik test</h3>
+                    <p>Maxsus testlar orqali sizning shaxsiy xususiyatlaringizni va qiziqishlaringizni aniqlaymiz</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Magistratura yo'riqnomasi</h3>
+                    <p>O'zbekiston va xorijda magistratura o'qish bo'yicha to'liq ma'lumot va AI tavsiyalar</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Baholarni nazorat</h3>
+                    <p>AI doimiy ravishda baholaringizni tahlil qilib, takomillashtirish bo'yicha maslahat beradi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works for Students -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Talabalar uchun qanday ishlaydi?</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>HEMIS orqali kirish</h3>
+                        <p>HEMIS login va parolingiz bilan tizimga kiring</p>
+                    </div>
+                </div>
+                
+                <div class="step-arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Ma'lumotlar yuklanadi</h3>
+                        <p>Barcha akademik ma'lumotlaringiz avtomatik yuklanadi</p>
+                    </div>
+                </div>
+                
+                <div class="step-arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>AI tahlil qiladi</h3>
+                        <p>Sun'iy intellekt sizning imkoniyatlaringizni baholaydi</p>
+                    </div>
+                </div>
+                
+                <div class="step-arrow">→</div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Tavsiyalar olasiz</h3>
+                        <p>Ish, magistratura va rivojlanish bo'yicha tavsiyalar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Foydalanuvchilar fikri</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Bu platforma menga to'g'ri yo'nalishni tanlashda juda katta yordam berdi. AI tavsiyalari juda aniq va foydali!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Aziza Karimova</h4>
+                            <p>TATU talabasi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"HEMIS integratsiyasi juda qulay! Barcha baholarim bir joyda va AI menga ish topishda yordam berdi."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sardor Yo'ldoshev</h4>
+                            <p>TATU 4-kurs</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Magistratura yo'riqnomasi ajoyib! Germaniyada o'qish imkoniyatini topdim va AI hamma jarayonda yordam berdi."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Malika Usmonova</h4>
+                            <p>TDIU bitiruvchisi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Kelajagingizni bugun boshlang!</h2>
+                <p>Minglab foydalanuvchi bizning platformadan foyda ko'rmoqda. Endi sizning navbatingiz!</p>
+                <a href="register-select.html" class="btn btn-white btn-large">Bepul ro'yxatdan o'tish</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Abuturentlar.uz</h3>
+                    <p>Abituriyentlar va talabalar uchun eng yaxshi yo'riqnoma platformasi</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">📱</a>
+                        <a href="#" class="social-link">▶️</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Abituriyentlar</h4>
+                    <ul class="footer-links">
+                        <li><a href="universities.html">Universitetlar</a></li>
+                        <li><a href="tests.html">Testlar</a></li>
+                        <li><a href="colleges.html">Texnikumlar</a></li>
+                        <li><a href="foreign-universities.html">Chet el</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Talabalar</h4>
+                    <ul class="footer-links">
+                        <li><a href="career.html">Karyera</a></li>
+                        <li><a href="magistracy.html">Magistratura</a></li>
+                        <li><a href="abroad.html">Xorijda o'qish</a></li>
+                        <li><a href="internships.html">Amaliyot</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Aloqa</h4>
+                    <ul class="footer-links">
+                        <li>📧 info@abuturentlar.uz</li>
+                        <li>📞 +998 99 123 45 67</li>
+                        <li>📍 Toshkent, O'zbekiston</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Abuturentlar.uz. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
